@@ -53,60 +53,127 @@ h1,h2{letter-spacing:-.01em}
 .head h1{margin:0;font-size:24px}
 .head-r{display:flex;gap:8px;flex:1;justify-content:flex-end;min-width:260px}
 .head-r input{flex:1;max-width:420px}
-/* calculator */
-.main.v-calc{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);grid-template-rows:minmax(0,1fr);gap:16px;padding:14px 20px;overflow:hidden}
-.calc{padding:14px;display:flex;flex-direction:column;min-height:0;min-width:0}
-.screen{background:var(--soft);border-radius:14px;padding:10px 14px 6px;margin-bottom:10px;height:clamp(104px,19vh,150px);flex:none;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
-.scr-top{display:flex;gap:6px;align-items:center;min-height:22px}
-.ind{font-size:11px;font-weight:800;letter-spacing:.05em;color:var(--acc);background:color-mix(in srgb,var(--acc) 14%,transparent);border-radius:6px;padding:1px 6px}
-.ind[hidden]{display:none}
-.preview{font-size:15px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:75%;font-variant-numeric:tabular-nums}
-.preview.err{color:var(--red)}
-.pretty{display:none;text-align:right;font-size:clamp(20px,3.6vh,30px);font-weight:600;line-height:1.1;padding:2px 0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;font-variant-numeric:tabular-nums;scrollbar-width:none}
-.pretty::-webkit-scrollbar{display:none}
-.screen.nat .pretty{display:block}
-.screen.nat .disp{font-size:17px;color:var(--muted);font-weight:500}
+/* calculator — tata letak & layar mengikuti fx-115ES */
+.main.v-calc{display:flex;gap:16px;padding:12px 18px;overflow:hidden}
+.fx{--dot:clamp(2.4px,.36vh,4.4px);flex:0 1 calc((100vh - 56px)*1.16);min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(6px,1vh,12px);padding:clamp(8px,1.3vh,18px) clamp(10px,1.5vw,26px) clamp(10px,1.5vh,22px);border-radius:26px;background:linear-gradient(178deg,#e4e6e8 0%,#cfd2d6 40%,#c3c6cb 100%);border:clamp(4px,.7vh,9px) solid #2c3038;box-shadow:0 10px 30px rgba(10,15,25,.3),inset 0 1px 0 #fff;color:#2c3038;user-select:none;-webkit-user-select:none}
+.fx-top{flex:none;display:flex;align-items:center;gap:14px;min-height:28px}
+.fx-brand{font-weight:800;font-size:clamp(15px,2.2vh,26px);color:#4d525a;letter-spacing:.02em;display:flex;flex-direction:column;line-height:1.05}
+.fx-brand small{font-size:.48em;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2f7f8f}
+.fx-sol{display:none;margin-left:auto;height:clamp(28px,5.4vh,66px);width:clamp(180px,33%,420px);background:#3a2a22;border:2px solid #23262c;border-radius:4px;padding:2px;gap:2px;grid-template-columns:repeat(4,1fr)}
+.fx-sol i{background:linear-gradient(135deg,#8c5a3c,#6d4029)}
+.fx-h{display:none;margin-left:auto;background:#fff;color:#2c3038;border-color:#9b9fa6}
+/* layar */
+.lcd-fr{flex:none;padding:clamp(7px,1.3vh,16px) clamp(9px,1.4vw,20px);border-radius:14px;background:linear-gradient(180deg,#a9acb1,#d3d5d8 16%,#c6c8cc);box-shadow:inset 0 2px 5px rgba(20,25,35,.35)}
+.lcd{position:relative;height:clamp(118px,25vh,320px);display:flex;flex-direction:column;padding:clamp(3px,.6vh,8px) clamp(8px,1vw,16px) clamp(4px,.7vh,10px);border-radius:5px;overflow:hidden;color:#27377f;background:linear-gradient(112deg,#bcd7cf 0%,#b3d0cb 34%,#c5dbcd 58%,#d2dfc6 100%);box-shadow:inset 0 2px 6px rgba(20,40,40,.45)}
+.l-ind{flex:none;display:flex;justify-content:space-between;gap:2px;font:700 clamp(8px,min(1.4vh,1.5vw),15px)/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;white-space:nowrap;overflow:hidden}
+.l-ind span{opacity:.11}
+.l-ind span.on{opacity:1}
+.l-body{flex:1;min-height:0;display:flex;flex-direction:column;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace;font-weight:800;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 60%,transparent 74%);mask-image:radial-gradient(circle at 50% 50%,#000 60%,transparent 74%);-webkit-mask-size:var(--dot) var(--dot);mask-size:var(--dot) var(--dot)}
+.lcd.off .l-body,.lcd.off .l-ind,.lcd.off .hnav{visibility:hidden}
+.l-expr,.l-res{flex:1 1 50%;min-height:0;display:flex;align-items:center;white-space:nowrap;scrollbar-width:none;font-variant-numeric:tabular-nums}
+.l-expr{position:relative;justify-content:flex-start;overflow:hidden;font-size:clamp(25px,min(5.6vh,4.6vw),64px);line-height:1.1}
+.l-res{justify-content:flex-end;overflow:hidden;font-size:clamp(29px,min(6.6vh,5.4vw),76px);line-height:1.1}
+.l-expr[hidden],.l-res[hidden],.l-menu[hidden]{display:none}
+.l-res .pv{opacity:.34;font-size:.62em}
+.l-err{font-weight:800}
+.l-msg{display:block;font-size:.3em;font-weight:700;margin-left:.9em;white-space:normal;line-height:1.15;max-width:48%}
+.l-res:has(.l-err){justify-content:center}
+.lcd sup{font-size:.6em;vertical-align:.62em;line-height:0}
+.lcd sub{font-size:.6em;vertical-align:-.3em;line-height:0}
+.cur{display:inline-block;width:.11em;height:1.02em;margin-right:-.11em;vertical-align:-.14em;background:currentColor;animation:curb 1s steps(1) infinite}
+@keyframes curb{50%{opacity:0}}
+.mx{display:inline-block;width:.08em}
+.ps{display:inline}
+.pb{display:inline-block;transform:scale(1,2.05);font-weight:500;vertical-align:.02em;margin:0 .03em}
+.fx .fr-n{border-bottom:.1em solid currentColor}
+.nat{display:inline-flex;align-items:center;vertical-align:middle}
+.nat .big{font-size:1.5em;line-height:1}
+.lims{display:inline-flex;flex-direction:column;justify-content:space-between;font-size:.5em;line-height:1.15;min-height:2.6em}
+.dx{margin-left:.12em;font-size:.82em}
+.at{font-size:1.1em}
+.rx{margin-right:-.05em}
+.l-menu{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:.3em;font-size:clamp(14px,min(3vh,2.5vw),36px);line-height:1.2}
+.lm-t{font-weight:800}
+.lm-g{display:grid;grid-template-columns:repeat(var(--mc,2),minmax(0,1fr));gap:.05em .8em}
+.lm-i{border:0;background:none;padding:0;color:inherit;font:inherit;text-align:left;cursor:pointer;white-space:nowrap;overflow:hidden}
+.lm-i.dim{opacity:.42}
+.lm-i sub{font-size:.65em;vertical-align:-.25em;line-height:0}
+.hnav{position:absolute;left:clamp(8px,1vw,16px);bottom:clamp(3px,.6vh,8px);font:700 clamp(9px,1.3vh,13px) -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;opacity:.75}
+.disp{position:absolute;left:0;bottom:0;width:1px;height:1px;padding:0;border:0!important;outline:0!important;opacity:0;pointer-events:none;background:none}
+/* tombol */
+.keys{flex:1;min-height:0;display:flex;flex-direction:column;gap:clamp(5px,.9vh,12px)}
+.kf,.kn{min-height:0;display:grid;column-gap:clamp(5px,1vw,20px);row-gap:clamp(1px,.35vh,6px)}
+.kf{flex:5 1 0;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr))}
+.kn{flex:4.45 1 0;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
+.ck{min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(0px,.15vh,3px);padding:0;border:0;background:none;color:inherit;cursor:pointer;touch-action:manipulation;font:inherit}
+.ck-l{flex:none;height:clamp(11px,min(1.75vh,2.5vw),21px);display:flex;align-items:flex-end;justify-content:center;gap:.4em;font-size:clamp(8.5px,min(1.42vh,2vw),17px);line-height:1;white-space:nowrap;overflow:visible}
+.ck-l b{font-weight:600}
+.ck-l .ls{color:#8a6420}
+.ck-l .la{color:#a23838}
+.ck-l .lm{color:#2f7f8f}
+.ck-l .lb{color:#3a3f47;font-weight:700}
+.ck-l .c-g{color:#5d6168}
+.ck-l .c-p{color:#8a3fa0}
+.ck-l .c-t{color:#2f7f8f}
+.ck-l sup,.ck-l sub{font-size:.68em;line-height:0}
+.ck-l .box{width:.55em;height:.7em;border:.09em solid currentColor;border-radius:.05em;vertical-align:-.04em}
+.ck-l .kd{font-size:.68em;margin:0}
+.ck-l .kd .fr-n{border-bottom-width:.1em}
+.fx.sh .ls,.fx.al .la{font-weight:800;text-shadow:0 0 .5px currentColor}
+.ck-c{flex:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:clamp(7px,1.15vh,16px);color:#fff;font-size:clamp(12px,min(2.5vh,2.9vw),29px);font-weight:600;line-height:1;background:linear-gradient(180deg,#67757f,#4a565f 60%,#3f4a52);box-shadow:0 clamp(1px,.3vh,4px) 0 #24292f,inset 0 1px 0 rgba(255,255,255,.22);transition:transform .05s}
+.ck:hover .ck-c{filter:brightness(1.1)}
+.ck:active .ck-c{transform:translateY(clamp(1px,.25vh,3px));box-shadow:0 0 0 #24292f,inset 0 1px 2px rgba(0,0,0,.35)}
+.ck-c sup,.ck-c sub{font-size:.62em;line-height:0}
+.ck-c .box{width:.58em;height:.74em;border:.09em solid currentColor;border-radius:.06em;vertical-align:-.06em}
+.ck-c .fr-n{border-bottom-color:#fff}
+.k2{display:inline-flex;flex-direction:column;gap:.05em;font-size:.56em;margin:0 .1em}
+.kbar{display:inline-block;width:.7em;height:.44em;background:currentColor;border-radius:.05em}
+.ck.tk .ck-c{border-radius:50%;background:linear-gradient(180deg,#46618b,#2d4468);box-shadow:0 clamp(1px,.3vh,4px) 0 #1a2740,inset 0 1px 0 rgba(255,255,255,.25)}
+.ck.nk .ck-c{font-size:clamp(17px,min(3.7vh,4.3vw),44px);font-weight:500;background:linear-gradient(180deg,#3f444c,#292d33 60%,#1f2227);box-shadow:0 clamp(2px,.4vh,5px) 0 #0b0d10,inset 0 1px 0 rgba(255,255,255,.18)}
+.ck.rd .ck-c{font-size:clamp(15px,min(3.1vh,3.7vw),38px);font-weight:500;background:linear-gradient(180deg,#b65a53,#973e3b 60%,#823331);box-shadow:0 clamp(2px,.4vh,5px) 0 #4e1b1a,inset 0 1px 0 rgba(255,255,255,.25)}
+.ck[data-v=exp] .ck-c,.ck[data-v=ans] .ck-c{font-size:clamp(14px,min(2.9vh,3.5vw),36px)}
+.ck[data-v=sd] .ck-c{font-size:clamp(11px,min(2.2vh,2.6vw),26px)}
+.ck-c .kfr{font-size:.56em;line-height:1;margin:0}
+.ck-c .kfr .box{width:.95em;height:.72em;display:block}
+.ck-c .kfr .fr-n,.ck-c .kfr .fr-d{padding:.09em .08em}
+.ck-l .kfr{font-size:.72em;margin:0 0 0 .1em}
+.ck-l .kfr .box{display:block;width:.8em;height:.5em}
+.ck-l .kfr .fr-n,.ck-l .kfr .fr-d{padding:.03em 0}
+/* D-pad REPLAY */
+.dpad{grid-column:3/5;grid-row:1/3;place-self:center;position:relative;aspect-ratio:1;height:100%;max-width:100%;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#3e5a86,#22385c);box-shadow:0 2px 0 #142238,0 0 0 clamp(2px,.4vh,5px) #aeb1b6}
+.dp{position:absolute;inset:0;border:0;padding:0;background:none;color:#a9bbd6;cursor:pointer;font-size:clamp(8px,1.5vh,18px);touch-action:manipulation}
+.dp:hover{background:rgba(255,255,255,.09)}
+.dp:active{background:rgba(255,255,255,.2)}
+.dp span{position:absolute;line-height:1}
+.dp.up{clip-path:polygon(0 0,100% 0,50% 50%)}.dp.up span{top:5%;left:50%;transform:translateX(-50%)}
+.dp.dn{clip-path:polygon(0 100%,100% 100%,50% 50%)}.dp.dn span{bottom:5%;left:50%;transform:translateX(-50%)}
+.dp.lf{clip-path:polygon(0 0,0 100%,50% 50%)}.dp.lf span{left:5%;top:50%;transform:translateY(-50%)}
+.dp.rt2{clip-path:polygon(100% 0,100% 100%,50% 50%)}.dp.rt2 span{right:5%;top:50%;transform:translateY(-50%)}
+.dp-c{position:absolute;inset:19%;border-radius:50%;display:grid;place-items:center;pointer-events:none;background:linear-gradient(160deg,#3a5580,#2a4369);box-shadow:0 0 0 1px #1b2c49,inset 0 1px 0 rgba(255,255,255,.2);color:#8ea2c0;font-size:clamp(6px,1.15vh,15px);font-weight:700;letter-spacing:.03em}
+@media (min-height:880px){.fx-sol{display:grid}}
+@media (max-width:1100px) and (min-width:761px){.fx{flex:1 1 62%}.hist{flex:1 1 38%;min-width:260px;padding:10px}}
+@media (max-width:760px){.lcd{height:clamp(96px,19vh,240px)}.fx-sol{height:clamp(24px,3.6vh,40px);margin-left:auto}.fx-sol+.fx-h{margin-left:0}}
+@media (max-height:800px) and (min-width:761px){.fx-top{display:none}.main.v-calc{padding:8px 14px}}
 .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .12em;font-size:.82em;line-height:1.1}
 .fr-n{padding:0 .15em .06em;border-bottom:.08em solid currentColor}
 .fr-d{padding:.06em .15em 0}
 .box{display:inline-block;width:.6em;height:.8em;border:.07em dashed var(--muted);border-radius:.08em;vertical-align:middle}
-.pretty sup,.h-list sup,.preview sup{font-size:.6em}
+.h-list sup{font-size:.6em}
 .rt-in{border-top:.07em solid currentColor;padding:0 .1em}
-.preview .fr,.h-e .fr{font-size:.9em}
-.key.sd{font-size:clamp(12px,2vh,15px)}
-.kfr{font-size:clamp(10px,1.8vh,16px);line-height:1}.kfr .box{border-style:solid;border-color:currentColor;opacity:.85}
-.disp{width:100%;border:0!important;outline:0!important;background:none;text-align:right;font-size:clamp(26px,5vh,40px);font-weight:600;padding:2px 0 4px;min-width:0;font-variant-numeric:tabular-nums;letter-spacing:-.01em;caret-color:var(--acc)}
-.hnav{font-size:11px;color:var(--muted);white-space:nowrap}
-.navrow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:8px;flex:none}
-.navrow .key{height:clamp(30px,5vh,42px);font-size:clamp(13px,1.9vh,17px);background:var(--key2);color:var(--acc)}
-.navrow .hbtn{display:none;color:var(--text);font-size:14px}
-.pads{flex:1;min-height:0;display:grid;grid-template-columns:6fr 4fr;gap:14px}
-.sci{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:7px;min-height:0}
-.basic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:7px;min-height:0}
-.key{border:0;border-radius:12px;background:var(--key);cursor:pointer;font-weight:600;font-size:clamp(12px,2vh,15px);height:auto;min-height:0;min-width:0;overflow:hidden;padding:0 2px;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform .05s,filter .1s}
-.key:hover{filter:brightness(.96)}
-:root[data-theme=dark] .key:hover{filter:brightness(1.15)}
-.key:active{transform:scale(.95)}
-.key.sk{background:var(--key2);font-size:clamp(12px,1.9vh,15px)}
-.key.alt{color:var(--acc)}
-.key.on{background:var(--acc);color:var(--acc-ink)}
-.key.dig{background:var(--card);border:1px solid var(--line);font-size:clamp(16px,3vh,24px)}
-.basic .key{font-size:clamp(15px,2.7vh,21px)}
-.key.op{background:var(--op);color:var(--op-ink);font-size:22px}
-.key.fn{color:var(--red)}
-.key.eq{background:var(--acc);color:var(--acc-ink);font-size:24px}
+.h-e .fr{font-size:.9em}
 /* history */
-.hist{padding:14px;display:flex;flex-direction:column;gap:10px;min-height:0;min-width:0}
+.hist{flex:1 1 300px;min-width:280px;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:0;min-width:0}
 .h-x{display:none}
 .h-back{display:none}
-.h-head{display:flex;align-items:center;gap:8px}
-.h-head h2{margin:0;font-size:16px}
+.h-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.h-head h2{margin:0;font-size:16px;white-space:nowrap}
 .h-list{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:6px}
 .h-row{padding:9px 11px;border-radius:12px;background:var(--soft);cursor:pointer;text-align:right}
 .h-row:hover{outline:1px solid var(--acc)}
 .h-e{color:var(--muted);font-size:13.5px;word-break:break-all}
 .h-r{font-weight:700;font-size:18px;word-break:break-all;font-variant-numeric:tabular-nums}
-.h-meta{display:flex;align-items:center;gap:5px;margin-top:2px}
+.h-meta{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-top:2px}
+.h-meta .small{white-space:nowrap}
 /* luas & volume */
 .main.v-geo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
 .geo-l{display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -235,10 +302,9 @@ dialog::backdrop{background:rgba(10,8,5,.45)}
 .gate-note{color:rgba(255,255,255,.65);font-size:12.5px;margin:6px 0 0;line-height:1.5}
 .gate .check{justify-content:center;color:rgba(255,255,255,.85);font-weight:500;font-size:14px;margin:4px 0 10px}
 /* medium screens: calculator full width, history below */
-@media (max-width:1100px){
-  .main.v-calc{grid-template-columns:minmax(0,1fr)}
-  .navrow{grid-template-columns:1.4fr repeat(4,1fr)}
-  .navrow .hbtn{display:block}
+@media (max-width:760px){
+  .fx{flex:1 1 auto}
+  .fx-h{display:inline-flex}
   .hist{position:fixed;top:0;right:0;bottom:0;width:min(420px,90vw);z-index:60;border-radius:16px 0 0 16px;transform:translateX(105%);transition:transform .2s;box-shadow:0 0 40px rgba(0,0,0,.3);padding-top:calc(14px + env(safe-area-inset-top));padding-bottom:calc(14px + env(safe-area-inset-bottom))}
   .hist.open{transform:none}
   .h-x{display:inline-block}
@@ -250,19 +316,12 @@ dialog::backdrop{background:rgba(10,8,5,.45)}
   .tabs{display:none}
   .top-r{margin-left:auto}
   .main{padding:12px 12px 24px}
-  .main.v-calc{padding:8px}
+  .main.v-calc{padding:6px;gap:8px}
+  .fx{border-radius:18px}
   .bnav{display:grid;grid-template-columns:repeat(3,1fr);flex:none;z-index:30;background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
   .bnav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:12px;font-weight:600;color:var(--muted);padding:4px;border-radius:10px;cursor:pointer}
   .bnav button span{font-size:20px}
   .bnav button.on{color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent)}
-  .calc{padding:8px}
-  .screen{margin-bottom:6px;height:clamp(92px,15vh,130px);padding:8px 12px 4px}
-  .navrow{gap:5px;margin-bottom:6px}
-  .navrow .key{height:clamp(28px,4.4vh,38px)}
-  .pads{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,5fr) minmax(0,6fr);gap:6px}
-  .sci,.basic{gap:5px}
-  .key{border-radius:10px}
-  .key.sk{font-size:clamp(11px,1.75vh,14px)}
   .main.v-geo{grid-template-columns:1fr}
   .geo-r{position:static;max-height:none;overflow:visible}
   .dg{width:130px}
@@ -277,7 +336,7 @@ dialog::backdrop{background:rgba(10,8,5,.45)}
 /* very short windows (landscape phone): allow scrolling instead of squashing keys */
 @media (max-height:480px){
   .main.v-calc{overflow:auto}
-  .calc{min-height:460px}
+  .fx{min-height:560px;flex:1 1 auto}
 }
 </style>
 </head>
@@ -286,7 +345,7 @@ dialog::backdrop{background:rgba(10,8,5,.45)}
 <dialog id="dlg"></dialog>
 <noscript>Calc memerlukan JavaScript.</noscript>
 <script>// Calc — kalkulator scientific + luas (m²) & volume (m³) konstruksi. Akun (nama pengguna + PIN) sama dengan Planner & Notes; data di Supabase (proyek saku-yuk), sinkron real time.
-const BUILD = '20261004-210025';
+const BUILD = '20261104-085357';
 const SB_URL = 'https://ieyqxmzztoxgpvwexbkj.supabase.co', SB_KEY = 'sb_publishable_o-PQxhkJJ8FG4mHYTUqEBw_uXv9n-eG'; // public key; tables closed, only cl_*/pl_* functions
 const ADMIN = 'admin';
 const HIST_MAX = 150;
@@ -315,23 +374,27 @@ const N = (x, d = 4) => Number.isFinite(x) ? x.toLocaleString(loc(), { maximumFr
 const R = (x, d = 3) => Number.isFinite(x) ? x.toLocaleString(loc(), { minimumFractionDigits: d, maximumFractionDigits: d }) : '—';
 
 // ---------- expression engine (no eval) ----------
-const FUNCS = ['asinh', 'acosh', 'atanh', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'sin', 'cos', 'tan', 'log2', 'log', 'ln', 'exp', 'abs', 'sqrt', 'cbrt', 'root', 'nPr', 'nCr', 'round', 'floor', 'ceil'];
+const FUNCS = ['asinh', 'acosh', 'atanh', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'sin', 'cos', 'tan', 'logab', 'log2', 'log', 'ln', 'exp', 'abs', 'sqrt', 'cbrt', 'root', 'nPr', 'nCr', 'round', 'floor', 'ceil', 'Pol', 'Rec', 'Rnd', '∫', 'd/dx', 'Σ'];
+const LAZY = new Set(['∫', 'd/dx', 'Σ']); // argumen pertama dihitung berulang dengan X berbeda
 const CONSTS = ['Ans', 'rand', 'pi', 'e'];
 const ID_RE = new RegExp('^(' + [...FUNCS, 'mod', ...CONSTS].join('|') + ')');
+const VARS = { A: 'A', B: 'B', C: 'C', D: 'D', E: 'E', 'Ε': 'E', F: 'F', X: 'X', Y: 'Y', M: 'M' }; // Ε (epsilon) = variabel E dari tombol ALPHA, supaya tidak tertukar dengan 2E+3
 function tokenize(s) {
   const out = []; let i = 0;
   while (i < s.length) {
     const c = s[i], rest = s.slice(i);
     if (/\s/.test(c)) { i++; continue; }
-    let m = /^(?:\d+\.?\d*|\.\d+)(?:E[+\-−]?\d+)?/.exec(rest);
-    if (m) { out.push({ t: 'num', v: parseFloat(m[0].replace('−', '-')) }); i += m[0].length; continue; }
+    let m = /^(?:\d+\.?\d*|\.\d+)(?:[Eᴇ][+\-−]?\d+)?/.exec(rest);
+    if (m) { out.push({ t: 'num', v: parseFloat(m[0].replace('ᴇ', 'E').replace('−', '-')) }); i += m[0].length; continue; }
     m = ID_RE.exec(rest);
     if (m) { out.push({ t: FUNCS.includes(m[1]) ? 'fn' : m[1] === 'mod' ? 'op' : 'const', v: m[1] }); i += m[1].length; continue; }
+    if (rest.startsWith('⁻¹') || rest.startsWith('ⁿ√')) { out.push({ t: 'op', v: rest.slice(0, 2) }); i += 2; continue; }
+    if (VARS[c]) { out.push({ t: 'var', v: VARS[c] }); i++; continue; }
     const map = { '−': '-', '–': '-', '*': '×', '·': '×', 'x': '×', '/': '÷', ':': '÷', 'π': 'pi', '√': '√', '∛': '∛' };
     const v = map[c] || c;
     if (v === 'pi') out.push({ t: 'const', v: 'pi' });
     else if ('√∛'.includes(v)) out.push({ t: 'fn', v: v === '√' ? 'sqrt' : 'cbrt', pre: true });
-    else if ('+-×÷^()!%²³,⁄'.includes(v)) out.push({ t: 'op', v });
+    else if ('+-×÷^()!%²³,⁄⌟°ᴰʳᵍ'.includes(v)) out.push({ t: 'op', v });
     else throw new Error('Karakter tidak dikenal: ' + c);
     i++;
   }
@@ -344,23 +407,43 @@ function fact(n) {
 }
 const nCr = (n, r) => { if (!Number.isInteger(n) || !Number.isInteger(r) || r < 0 || n < 0 || r > n) throw new Error('nCr: n ≥ r ≥ 0, bulat'); r = Math.min(r, n - r); let x = 1; for (let k = 1; k <= r; k++) x = x * (n - r + k) / k; return Math.round(x); };
 const nPr = (n, r) => { if (!Number.isInteger(n) || !Number.isInteger(r) || r < 0 || n < 0 || r > n) throw new Error('nPr: n ≥ r ≥ 0, bulat'); let x = 1; for (let k = 0; k < r; k++) x *= n - k; return x; };
+function simpson(f, a, b) { // integral adaptif, dibatasi jumlah evaluasinya
+  let n = 0; const g = x => { if (++n > 100000) throw new Error('Integral tidak konvergen'); return f(x); };
+  const w = (fa, fm, fb, h) => h / 6 * (fa + 4 * fm + fb);
+  const rec = (a, b, fa, fm, fb, whole, eps, d) => {
+    const m = (a + b) / 2, l = (a + m) / 2, r = (m + b) / 2, fl = g(l), fr = g(r), L = w(fa, fl, fm, m - a), R = w(fm, fr, fb, b - m), dl = L + R - whole;
+    if (d <= 0 || Math.abs(dl) <= 15 * eps) return L + R + dl / 15;
+    return rec(a, m, fa, fl, fm, L, eps / 2, d - 1) + rec(m, b, fm, fr, fb, R, eps / 2, d - 1);
+  };
+  const fa = g(a), fb = g(b), fm = g((a + b) / 2);
+  return rec(a, b, fa, fm, fb, w(fa, fm, fb, b - a), 1e-10, 30);
+}
 function evaluate(src, opt = {}) {
-  const deg = opt.deg ?? true, ans = opt.ans ?? 0;
-  const toks = tokenize(String(src)); let i = 0;
-  if (!toks.length) throw new Error('Kosong');
+  const ang = opt.ang || (opt.deg === false ? 'R' : 'D'), ans = opt.ans ?? 0, vars = opt.vars || {};
+  const toks = Array.isArray(src) ? src : tokenize(String(src)); let i = 0;
+  if (!toks.length) throw new Error('Ekspresi belum lengkap');
   const peek = () => toks[i], isOp = (v, t = toks[i]) => t && t.t === 'op' && t.v === v;
   const tidy = x => Math.abs(x) < 1e-14 ? 0 : x;
-  const inR = x => deg ? x * Math.PI / 180 : x, outR = x => deg ? x * 180 / Math.PI : x;
-  const trig = (f, x) => { if (f === 'tan' && deg && Math.abs(((x % 180) + 180) % 180 - 90) < 1e-12) throw new Error('tan tidak terdefinisi'); return tidy(Math[f](inR(x))); };
+  const K = { D: Math.PI / 180, R: 1, G: Math.PI / 200 }[ang];
+  const inR = x => x * K, outR = x => x / K;
+  const trig = (f, x) => {
+    const q = ang === 'D' ? 180 : ang === 'G' ? 200 : 0;
+    if (f === 'tan' && q && Math.abs(((x % q) + q) % q - q / 2) < 1e-12) throw new Error('tan tidak terdefinisi');
+    return tidy(Math[f](inR(x)));
+  };
   const F = {
     sin: x => trig('sin', x), cos: x => trig('cos', x), tan: x => trig('tan', x),
     asin: x => outR(Math.asin(x)), acos: x => outR(Math.acos(x)), atan: x => outR(Math.atan(x)),
     sinh: Math.sinh, cosh: Math.cosh, tanh: Math.tanh, asinh: Math.asinh, acosh: Math.acosh, atanh: Math.atanh,
     log: Math.log10, ln: Math.log, log2: Math.log2, exp: Math.exp, abs: Math.abs, sqrt: Math.sqrt, cbrt: Math.cbrt,
+    logab: (a, b) => Math.log(b) / Math.log(a),
     root: (x, y) => { if (x < 0 && Math.abs(y % 2) === 1) return -Math.pow(-x, 1 / y); return Math.pow(x, 1 / y); },
-    nPr, nCr, round: (x, d = 0) => Math.round(x * 10 ** d) / 10 ** d, floor: Math.floor, ceil: Math.ceil
+    nPr, nCr, round: (x, d = 0) => Math.round(x * 10 ** d) / 10 ** d, floor: Math.floor, ceil: Math.ceil,
+    Rnd: x => opt.rnd ? opt.rnd(x) : Number(x.toPrecision(10)),
+    Pol: (x, y) => { const r = Math.hypot(x, y), th = outR(Math.atan2(y, x)); if (opt.out) { opt.out.multi = [['r', r], ['θ', th]]; opt.out.vars = { X: r, Y: th }; } return r; },
+    Rec: (r, t) => { const x = tidy(r * Math.cos(inR(t))), y = tidy(r * Math.sin(inR(t))); if (opt.out) { opt.out.multi = [['X', x], ['Y', y]]; opt.out.vars = { X: x, Y: y }; } return x; }
   };
-  const starts = t => t && (t.t === 'num' || t.t === 'const' || t.t === 'fn' || (t.t === 'op' && t.v === '('));
+  const starts = t => t && (t.t === 'num' || t.t === 'const' || t.t === 'var' || t.t === 'fn' || (t.t === 'op' && t.v === '('));
   function expr() {
     let a = term()[0];
     while (isOp('+') || isOp('-')) {
@@ -388,7 +471,12 @@ function evaluate(src, opt = {}) {
   }
   function power() {
     let b = postfix();
+    if (isOp('⌟')) { // pecahan campuran: 2⌟1⁄3 = 2 + 1/3
+      i++; const n = postfix(); if (!isOp('⁄')) throw new Error('Pecahan campuran belum lengkap');
+      i++; const d = postfix(); if (d === 0) throw new Error('Pembagian dengan nol'); b += n / d;
+    }
     while (isOp('⁄')) { i++; const d = postfix(); if (d === 0) throw new Error('Pembagian dengan nol'); b = b / d; } // pecahan: pembilang ⁄ penyebut
+    if (isOp('ⁿ√')) { i++; return F.root(unary(), b); } // 3ⁿ√(27) = 3
     if (isOp('^')) { i++; return Math.pow(b, unary()); }
     return b;
   }
@@ -399,17 +487,43 @@ function evaluate(src, opt = {}) {
       else if (isOp('%')) { i++; v = v / 100; }
       else if (isOp('²')) { i++; v = v * v; }
       else if (isOp('³')) { i++; v = v * v * v; }
+      else if (isOp('⁻¹')) { i++; if (v === 0) throw new Error('Pembagian dengan nol'); v = 1 / v; }
+      else if (isOp('°')) { i++; let k = 60; while (toks[i]?.t === 'num' && isOp('°', toks[i + 1])) { v += toks[i].v / k; k *= 60; i += 2; } } // 12°30°15° derajat-menit-detik
+      else if (isOp('ᴰ')) { i++; v = outR(v * Math.PI / 180); }
+      else if (isOp('ʳ')) { i++; v = outR(v); }
+      else if (isOp('ᵍ')) { i++; v = outR(v * Math.PI / 200); }
+      else if (toks[i]?.t === 'fn' && (toks[i].v === 'nPr' || toks[i].v === 'nCr') && !isOp('(', toks[i + 1])) { const f = toks[i++].v; v = F[f](v, primary()); } // 5nPr2
       else return v;
     }
   }
   function close() { if (isOp(')')) i++; else if (i < toks.length) throw new Error('Kurung tidak lengkap'); } // missing ")" at the end is fine
+  function lazy(name) { // ∫(f(X),a,b)  d/dx(f(X),a)  Σ(f(X),a,b)
+    if (!isOp('(')) throw new Error('Ekspresi belum lengkap');
+    let d = 0, j = i, st = i + 1; const parts = [];
+    for (; j < toks.length; j++) {
+      if (isOp('(', toks[j])) d++;
+      else if (isOp(')', toks[j])) { if (!--d) break; }
+      else if (isOp(',', toks[j]) && d === 1) { parts.push(toks.slice(st, j)); st = j + 1; }
+    }
+    parts.push(toks.slice(st, j)); i = Math.min(j + 1, toks.length);
+    const need = name === 'd/dx' ? 2 : 3; if (parts.length !== need) throw new Error('Ekspresi belum lengkap');
+    const f = x => evaluate(parts[0], { ...opt, out: null, vars: { ...vars, X: x } });
+    const a = evaluate(parts[1], { ...opt, out: null });
+    if (name === 'd/dx') { const h = 1e-3 * Math.max(Math.abs(a), 1); return Number(((-f(a + 2 * h) + 8 * f(a + h) - 8 * f(a - h) + f(a - 2 * h)) / (12 * h)).toPrecision(10)); }
+    const b = evaluate(parts[2], { ...opt, out: null });
+    if (name === '∫') return Number(simpson(f, a, b).toPrecision(12));
+    if (!Number.isInteger(a) || !Number.isInteger(b) || b < a || b - a > 1e6) throw new Error('Σ: batas harus bulat, a ≤ b');
+    let s = 0; for (let k = a; k <= b; k++) s += f(k); return s;
+  }
   function primary() {
     const t = toks[i++];
     if (!t) throw new Error('Ekspresi belum lengkap');
     if (t.t === 'num') return t.v;
+    if (t.t === 'var') return vars[t.v] || 0;
     if (t.t === 'const') return t.v === 'pi' ? Math.PI : t.v === 'e' ? Math.E : t.v === 'Ans' ? ans : Math.random();
     if (t.t === 'op' && t.v === '(') { const v = expr(); close(); return v; }
     if (t.t === 'fn') {
+      if (LAZY.has(t.v)) return lazy(t.v);
       if (!isOp('(')) return F[t.v](t.pre ? unary() : power()); // √9, sin30
       i++; const args = [expr()]; while (isOp(',')) { i++; args.push(expr()); } close();
       return F[t.v](...args);
@@ -435,44 +549,72 @@ function toFrac(x) {
   }
   return null;
 }
-// expression → HTML with stacked fractions (pembilang di atas, penyebut di bawah) and superscript powers
+// "104⁄3" → "34⌟2⁄3" (pecahan campuran)
+function toMixed(f) { const m = /^(−?)(\d+)⁄(\d+)$/.exec(f || ''); if (!m || +m[2] < +m[3]) return f; return `${m[1]}${Math.floor(m[2] / m[3])}⌟${m[2] % m[3]}⁄${m[3]}`; }
+// expression → HTML "natural display": stacked fractions, powers, roots, ∫ Σ d/dx log▫(▯). ‸ marks the caret.
+const NAT = { asin: 'sin⁻¹', acos: 'cos⁻¹', atan: 'tan⁻¹', asinh: 'sinh⁻¹', acosh: 'cosh⁻¹', atanh: 'tanh⁻¹', abs: 'Abs', pi: 'π', rand: 'Ran#' };
 function pretty(src) {
   const s = String(src ?? ''); let i = 0;
   const BOX = '<i class="box"></i>';
+  const part = x => x ? pretty(x) : BOX;
+  const pg = h => /class="(fr|nat)/.test(h) ? 'pb' : 'ps'; // kurung ikut tinggi kalau isinya pecahan
+  const open = h => `<span class="${pg(h)}">(</span>`, shut = h => `<span class="${pg(h)}">)</span>`;
+  function args() { // s[i] === '(' → raw arguments split on top-level commas
+    let d = 0, j = i, st = i + 1; const out = [];
+    for (; j < s.length; j++) { const c = s[j]; if (c === '(') d++; else if (c === ')') { if (!--d) break; } else if (c === ',' && d === 1) { out.push(s.slice(st, j)); st = j + 1; } }
+    out.push(s.slice(st, j)); i = Math.min(j + 1, s.length); return out;
+  }
   function seq(inner) {
     const it = [];
     while (i < s.length) {
       const c = s[i], rest = s.slice(i);
       if (c === ')') { if (inner) break; it.push({ h: ')', op: 1 }); i++; continue; }
-      if (c === '(') { i++; const h = seq(true), cl = s[i] === ')'; if (cl) i++; it.push({ h: '(' + h + (cl ? ')' : ''), in: h }); continue; }
-      let m = /^(?:\d+\.?\d*|\.\d+)(?:E[+\-−]?\d+)?/.exec(rest);
-      if (m) { it.push({ h: esc(m[0]) }); i += m[0].length; continue; }
+      if (c === '(') { i++; const h = seq(true), cl = s[i] === ')'; if (cl) i++; it.push({ h: open(h) + h + (cl ? shut(h) : ''), in: h }); continue; }
+      let m = /^[\d.‸]+(?:ᴇ[+\-−‸]*[\d‸]*|E[+\-−]?\d+)?/.exec(rest);
+      if (m) {
+        const [a, b] = m[0].split(/[Eᴇ]/);
+        it.push({ h: esc(a) + (b === undefined ? '' : `×10<sup>${b.replace('+', '').replace('-', '−') || BOX}</sup>`) });
+        i += m[0].length; continue;
+      }
       m = ID_RE.exec(rest);
       if (m && m[1] !== 'mod') {
-        i += m[1].length;
-        if (FUNCS.includes(m[1]) && s[i] === '(') { i++; const h = seq(true), cl = s[i] === ')'; if (cl) i++; it.push({ h: `${esc(m[1])}(${h}${cl ? ')' : ''}` }); }
-        else it.push({ h: m[1] === 'pi' ? 'π' : esc(m[1]) });
+        const nm = m[1]; i += nm.length;
+        if (s[i] === '(' && (LAZY.has(nm) || nm === 'logab')) {
+          const [f, a, b] = args();
+          if (nm === 'logab') it.push({ h: `log<sub>${part(f)}</sub>${open(a || '')}${part(a)}${shut(a || '')}` });
+          else if (nm === 'd/dx') it.push({ h: `<span class="fr nat"><span class="fr-n">d</span><span class="fr-d">dx</span></span>${open(f)}${part(f)}${shut(f)}<span class="at">|<sub>x=${part(a)}</sub></span>` });
+          else it.push({ h: `<span class="nat"><span class="big">${nm}</span><span class="lims"><span>${part(b)}</span><span>${nm === 'Σ' ? 'x=' : ''}${part(a)}</span></span></span>${nm === 'Σ' ? open(f) + part(f) + shut(f) : part(f) + '<span class="dx">dx</span>'}` });
+          continue;
+        }
+        if (FUNCS.includes(nm) && s[i] === '(') { i++; const h = seq(true), cl = s[i] === ')'; if (cl) i++; it.push({ h: `${esc(NAT[nm] || nm)}${open(h)}${h}${cl ? shut(h) : ''}` }); }
+        else if (nm === 'nPr' || nm === 'nCr') it.push({ h: nm[1], op: 1 });
+        else it.push({ h: esc(NAT[nm] || nm) });
         continue;
       }
       if (c === '⁄' || c === '^') { it.push({ k: c }); i++; continue; }
+      if (rest.startsWith('ⁿ√')) { it.push({ k: 'ⁿ√' }); i += 2; continue; }
+      if (rest.startsWith('⁻¹')) { it.push({ h: '<sup>−1</sup>' }); i += 2; continue; }
+      if (c === '⌟') { it.push({ h: '<i class="mx"></i>', op: 1 }); i++; continue; }
       if (c === '√' || c === '∛') { i++; let h = ''; if (s[i] === '(') { i++; h = seq(true); if (s[i] === ')') i++; } it.push({ h: `<span class="rt">${c}<span class="rt-in">${h || BOX}</span></span>` }); continue; }
       if (m) { it.push({ h: ' mod ', op: 1 }); i += m[1].length; continue; }
-      it.push({ h: esc(c), op: /[+\-−×÷,]/.test(c) ? 1 : 0 }); i++;
+      it.push({ h: esc(c === 'Ε' ? 'E' : c === 'ᴰ' ? '°' : c), op: /[+\-−×÷,∶=]/.test(c) ? 1 : 0 }); i++;
     }
-    const out = []; // combine a⁄b and a^b (left to right)
+    const out = []; // combine a⁄b, a^b and aⁿ√b (left to right)
     for (let j = 0; j < it.length; j++) {
       const x = it[j];
       if (!x.k) { out.push(x); continue; }
       const prev = out.length && !out[out.length - 1].op ? out.pop() : null, nx = it[j + 1] && !it[j + 1].op && !it[j + 1].k ? it[++j] : null;
-      const body = a => a ? (a.in !== undefined ? a.in : a.h) : BOX;
+      const body = a => a ? (a.in !== undefined ? a.in || BOX : a.h) : BOX;
       if (x.k === '⁄') out.push({ h: `<span class="fr"><span class="fr-n">${body(prev)}</span><span class="fr-d">${body(nx)}</span></span>` });
+      else if (x.k === 'ⁿ√') out.push({ h: `<sup class="rx">${body(prev)}</sup><span class="rt">√<span class="rt-in">${body(nx)}</span></span>` });
       else out.push({ h: `${prev ? prev.h : BOX}<sup>${body(nx)}</sup>` });
     }
     return out.map(x => x.h).join('');
   }
   return seq(false);
 }
-const natural = s => /[⁄^√∛]/.test(String(s ?? ''));
+const CUR = '<i class="cur"></i>';
+const prettyC = (s, pos) => pretty(s.slice(0, pos) + '‸' + s.slice(pos)).replaceAll('‸', CUR);
 const fmtCalc = x => { const s = String(Number(x.toPrecision(15))); return s.replace('e', 'E'); };
 
 // dimension inputs: accept "0,4", "40", "2*1,5", "3+0.25"
@@ -606,7 +748,7 @@ const S = {
   user: null, admin: false, pass: '', users: [], pin: '', hasPin: false, gate: null,
   items: new Map(), seq: 0, queue: new Set(),
   view: LS.get('view') || 'calc',
-  expr: '', ans: Number(LS.get('ans') || 0) || 0, justEval: false, deg: LS.get('deg') !== 'rad', second: false, mem: Number(LS.get('mem') || 0) || 0, err: '', caret: null,
+  expr: '', ans: Number(LS.get('ans') || 0) || 0, justEval: false, ang: { rad: 'R', gra: 'G' }[LS.get('deg')] || 'D', io: LS.get('io') || 'math', shift: false, alpha: false, pend: null, menu: null, prompt: null, off: false, ovr: false, mixed: false, engE: null, mem: Number(LS.get('mem') || 0) || 0, vars: (() => { try { return JSON.parse(LS.get('vars') || '{}'); } catch { return {}; } })(), fmt: (() => { try { return JSON.parse(LS.get('fmt') || 'null') || { k: 'norm', n: 2 }; } catch { return { k: 'norm', n: 2 }; } })(), err: '', caret: null,
   cat: LS.get('cat') || 'vol', shape: LS.get('shape') || 'kolom', forms: {}, edit: null,
   curId: null, draft: null, q: '', calcQ: '',
   sync: { busy: false, again: false, at: null, err: '' }
@@ -731,11 +873,27 @@ function addLine() {
 }
 
 // ---------- calculator ----------
-function calcEval(s = S.expr) { return evaluate(s, { deg: S.deg, ans: S.ans }); }
+const varsNow = () => ({ ...S.vars, M: S.mem });
+const rndOut = x => { const f = S.fmt; if (f.k === 'fix') return Number(x.toFixed(f.n)); if (f.k === 'sci') return Number(x.toExponential((f.n || 10) - 1)); return Number(x.toPrecision(10)); };
+function calcEval(s = S.expr, out) { return evaluate(s, { ang: S.ang, ans: S.ans, vars: varsNow(), rnd: rndOut, out }); }
 function pushHist(e, r, v) {
   if (RO()) return;
-  put({ id: rid('h_'), owner: S.user, kind: 'hist', deleted: false, data: { e, r, v, t: Date.now(), deg: S.deg } }, true);
+  put({ id: rid('h_'), owner: S.user, kind: 'hist', deleted: false, data: { e, r, v, t: Date.now(), deg: S.ang === 'D', ang: S.ang } }, true);
   const h = hist(); for (const x of h.slice(HIST_MAX)) put({ ...x, data: {}, deleted: true }, true);
+}
+function setVar(n, v) { if (n === 'M') { S.mem = v; LS.set('mem', String(v)); } else { S.vars[n] = v; LS.set('vars', JSON.stringify(S.vars)); } }
+const fmtSci = (v, n) => v.toExponential(n).replace(/e\+?/, 'ᴇ').replace('-', '−');
+function fmtOut(v) { // tampilan hasil sesuai SETUP: Fix / Sci / Norm
+  const f = S.fmt, a = Math.abs(v);
+  if (f.k === 'fix') return v.toFixed(f.n);
+  if (f.k === 'sci') return fmtSci(v, (f.n || 10) - 1);
+  if (f.n === 1 && v && (a < 0.01 || a >= 1e10)) return fmtSci(v, 9).replace(/\.?0+ᴇ/, 'ᴇ');
+  return fmtCalc(v);
+}
+function dmsStr(v) { // 12.504 → 12°30°14.4
+  const sg = v < 0 ? '−' : ''; let t = Math.round(Math.abs(v) * 3600 * 100) / 100;
+  const d = Math.floor(t / 3600); t -= d * 3600; const m = Math.floor(t / 60); t = Math.round((t - m * 60) * 100) / 100;
+  return `${sg}${d}°${m}°${t}°`;
 }
 function disp() { return $('#disp'); }
 function caretPos() { const d = disp(), n = S.expr.length; const c = d && document.activeElement === d ? [d.selectionStart, d.selectionEnd] : S.caret || [n, n]; return [Math.min(c[0], n), Math.min(c[1], n)]; }
@@ -745,125 +903,317 @@ function setExpr(s, pos = s.length) {
   const d = disp(); if (d) { d.value = s; try { d.setSelectionRange(pos, pos); } catch {} d.scrollLeft = d.scrollWidth; }
   updPreview();
 }
+const CONT_RE = /^[+\-−×÷^²³!%),Eᴇ⁄⌟°ᴰʳᵍ∶=]|^⁻¹|^ⁿ√|^ mod |^nPr|^nCr/;
 function ins(txt) {
-  const startNew = S.justEval && !/^[+\-−×÷^²³!%),E⁄]|^ mod /.test(txt); // after "=": a number/function starts fresh, an operator continues
+  const startNew = S.justEval && !CONT_RE.test(txt); // after "=": a number/function starts fresh, an operator continues
   S.justEval = false;
   if (startNew) { setExpr(txt); return; }
-  const [a, b] = caretPos(), s = S.expr;
+  let [a, b] = caretPos(); const s = S.expr;
+  if (S.ovr && a === b && a < s.length) b = a + 1; // INS: mode timpa
   setExpr(s.slice(0, a) + txt + s.slice(b), a + txt.length);
 }
+function tpl(txt, at) { const a = S.justEval && !CONT_RE.test(txt) ? 0 : caretPos()[0]; ins(txt); setExpr(S.expr, a + at); } // template: kursor masuk ke kotak pertama
 function back() {
+  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; S.lastEq = null; setExpr(e); focusDisp(); return; } // DEL setelah "=": kembali mengedit ekspresi
   S.justEval = false;
   const [a, b] = caretPos(), s = S.expr;
   if (a !== b) { setExpr(s.slice(0, a) + s.slice(b), a); return; }
   if (!a) return;
-  const m = /(asinh|acosh|atanh|asin|acos|atan|sinh|cosh|tanh|sin|cos|tan|log2|log|ln|exp|abs|sqrt|cbrt|root|nPr|nCr|round|floor|ceil)\($|Ans$|rand$| mod $|√\($|∛\($/.exec(s.slice(0, a));
+  const m = TOK_L.exec(s.slice(0, a));
   const n = m ? m[0].length : 1;
-  setExpr(s.slice(0, a - n) + s.slice(a), a - n);
+  let after = s.slice(a);
+  if (m && m[0].endsWith('(')) after = after.replace(/^,*\)/, ''); // template kosong: hapus penutupnya juga
+  setExpr(s.slice(0, a - n) + after, a - n);
 }
 function equals() {
-  const e = S.expr.trim(); if (!e) return;
+  if (S.prompt) return promptOk();
+  const again = S.justEval && S.lastEq, e = again ? S.lastEq.e : S.expr.trim(); if (!e) return;
   try {
-    const v = calcEval(e), fr = /⁄/.test(e) ? toFrac(v) : null, r = fr || fmtCalc(v);
-    S.showFrac = !!fr;
-    if (e !== r) pushHist(e, r, v);
-    S.ans = v; LS.set('ans', String(v)); S.justEval = true;
-    setExpr(r); S.lastEq = { e, r };
+    if (e.includes('=')) throw new Error('Tanda = hanya untuk SOLVE (SHIFT + CALC)');
+    const out = {}; let v;
+    for (const st of e.split('∶')) { v = calcEval(st, out); S.ans = v; } // A∶B dihitung berurutan, Ans ikut berjalan
+    if (out.vars) for (const k in out.vars) setVar(k, out.vars[k]);
+    const fr = /⁄/.test(e) ? toFrac(v) : null; S.mixed = /⌟/.test(e);
+    const num = fr ? (S.mixed ? toMixed(fr) : fr) : fmtCalc(v);
+    const multi = out.multi ? out.multi.map(([k, x]) => `${k}=${fmtOut(x)}`).join('  ') : null;
+    const show = multi || (fr || (S.fmt.k === 'norm' && S.fmt.n !== 1) ? null : fmtOut(v));
+    S.showFrac = !!fr; S.engE = null;
+    if (!again && e !== num) pushHist(e, multi || show || num, v);
+    LS.set('ans', String(v)); S.justEval = true;
+    setExpr(num); S.lastEq = { e, r: num, show, multi: !!multi };
     render();
   } catch (err) { S.err = err.message; updPreview(); }
 }
+function refreshShow() { const q = S.lastEq; if (!S.justEval || !q || q.multi || S.showFrac) return; q.show = S.fmt.k === 'norm' && S.fmt.n !== 1 ? null : fmtOut(S.ans); }
+const errKind = m => /Karakter|Kurung|tempatnya|belum lengkap|tidak valid|Tanda =|SOLVE/.test(m) ? 'Syntax ERROR' : /Can't/.test(m) ? "Can't Solve" : 'Math ERROR';
+// ---------- layar LCD ----------
+const IND = ['S', 'A', 'M', 'STO', 'RCL', 'STAT', 'CMPLX', 'MAT', 'VCT', 'D', 'R', 'G', 'FIX', 'SCI', 'Math', '▼', '▲', 'Disp'];
+const showTxt = (s, pos) => S.io === 'line' ? esc(pos === undefined ? s : s.slice(0, pos) + '‸' + s.slice(pos)).replaceAll('‸', CUR) : pos === undefined ? pretty(s) : prettyC(s, pos);
 function updPreview() {
-  const p = $('#preview'), nat = $('#pretty'), scr = $('.screen'); if (!p) return;
-  const showNat = natural(S.expr);
-  if (nat) { nat.innerHTML = showNat ? pretty(S.expr) : ''; scr?.classList.toggle('nat', showNat); }
-  if (S.err) { p.textContent = '⚠ ' + S.err; p.className = 'preview err'; return; }
-  let t = '';
-  if (S.justEval && S.lastEq) t = pretty(S.lastEq.e) + ' =' + (S.showFrac ? ` <span class="muted">(≈ ${esc(fmtCalc(S.ans))})</span>` : '');
-  else if (S.expr.trim() && !/^-?[\d.]+$/.test(S.expr.trim())) { try { const v = calcEval(), f = /⁄/.test(S.expr) ? toFrac(v) : null; t = '= ' + (f ? pretty(f) + ` <span class="muted">≈ ${esc(fmtCalc(v))}</span>` : esc(fmtCalc(v))); } catch {} }
-  p.innerHTML = t; p.className = 'preview';
-  const m = $('#mem-ind'); if (m) m.hidden = !S.mem;
+  const lcd = $('#lcd'); if (!lcd) return;
+  const m = S.menu, h = hist(), up = m ? m.page > 0 : h.length > 0 && S.hIdx < h.length - 1, dn = m ? (m.page + 1) * m.per < m.items.length : S.hIdx >= 0;
+  const on = { S: S.shift, A: S.alpha, M: !!S.mem, STO: S.pend === 'sto', RCL: S.pend === 'rcl', D: S.ang === 'D', R: S.ang === 'R', G: S.ang === 'G', FIX: S.fmt.k === 'fix', SCI: S.fmt.k === 'sci', Math: S.io === 'math', '▼': dn, '▲': up };
+  lcd.querySelectorAll('[data-ind]').forEach(el => el.classList.toggle('on', !!on[el.dataset.ind]));
+  lcd.classList.toggle('off', !!S.off);
+  const fx = $('#fx'); if (fx) { fx.classList.toggle('sh', !!S.shift); fx.classList.toggle('al', !!S.alpha); }
+  const ex = $('#l-expr'), rs = $('#l-res'), mn = $('#l-menu');
+  ex.hidden = rs.hidden = !!m; mn.hidden = !m;
+  if (m) {
+    const items = m.items.slice(m.page * m.per, (m.page + 1) * m.per);
+    mn.style.setProperty('--mc', m.cols);
+    mn.innerHTML = (m.title ? `<div class="lm-t">${m.title}</div>` : '') + (items.length ? `<div class="lm-g">${items.map((it, n) => `<button type="button" class="lm-i${it.off ? ' dim' : ''}" data-a="lcdpick" data-v="${n + 1}">${n + 1}:${it.l}</button>`).join('')}</div>` : '');
+    return;
+  }
+  const n = S.expr.length, c = Math.min(caretPos()[0], n);
+  if (S.prompt) {
+    ex.innerHTML = `${esc(S.prompt.vs[S.prompt.i])}?`;
+    rs.innerHTML = S.err ? `<b class="l-err">${errKind(S.err)}</b><small class="l-msg">${esc(S.err)}</small>` : S.expr ? showTxt(S.expr, c) : `<span class="pv">${esc(fmtCalc(varsNow()[S.prompt.vs[S.prompt.i]] || 0))}</span>`;
+  } else if (S.err) {
+    ex.innerHTML = showTxt(S.expr, c);
+    rs.innerHTML = `<b class="l-err">${errKind(S.err)}</b><small class="l-msg">${esc(S.err)}</small>`;
+  } else if (S.justEval && S.lastEq) {
+    ex.innerHTML = showTxt(S.lastEq.e);
+    rs.innerHTML = showTxt(S.lastEq.show || S.expr);
+  } else {
+    ex.innerHTML = showTxt(S.expr, c);
+    let t = ''; const e = S.expr.trim();
+    if (e && !/^-?[\d.]+$/.test(e) && !/[∫Σ∶=]|d\/dx|rand|Pol|Rec/.test(e)) { try { const v = calcEval(e), f = /⁄/.test(e) ? toFrac(v) : null; t = `<span class="pv">${pretty(f && /⌟/.test(e) ? toMixed(f) : f || fmtCalc(v))}</span>`; } catch {} }
+    rs.innerHTML = t;
+  }
+  const cur = ex.querySelector('.cur');
+  ex.scrollLeft = cur ? Math.max(0, cur.offsetLeft - ex.clientWidth * .75) : 0;
+  rs.style.fontSize = ''; if (rs.scrollWidth > rs.clientWidth + 1) rs.style.fontSize = `${Math.max(.42, rs.clientWidth / rs.scrollWidth) * parseFloat(getComputedStyle(rs).fontSize)}px`;
 }
-function sdToggle() { // S⇔D: hasil pecahan ⇄ desimal
-  if (!S.justEval) { equals(); if (!S.justEval) return; if (S.showFrac) return; }
-  if (S.showFrac) { S.showFrac = false; setExpr(fmtCalc(S.ans)); }
-  else { const f = toFrac(S.ans); if (!f || !/⁄/.test(f)) { toast(f ? 'Hasilnya bilangan bulat' : 'Tidak bisa diubah ke pecahan sederhana'); return; } S.showFrac = true; setExpr(f); }
-  S.justEval = true; updPreview();
+function lcdMenu(title, items, o = {}) { S.menu = { title, items, page: 0, per: 8, cols: 2, ...o }; updPreview(); }
+function closeMenu() { S.menu = null; updPreview(); }
+function menuPick(n) { const m = S.menu, it = m && m.items[m.page * m.per + n - 1]; if (!it) return; if (it.off) { it.f(); return; } S.menu = null; it.f(); updPreview(); }
+function menuDigit(d) { const m = S.menu; if (m.digit) { if (m.digit(d) !== false) closeMenu(); return; } if (d) menuPick(d); }
+function menuPage(d) { const m = S.menu, p = m.page + d; if (p >= 0 && p * m.per < m.items.length) { m.page = p; updPreview(); } }
+const NA = x => () => toast(`${x} belum tersedia — saat ini baru mode COMP`);
+function modeMenu() { lcdMenu('', ['COMP', 'CMPLX', 'STAT', 'BASE-N', 'EQN', 'MATRIX', 'TABLE', 'VECTOR'].map(l => l === 'COMP' ? { l, f: () => toast('Mode COMP') } : { l, off: true, f: NA('Mode ' + l) })); }
+function setAng(a) { S.ang = a; LS.set('deg', a === 'D' ? 'deg' : a === 'R' ? 'rad' : 'gra'); }
+function setFmt(k, n) { S.fmt = { k, n }; LS.set('fmt', JSON.stringify(S.fmt)); refreshShow(); }
+function setIO(x) { S.io = x; LS.set('io', x); }
+function setupMenu() {
+  lcdMenu('', [
+    { l: 'MthIO', f: () => setIO('math') }, { l: 'LineIO', f: () => setIO('line') },
+    { l: 'Deg', f: () => setAng('D') }, { l: 'Rad', f: () => setAng('R') }, { l: 'Gra', f: () => setAng('G') },
+    { l: 'Fix', f: () => lcdMenu('Fix 0~9?', [], { digit: d => setFmt('fix', d) }) },
+    { l: 'Sci', f: () => lcdMenu('Sci 0~9?', [], { digit: d => setFmt('sci', d) }) },
+    { l: 'Norm', f: () => lcdMenu('Norm 1~2?', [], { digit: d => { if (d !== 1 && d !== 2) return false; setFmt('norm', d); } }) }
+  ]);
 }
-function memOp(op) {
-  if (op === 'mc') { S.mem = 0; }
-  else if (op === 'mr') { const v = fmtCalc(S.mem); ins(S.mem < 0 ? `(${v})` : v); }
-  else { let v; try { v = S.expr.trim() ? calcEval() : S.ans; } catch (e) { S.err = e.message; updPreview(); return; } S.mem += op === 'm+' ? v : -v; S.justEval = true; toast(`M = ${fmtCalc(S.mem)}`); }
-  LS.set('mem', String(S.mem)); updPreview();
+const CONSTS_SCI = [['m<sub>p</sub> proton', '1.67262192369ᴇ−27'], ['m<sub>n</sub> neutron', '1.67492749804ᴇ−27'], ['m<sub>e</sub> elektron', '9.1093837015ᴇ−31'], ['m<sub>μ</sub> muon', '1.883531627ᴇ−28'], ['a<sub>0</sub> Bohr', '5.29177210903ᴇ−11'], ['h Planck', '6.62607015ᴇ−34'], ['μ<sub>N</sub> nuklir', '5.0507837461ᴇ−27'], ['μ<sub>B</sub> Bohr', '9.2740100783ᴇ−24'],
+  ['ħ Planck', '1.054571817ᴇ−34'], ['α struktur', '7.2973525693ᴇ−3'], ['e muatan', '1.602176634ᴇ−19'], ['N<sub>A</sub> Avogadro', '6.02214076ᴇ23'], ['k Boltzmann', '1.380649ᴇ−23'], ['R gas', '8.314462618'], ['F Faraday', '96485.33212'], ['G gravitasi', '6.6743ᴇ−11'],
+  ['c cahaya', '299792458'], ['g bumi', '9.80665'], ['atm', '101325'], ['ε<sub>0</sub> listrik', '8.8541878128ᴇ−12'], ['μ<sub>0</sub> magnet', '1.25663706212ᴇ−6'], ['V<sub>m</sub> molar', '0.02271095464'], ['t 0°C (K)', '273.15'], ['σ Stefan', '5.670374419ᴇ−8']];
+const CONV = [['in→cm', '×2.54'], ['cm→in', '÷2.54'], ['ft→m', '×0.3048'], ['m→ft', '÷0.3048'], ['yd→m', '×0.9144'], ['m→yd', '÷0.9144'], ['mil→km', '×1.609344'], ['km→mil', '÷1.609344'],
+  ['acre→m²', '×4046.8564224'], ['m²→acre', '÷4046.8564224'], ['gal US→L', '×3.785411784'], ['L→gal US', '÷3.785411784'], ['gal UK→L', '×4.54609'], ['L→gal UK', '÷4.54609'], ['oz→g', '×28.349523125'], ['g→oz', '÷28.349523125'],
+  ['lb→kg', '×0.45359237'], ['kg→lb', '÷0.45359237'], ['atm→Pa', '×101325'], ['Pa→atm', '÷101325'], ['mmHg→Pa', '×133.322387415'], ['Pa→mmHg', '÷133.322387415'], ['hp→kW', '×0.73549875'], ['kW→hp', '÷0.73549875'],
+  ['kgf/cm²→Pa', '×98066.5'], ['Pa→kgf/cm²', '÷98066.5'], ['kgf·m→J', '×9.80665'], ['J→kgf·m', '÷9.80665'], ['J→cal', '÷4.1855'], ['cal→J', '×4.1855'], ['°F→°C', 'F'], ['°C→°F', 'C']];
+function convApply(sfx) {
+  const x = S.expr.trim() || 'Ans'; S.justEval = false; S.lastEq = null;
+  setExpr(sfx === 'F' ? `((${x})−32)×5÷9` : sfx === 'C' ? `(${x})×9÷5+32` : `(${x})${sfx}`); equals();
 }
-// keypad: [label, insert or action, title, 2nd label, 2nd insert]
-const SCI = [
-  [['2nd', '@2nd', 'Fungsi kedua'], ['DEG', '@deg', 'Derajat / radian'], ['MC', '@mc', 'Hapus memori'], ['MR', '@mr', 'Panggil memori'], ['M+', '@m+', 'Tambah ke memori'], ['M−', '@m-', 'Kurangi memori']],
-  [['sin', 'sin(', '', 'sin⁻¹', 'asin('], ['cos', 'cos(', '', 'cos⁻¹', 'acos('], ['tan', 'tan(', '', 'tan⁻¹', 'atan('], ['ln', 'ln(', 'Logaritma natural', 'log₂', 'log2('], ['log', 'log(', 'Logaritma basis 10', 'eˣ', 'e^('], ['(', '(']],
-  [['x²', '²', 'Kuadrat', 'sinh', 'sinh('], ['x³', '³', 'Pangkat tiga', 'cosh', 'cosh('], ['xʸ', '^', 'Pangkat', 'tanh', 'tanh('], ['√', '√(', 'Akar kuadrat', 'ʸ√x', '^(1÷'], ['∛', '∛(', 'Akar pangkat tiga', '10ˣ', '10^('], [')', ')']],
-  [['1/x', '^(−1)', 'Kebalikan'], ['x!', '!', 'Faktorial', 'nCr', 'nCr('], ['|x|', 'abs(', 'Nilai mutlak', 'nPr', 'nPr('], ['π', 'π', 'Pi'], ['e', 'e', 'Bilangan Euler', 'Rand', 'rand'], [',', ',', 'Pemisah argumen (nCr, nPr)']],
-  [['EXP', 'E', '×10ⁿ'], ['mod', ' mod ', 'Sisa bagi', 'rnd', 'round('], ['Ans', 'Ans', 'Hasil terakhir'], ['▭⁄▭', '@frac', 'Pecahan (pembilang / penyebut)', '⌊x⌋', 'floor('], ['%', '%', 'Persen'], ['±', '@neg', 'Ubah tanda']]
+function clrMenu() {
+  const ask = (nm, f) => () => lcdMenu(`Reset ${nm}?<br>[=] Ya &nbsp; [AC] Batal`, [], { onEq: f, digit: () => false });
+  const setup = () => { setAng('D'); setIO('math'); S.fmt = { k: 'norm', n: 2 }; LS.del('fmt'); toast('Setup direset'); };
+  const mem = () => { S.vars = {}; LS.del('vars'); setVar('M', 0); S.ans = 0; LS.set('ans', '0'); toast('Memori dihapus (riwayat tetap)'); };
+  lcdMenu('Bersihkan?', [{ l: 'Setup', f: ask('Setup', setup) }, { l: 'Memory', f: ask('Memory', mem) }, { l: 'All', f: ask('All', () => { setup(); mem(); }) }], { cols: 3 });
+}
+function sdToggle(mix) { // S⇔D: hasil pecahan ⇄ desimal; SHIFT: campuran ⇄ biasa
+  if (!S.justEval) { equals(); if (!S.justEval || (S.showFrac && !mix)) return; }
+  const f = toFrac(S.ans), has = f && /⁄/.test(f);
+  if (S.showFrac && !mix) { S.showFrac = false; setExpr(fmtCalc(S.ans)); }
+  else {
+    if (!has) { toast(f ? 'Hasilnya bilangan bulat' : 'Tidak bisa diubah ke pecahan sederhana'); return; }
+    if (mix) S.mixed = !S.mixed; S.showFrac = true; setExpr(S.mixed ? toMixed(f) : f);
+  }
+  if (S.lastEq) S.lastEq.show = null; S.engE = null; refreshShow(); S.justEval = true; updPreview();
+}
+function memOp(op) { // M+ / M−: hitung dulu kalau belum, lalu tambahkan ke M
+  if (!S.justEval && S.expr.trim()) { equals(); if (S.err) return; }
+  setVar('M', S.mem + (op === 'm+' ? S.ans : -S.ans)); toast(`M = ${fmtCalc(S.mem)}`); updPreview();
+}
+function engKey(dir) { // ENG: eksponen kelipatan 3
+  if (!S.justEval) { equals(); if (!S.justEval) return; }
+  const v = S.ans; if (!v || !S.lastEq) return;
+  S.engE = S.engE == null ? Math.floor(Math.log10(Math.abs(v)) / 3) * 3 : S.engE + dir * 3;
+  S.showFrac = false; S.lastEq.show = `${Number((v / 10 ** S.engE).toPrecision(12))}ᴇ${String(S.engE).replace('-', '−')}`; updPreview();
+}
+function dmsKey(back) {
+  if (S.justEval && S.lastEq) { const isD = (S.lastEq.show || '').includes('°'); if (isD) { S.lastEq.show = null; refreshShow(); } else if (!back) S.lastEq.show = dmsStr(S.ans); updPreview(); return; }
+  if (back) { toast('Tekan setelah hasil muncul'); return; }
+  ins('°');
+}
+function fracKey(mixed) {
+  const [a] = caretPos(), hasNum = !S.justEval && /[\dπeXYA-DFMΕ)!%²³]$|Ans$/.test(S.expr.slice(0, a));
+  if (mixed) { tpl('⌟⁄', hasNum ? 1 : 0); return; }
+  if (S.justEval || hasNum) { ins('⁄'); return; } // angka sebelumnya = pembilang
+  tpl('⁄', 0); // kursor di kotak pembilang, ▶ pindah ke penyebut
+}
+function negKey() { if (S.justEval) { S.justEval = false; S.lastEq = null; setExpr('−'); } else ins('−'); }
+// CALC & SOLVE: tanya nilai variabel di layar
+function varsIn(e) { const seen = []; for (const p of e.split(/[=∶]/)) for (const t of tokenize(p)) if (t.t === 'var' && !seen.includes(t.v)) seen.push(t.v); return seen; }
+function calcKey(solve) {
+  const base = S.justEval && S.lastEq ? S.lastEq.e : S.expr.trim(); if (!base) return;
+  let vs; try { vs = varsIn(base); } catch (err) { S.err = err.message; updPreview(); return; }
+  if (solve && !vs.includes('X')) { S.err = 'SOLVE butuh variabel X'; updPreview(); return; }
+  if (solve) vs = [...vs.filter(v => v !== 'X'), 'X'];
+  if (!vs.length) { S.justEval = false; setExpr(base); equals(); return; }
+  S.justEval = false; S.lastEq = null; S.prompt = { e: base, vs, i: 0, solve }; setExpr('');
+}
+function promptOk() {
+  const p = S.prompt, raw = S.expr.trim();
+  if (raw) { try { setVar(p.vs[p.i], calcEval(raw)); } catch (err) { S.err = err.message; updPreview(); return; } }
+  p.i++; if (p.i < p.vs.length) { setExpr(''); return; }
+  S.prompt = null; S.justEval = false;
+  if (p.solve) { solveX(p.e); return; }
+  setExpr(p.e); equals();
+}
+function solveX(e) {
+  const [L, R = '0'] = e.split('='), base = varsNow();
+  const opt = x => ({ ang: S.ang, ans: S.ans, vars: { ...base, X: x }, rnd: rndOut });
+  const f = x => evaluate(L, opt(x)) - evaluate(R, opt(x));
+  const safe = x => { try { const y = f(x); return Number.isFinite(y) ? y : NaN; } catch { return NaN; } };
+  let x = base.X || 0, ok = false;
+  for (let n = 0; n < 200; n++) { // Newton dari tebakan X
+    const y = safe(x); if (Number.isNaN(y)) break; if (Math.abs(y) < 1e-13) { ok = true; break; }
+    const h = 1e-6 * (Math.abs(x) + 1), d = (safe(x + h) - safe(x - h)) / (2 * h); if (!d || Number.isNaN(d)) break;
+    const nx = x - y / d; if (Math.abs(nx - x) < 1e-13 * (Math.abs(x) + 1)) { x = nx; ok = Math.abs(safe(x)) < 1e-8; break; } x = nx;
+  }
+  if (!ok) { // cari pergantian tanda, lalu belah dua
+    const x0 = base.X || 0;
+    outer: for (let w = 0.5; w < 1e7; w *= 2) for (const [a0, b0] of [[x0, x0 + w], [x0 - w, x0]]) {
+      let a = a0, b = b0, fa = safe(a), fb = safe(b); if (Number.isNaN(fa) || Number.isNaN(fb) || fa * fb > 0) continue;
+      for (let n = 0; n < 200 && Math.abs(b - a) > 1e-13 * (Math.abs(a) + 1); n++) { const m = (a + b) / 2, fm = safe(m); if (Number.isNaN(fm)) break; if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
+      x = (a + b) / 2; ok = Math.abs(safe(x)) < 1e-6; if (ok) break outer;
+    }
+  }
+  if (!ok) { setExpr(e); S.err = "Can't Solve: tidak ada solusi di sekitar tebakan X"; updPreview(); return; }
+  x = Number(x.toPrecision(13)); setVar('X', x); S.ans = x; LS.set('ans', String(x));
+  const res = safe(x), show = `X=${fmtOut(x)}  L−R=${fmtCalc(Number(res.toPrecision(3)))}`;
+  pushHist(e, `X=${fmtOut(x)}`, x); S.showFrac = false; S.justEval = true;
+  setExpr(fmtCalc(x)); S.lastEq = { e, r: fmtCalc(x), show, multi: true }; render();
+}
+function storeVar(n) {
+  if (S.pend === 'rcl') { S.pend = null; ins(VAR_CH[n] || n); toast(`${n} = ${fmtCalc(varsNow()[n] || 0)}`); return; }
+  S.pend = null;
+  if (!S.justEval && S.expr.trim()) { equals(); if (S.err) return; }
+  setVar(n, S.ans); toast(`${fmtCalc(S.ans)} → ${n}`); updPreview();
+}
+// tombol, urutan persis fx-115ES. k(id, tutup tombol, aksi, {s: SHIFT, a: ALPHA}) — label s/a: [teks, aksi, warna]
+const BX = '<i class="box"></i>', FRK = `<span class="fr kfr"><span class="fr-n">${BX}</span><span class="fr-d">${BX}</span></span>`;
+const VAR_CH = { E: 'Ε' };
+const vr = n => [n, '@var:' + n];
+const k = (id, cap, act, o = {}) => ({ id, cap, act, ...o });
+const NEEDS = (l, m) => [l, '@na:' + (m || l), 'g'];
+const KEY_F = [
+  k('shift', '', '@shift', { lb: 'SHIFT', c: 'tk' }), k('alpha', '', '@alpha', { lb: 'ALPHA', c: 'tk' }), k('mode', '', '@mode', { lb: 'MODE', s: ['SETUP', '@setup'], c: 'tk' }), k('on', '', '@on', { lb: 'ON', c: 'tk' }),
+  k('calc', 'CALC', '@calc', { s: ['SOLVE', '@solve'], a: ['=', '=' ] }), k('int', `∫<span class="k2">${BX}${BX}</span><i class="kbar"></i>`, '@t|∫(,,)|2', { s: [`<span class="fr kd"><span class="fr-n">d</span><span class="fr-d">dx</span></span>${BX}`, '@t|d/dx(,)|5'], a: [':', '∶'] }),
+  k('inv', '<i>x</i><sup>−1</sup>', '⁻¹', { s: ['<i>x</i>!', '!'] }), k('logab', `log<sub>${BX}</sub>${BX}`, '@t|logab(,)|6', { s: [`Σ${BX}`, '@t|Σ(,,)|2'] }),
+  k('frac', FRK, '@frac', { s: [`${BX}${FRK}`, '@mix'] }), k('sqrt', `√${BX}`, '@t|√()|2', { s: [`∛${BX}`, '@t|∛()|2'] }), k('sq', '<i>x</i><sup>2</sup>', '²', { s: ['<i>x</i><sup>3</sup>', '³'], m: 'DEC' }), k('pow', `<i>x</i><sup>${BX}</sup>`, '^', { s: [`<sup>${BX}</sup>√${BX}`, '@t|ⁿ√()|3'], m: 'HEX' }), k('log', 'log', 'log(', { s: [`10<sup>${BX}</sup>`, '@t|10^()|4'], m: 'BIN' }), k('ln', 'ln', 'ln(', { s: [`<i>e</i><sup>${BX}</sup>`, '@t|e^()|3'], m: 'OCT' }),
+  k('neg', '(−)', '@neg', { s: NEEDS('∠', 'CMPLX'), a: vr('A') }), k('dms', '° ′ ″', '@dms', { s: ['←', '@dmsb'], a: vr('B') }), k('hyp', 'hyp', '@hyp', { s: ['Abs', '@t|abs()|4'], a: vr('C') }), k('sin', 'sin', 'sin(', { s: ['sin<sup>−1</sup>', 'asin('], a: vr('D') }), k('cos', 'cos', 'cos(', { s: ['cos<sup>−1</sup>', 'acos('], a: vr('E') }), k('tan', 'tan', 'tan(', { s: ['tan<sup>−1</sup>', 'atan('], a: vr('F') }),
+  k('rcl', 'RCL', '@rcl', { s: ['STO', '@sto'] }), k('eng', 'ENG', '@eng', { s: ['←', '@engb'], a: ['<i>i</i>', '@na:CMPLX', 'p'] }), k('lp', '(', '(', { s: ['%', '%'] }), k('rp', ')', ')', { s: [',', ','], a: vr('X') }), k('sd', 'S⇔D', '@sd', { s: ['a<sup>b</sup>⁄<sub>c</sub>⇔<sup>d</sup>⁄<sub>c</sub>', '@sdmix'], a: vr('Y') }), k('mp', 'M+', '@m+', { s: ['M−', '@m-'], a: vr('M') })
 ];
-const BASIC = [
-  [['AC', '@ac', 'Hapus semua', '', '', 'fn'], ['⌫', '@del', 'Hapus 1', '', '', 'fn'], ['( )', '@par', 'Kurung'], ['÷', '÷', '', '', '', 'op']],
-  [['7', '7'], ['8', '8'], ['9', '9'], ['×', '×', '', '', '', 'op']],
-  [['4', '4'], ['5', '5'], ['6', '6'], ['−', '−', '', '', '', 'op']],
-  [['1', '1'], ['2', '2'], ['3', '3'], ['+', '+', '', '', '', 'op']],
-  [['0', '0'], ['S⇔D', '@sd', 'Ubah hasil: pecahan ⇄ desimal', '', '', 'fn sd'], ['.', '.'], ['=', '@eq', '', '', '', 'eq']]
+const KEY_N = [
+  k('7', '7', '7', { s: ['CONST', '@const'] }), k('8', '8', '8', { s: ['CONV', '@conv'] }), k('9', '9', '9', { s: ['CLR', '@clr'] }), k('del', 'DEL', '@del', { s: ['INS', '@ins'], c: 'rd' }), k('ac', 'AC', '@ac', { s: ['OFF', '@off'], c: 'rd' }),
+  k('4', '4', '4', { s: NEEDS('MATRIX') }), k('5', '5', '5', { s: NEEDS('VECTOR') }), k('6', '6', '6'), k('mul', '×', '×', { s: ['nPr', 'nPr'] }), k('div', '÷', '÷', { s: ['nCr', 'nCr'] }),
+  k('1', '1', '1', { s: NEEDS('STAT') }), k('2', '2', '2', { s: [...NEEDS('CMPLX').slice(0, 2), 'p'] }), k('3', '3', '3', { s: [...NEEDS('BASE').slice(0, 2), 't'] }), k('add', '+', '+', { s: ['Pol', 'Pol('] }), k('sub', '−', '−', { s: ['Rec', 'Rec('] }),
+  k('0', '0', '0', { s: ['Rnd', 'Rnd('] }), k('dot', '•', '.', { s: ['Ran#', 'rand'] }), k('exp', '×10<sup><i>x</i></sup>', 'ᴇ', { s: ['π', 'π'], a: ['<i>e</i>', 'e'] }), k('ans', 'Ans', 'Ans', { s: ['DRG▸', '@drg'] }), k('eq', '=', '@eq')
 ];
-function smartParen() { // "( )": opens unless a "(" is waiting to be closed after a value
-  const [a] = caretPos(), s = S.expr.slice(0, a), open = (s.match(/\(/g) || []).length - (s.match(/\)/g) || []).length;
-  ins(open > 0 && /[\d)πe!%²³]$|Ans$/.test(s) ? ')' : '(');
-}
-function negate() { // toggles the sign of the number before the caret
-  const [a] = caretPos(), s = S.expr; S.justEval = false;
-  const m = /(\d*\.?\d+(?:E[+\-−]?\d+)?|π|e|Ans)$/.exec(s.slice(0, a));
-  if (!m) { ins('−'); return; }
-  const st = a - m[0].length, before = s.slice(0, st), after = s.slice(a);
-  if (before.endsWith('(−') && after.startsWith(')')) setExpr(before.slice(0, -2) + m[0] + after.slice(1), st - 2 + m[0].length);
-  else if (before === '−' || before === '-') setExpr(m[0] + after, m[0].length);
-  else setExpr(before + '(−' + m[0] + ')' + after, a + 3);
+const KEY_MAP = new Map([...KEY_F, ...KEY_N].map(x => [x.id, x]));
+function pressKey(id) {
+  const key = KEY_MAP.get(id); if (!key) return;
+  if (S.off && id !== 'on') { toast('Kalkulator mati — tekan ON'); return; }
+  if (id === 'shift') { S.shift = !S.shift; S.alpha = false; updPreview(); return; }
+  if (id === 'alpha') { S.alpha = !S.alpha; S.shift = false; updPreview(); return; }
+  if (S.menu) {
+    S.shift = S.alpha = false;
+    if (/^\d$/.test(id)) menuDigit(+id);
+    else if (id === 'eq') { const f = S.menu.onEq; if (f) { closeMenu(); f(); updPreview(); } }
+    else if (id === 'ac' || id === 'on' || id === 'mode') closeMenu();
+    return;
+  }
+  if (S.pend) { // STO / RCL menunggu huruf variabel
+    S.shift = S.alpha = false;
+    if (key.a && key.a[1].startsWith('@var:')) storeVar(key.a[0]); else { S.pend = null; updPreview(); }
+    return;
+  }
+  const lay = S.shift ? key.s : S.alpha ? key.a : null, had = S.shift || S.alpha;
+  S.shift = S.alpha = false;
+  if (had && !lay) { updPreview(); return; } // tombol ini tidak punya fungsi SHIFT/ALPHA
+  keyAct(lay ? lay[1] : key.act);
+  updPreview();
 }
 // ◀ ▶ geser kursor (melompati nama fungsi utuh), ▲ ▼ buka riwayat (seperti kalkulator scientific)
-const TOK_L = /(asinh|acosh|atanh|asin|acos|atan|sinh|cosh|tanh|sin|cos|tan|log2|log|ln|exp|abs|sqrt|cbrt|root|nPr|nCr|round|floor|ceil)\($|Ans$|rand$| mod $/;
-const TOK_R = /^((asinh|acosh|atanh|asin|acos|atan|sinh|cosh|tanh|sin|cos|tan|log2|log|ln|exp|abs|sqrt|cbrt|root|nPr|nCr|round|floor|ceil)\(|Ans|rand| mod )/;
+const FN_RE = FUNCS.join('|');
+const TOK_L = new RegExp(`(?:${FN_RE})\\($|Ans$|rand$| mod $|nPr$|nCr$|⁻¹$|ⁿ√\\($|ⁿ√$|√\\($|∛\\($`);
+const TOK_R = new RegExp(`^(?:(?:${FN_RE})\\(|Ans|rand| mod |nPr|nCr|⁻¹|ⁿ√\\(|ⁿ√|√\\(|∛\\()`);
 function moveCaret(d) {
-  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; setExpr(e, d < 0 ? e.length : 0); focusDisp(); return; } // edit the last expression again
+  S.err = '';
+  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; S.lastEq = null; setExpr(e, d < 0 ? e.length : 0); focusDisp(); return; } // edit the last expression again
   S.justEval = false;
   const [a, b] = caretPos(), s = S.expr; let pos;
   if (a !== b) pos = d < 0 ? a : b;
   else if (d < 0) { const m = TOK_L.exec(s.slice(0, a)); pos = Math.max(0, a - (m ? m[0].length : 1)); }
   else { const m = TOK_R.exec(s.slice(a)); pos = Math.min(s.length, a + (m ? m[0].length : 1)); }
-  S.caret = [pos, pos]; focusDisp();
+  S.caret = [pos, pos]; focusDisp(); updPreview();
 }
-function focusDisp() { const d = disp(); if (!d) return; d.focus({ preventScroll: true }); const [a, b] = S.caret || [S.expr.length, S.expr.length]; try { d.setSelectionRange(a, b); } catch {} }
+function focusDisp() { const d = disp(); if (!d) return; d.value = S.expr; d.focus({ preventScroll: true }); const [a, b] = S.caret || [S.expr.length, S.expr.length]; try { d.setSelectionRange(a, b); } catch {} }
 function histNav(d) { // d = +1 older (▲), −1 newer (▼)
   const h = hist(); if (!h.length) { toast('Riwayat masih kosong'); return; }
-  if (S.hIdx == null || S.hIdx < 0) { S.hIdx = -1; S.hDraft = S.expr; }
+  if (S.hIdx == null || S.hIdx < 0) { S.hIdx = -1; S.hDraft = S.justEval ? '' : S.expr; }
   const n = Math.max(-1, Math.min(h.length - 1, S.hIdx + d));
   if (n === S.hIdx) { toast(d > 0 ? 'Riwayat paling lama' : 'Sudah di ekspresi terbaru'); return; }
-  S.hIdx = n; S.justEval = false; S.showFrac = false; S.lastEq = null;
-  const e = n < 0 ? S.hDraft || '' : h[n].data.e; setExpr(e); S.hIdx = n; focusDisp();
+  S.justEval = false; S.showFrac = false; S.lastEq = null;
+  const e = n < 0 ? S.hDraft || '' : h[n].data.e; setExpr(e); S.hIdx = n; focusDisp(); updPreview();
   const ind = $('#hnav-ind'); if (ind) ind.textContent = n < 0 ? '' : `riwayat ${n + 1}/${h.length}`;
 }
 function keyAct(v) {
   if (v[0] !== '@') return ins(v);
+  if (v.startsWith('@t|')) { const [, txt, at] = v.split('|'); tpl(txt, +at); return; }
+  if (v.startsWith('@var:')) { const n = v.slice(5); ins(VAR_CH[n] || n); return; }
+  if (v.startsWith('@na:')) { const x = v.slice(4); toast(`Fungsi ${x} hanya untuk mode ${x} — belum tersedia`); return; }
   switch (v) {
-    case '@ac': S.justEval = false; S.lastEq = null; setExpr(''); break;
+    case '@ac': S.justEval = false; S.lastEq = null; S.prompt = null; S.pend = null; S.engE = null; setExpr(''); break;
+    case '@on': S.off = false; S.menu = null; S.justEval = false; S.lastEq = null; S.prompt = null; S.pend = null; setExpr(''); break;
+    case '@off': S.off = true; S.menu = null; S.prompt = null; S.pend = null; S.justEval = false; S.lastEq = null; setExpr(''); break;
     case '@del': back(); break;
+    case '@ins': S.ovr = !S.ovr; toast(S.ovr ? 'Mode timpa (INS) aktif' : 'Mode sisip aktif'); break;
     case '@eq': equals(); break;
-    case '@par': smartParen(); break;
-    case '@neg': negate(); break;
-    case '@frac': ins('⁄'); break; // angka sebelum ⁄ = pembilang, sesudahnya = penyebut
-    case '@sd': sdToggle(); break;
+    case '@calc': calcKey(false); break;
+    case '@solve': calcKey(true); break;
+    case '@neg': negKey(); break;
+    case '@frac': fracKey(false); break;
+    case '@mix': fracKey(true); break;
+    case '@sd': sdToggle(false); break;
+    case '@sdmix': sdToggle(true); break;
+    case '@eng': engKey(-1); break;
+    case '@engb': engKey(1); break;
+    case '@dms': dmsKey(false); break;
+    case '@dmsb': dmsKey(true); break;
+    case '@rcl': S.pend = 'rcl'; break;
+    case '@sto': S.pend = 'sto'; break;
+    case '@m+': case '@m-': memOp(v.slice(1)); break;
+    case '@mode': modeMenu(); break;
+    case '@setup': setupMenu(); break;
+    case '@hyp': lcdMenu('', ['sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh'].map(f => ({ l: NAT[f] || f, f: () => ins(f + '(') }))); break;
+    case '@drg': lcdMenu('', [['°', 'ᴰ'], ['r', 'ʳ'], ['g', 'ᵍ']].map(([l, t]) => ({ l, f: () => ins(t) })), { cols: 3 }); break;
+    case '@const': lcdMenu('', CONSTS_SCI.map(([l, x]) => ({ l, f: () => ins(`(${x})`) }))); break;
+    case '@conv': lcdMenu('', CONV.map(([l, x]) => ({ l, f: () => convApply(x) }))); break;
+    case '@clr': clrMenu(); break;
     case '@left': moveCaret(-1); break;
     case '@right': moveCaret(1); break;
     case '@up': histNav(1); break;
-    case '@down': histNav(-1); break;
+    case '@down': { const [a] = caretPos(); if (!S.justEval && /[⁄⌟]/.test(S.expr[a] || '')) moveCaret(1); else histNav(-1); break; } // ▼ dari pembilang ke penyebut
     case '@hist': S.histOpen = !S.histOpen; render(); break;
-    case '@2nd': S.second = !S.second; render(); break;
-    case '@deg': S.deg = !S.deg; LS.set('deg', S.deg ? 'deg' : 'rad'); render(); break;
-    case '@mc': case '@mr': case '@m+': case '@m-': memOp(v.slice(1)); break;
   }
+}
+function dpadAct(v) {
+  if (S.off) { toast('Kalkulator mati — tekan ON'); return; }
+  S.shift = S.alpha = false;
+  if (S.menu) { if (v === '@up') menuPage(-1); else if (v === '@down') menuPage(1); else closeMenu(); return; }
+  keyAct(v); updPreview();
 }
 
 // ---------- server ----------
@@ -1006,28 +1356,30 @@ function render() {
 // calculator view
 function calcView() {
   const coarse = matchMedia('(pointer:coarse)').matches;
-  const key = (k, cls = '') => {
-    const alt = S.second && k[3], lab = alt ? k[3] : k[0], v = alt ? k[4] : k[1];
-    const lab2 = k[1] === '@deg' ? (S.deg ? 'DEG' : 'RAD') : lab;
-    return `<button type="button" class="key ${cls} ${k[5] || ''}${alt ? ' alt' : ''}${k[1] === '@2nd' && S.second ? ' on' : ''}" data-a="key" data-v="${esc(v)}" title="${esc(k[2] || '')}">${lab2 === '▭⁄▭' ? '<span class="fr kfr"><span class="fr-n"><i class="box"></i></span><span class="fr-d"><i class="box"></i></span></span>' : esc(lab2)}</button>`;
-  };
+  const lbl = (l, cls) => l ? `<b class="${cls}${l[2] ? ' c-' + l[2] : ''}">${l[0]}</b>` : '';
+  const cell = x => `<button type="button" class="ck ${x.c || ''}${/^[0-9]$|^dot$|^exp$|^ans$|^eq$|^mul$|^div$|^add$|^sub$/.test(x.id) ? ' nk' : ''}" data-a="ck" data-v="${x.id}"><span class="ck-l">${x.lb ? `<b class="lb">${x.lb}</b>` : ''}${lbl(x.s, 'ls')}${x.m ? `<b class="lm">${x.m}</b>` : ''}${lbl(x.a, 'la')}</span><span class="ck-c">${x.cap}</span></button>`;
+  const dpad = `<div class="dpad" role="group" aria-label="Replay">
+      <button type="button" class="dp up" data-a="dp" data-v="@up" title="Riwayat sebelumnya (↑)"><span>▲</span></button>
+      <button type="button" class="dp rt2" data-a="dp" data-v="@right" title="Geser kursor ke kanan (→)"><span>▶</span></button>
+      <button type="button" class="dp dn" data-a="dp" data-v="@down" title="Riwayat berikutnya (↓)"><span>▼</span></button>
+      <button type="button" class="dp lf" data-a="dp" data-v="@left" title="Geser kursor ke kiri (←)"><span>◀</span></button>
+      <span class="dp-c">REPLAY</span></div>`;
   const h = hist(), q = S.calcQ.trim().toLowerCase(), hf = q ? h.filter(x => (x.data.e + ' ' + x.data.r).toLowerCase().includes(q)) : h;
-  return `<section class="calc card">
-      <div class="screen">
-        <div class="scr-top"><span class="ind">${S.deg ? 'DEG' : 'RAD'}</span><span class="ind" id="mem-ind"${S.mem ? '' : ' hidden'}>M</span>${S.second ? '<span class="ind">2nd</span>' : ''}<span class="hnav" id="hnav-ind"></span><span class="sp"></span><span class="preview" id="preview"></span></div>
-        <div class="pretty" id="pretty" aria-hidden="true"></div>
-        <input id="disp" class="disp" autocomplete="off" autocapitalize="off" spellcheck="false" ${coarse ? 'inputmode="none"' : ''} placeholder="0" aria-label="Ekspresi">
-      </div>
-      <div class="navrow">
-        <button type="button" class="key nk hbtn" data-a="key" data-v="@hist" title="Riwayat hitung">🕘 <span>Riwayat</span></button>
-        <button type="button" class="key nk" data-a="key" data-v="@left" title="Geser kursor ke kiri (←)">◀</button>
-        <button type="button" class="key nk" data-a="key" data-v="@up" title="Riwayat sebelumnya (↑)">▲</button>
-        <button type="button" class="key nk" data-a="key" data-v="@down" title="Riwayat berikutnya (↓)">▼</button>
-        <button type="button" class="key nk" data-a="key" data-v="@right" title="Geser kursor ke kanan (→)">▶</button>
-      </div>
-      <div class="pads">
-        <div class="sci">${SCI.map(r => r.map(k => key(k, 'sk')).join('')).join('')}</div>
-        <div class="basic">${BASIC.map(r => r.map(k => key(k, /^\d+$|^\.$/.test(k[0]) ? 'dig' : '')).join('')).join('')}</div>
+  return `<section class="fx" id="fx">
+      <div class="fx-top"><span class="fx-brand">Calc<small>Natural Display</small></span><span class="fx-sol" aria-hidden="true"><i></i><i></i><i></i><i></i></span><button type="button" class="btn sm fx-h" data-a="key" data-v="@hist" title="Riwayat hitung">🕘 Riwayat</button></div>
+      <div class="lcd-fr"><div class="lcd" id="lcd">
+        <div class="l-ind">${IND.map(x => `<span data-ind="${x}">${x}</span>`).join('')}</div>
+        <div class="l-body">
+          <div class="l-expr" id="l-expr"></div>
+          <div class="l-res" id="l-res"></div>
+          <div class="l-menu" id="l-menu" hidden></div>
+        </div>
+        <span class="hnav" id="hnav-ind"></span>
+        <input id="disp" class="disp" autocomplete="off" autocapitalize="off" spellcheck="false" ${coarse ? 'inputmode="none"' : ''} aria-label="Ekspresi">
+      </div></div>
+      <div class="keys">
+        <div class="kf">${dpad}${KEY_F.map(cell).join('')}</div>
+        <div class="kn">${KEY_N.map(cell).join('')}</div>
       </div>
     </section>
     ${S.histOpen ? '<div class="h-back" data-a="key" data-v="@hist"></div>' : ''}
@@ -1035,7 +1387,7 @@ function calcView() {
       <div class="h-head"><h2>🕘 Riwayat hitung <span class="muted">${h.length}</span></h2><span class="sp"></span>${h.length && !RO() ? '<button type="button" class="btn sm danger" data-a="histclear" id="hc-btn">Hapus semua</button>' : ''}<button type="button" class="btn sm h-x" data-a="key" data-v="@hist" title="Tutup">✕</button></div>
       ${h.length > 6 ? `<input class="h-q" id="calc-q" type="search" placeholder="Cari riwayat…" value="${esc(S.calcQ)}">` : ''}
       <div class="h-list">${hf.map(x => `<div class="h-row" data-a="hload" data-v="${esc(x.id)}" title="Klik untuk memakai lagi">
-          <div class="h-e">${pretty(x.data.e)}</div><div class="h-r">= ${pretty(x.data.r)}</div>
+          <div class="h-e">${pretty(x.data.e)}</div><div class="h-r">${String(x.data.r).includes('=') ? '' : '= '}${pretty(x.data.r)}</div>
           <div class="h-meta"><span class="muted small">${fullDT(x.data.t)}</span><span class="sp"></span>${RO() ? '' : `<button type="button" class="btn xs" data-a="hdata" data-v="${esc(x.id)}" title="Tambahkan hasil ini ke data perhitungan">＋ Data</button><button type="button" class="btn xs" data-a="hdel" data-v="${esc(x.id)}" title="Hapus">✕</button>`}</div>
         </div>`).join('') || `<p class="muted small empty">Belum ada riwayat. Setiap kali menekan <b>=</b>, perhitungan tersimpan di sini dan ikut tersinkron ke HP/laptop lain.</p>`}</div>
     </section>`;
@@ -1234,7 +1586,10 @@ const A = {
   logout: () => logout(),
   gateback: () => { S.gate = null; render(); },
   key: el => keyAct(el.dataset.v),
-  hload: el => { const h = S.items.get(S.user ? S.user + '/' + el.dataset.v : [...S.items.keys()].find(k => k.endsWith('/' + el.dataset.v))); if (!h) return; S.justEval = false; S.histOpen = false; setExpr(h.data.e); render(); },
+  ck: el => pressKey(el.dataset.v),
+  dp: el => dpadAct(el.dataset.v),
+  lcdpick: el => menuPick(+el.dataset.v),
+  hload: el => { const h = S.items.get(S.user ? S.user + '/' + el.dataset.v : [...S.items.keys()].find(k => k.endsWith('/' + el.dataset.v))); if (!h) return; S.justEval = false; S.lastEq = null; S.prompt = null; S.histOpen = false; setExpr(h.data.e); render(); },
   hdel: el => { const h = S.items.get(S.user + '/' + el.dataset.v); if (h) put({ ...h, data: {}, deleted: true }); },
   hdata: el => {
     const h = S.items.get(S.user + '/' + el.dataset.v); if (!h) return; let v = h.data.v; if (!Number.isFinite(v)) try { v = evaluate(h.data.r); } catch { v = NaN; }
@@ -1294,7 +1649,7 @@ document.addEventListener('click', ev => {
   ev.preventDefault(); ev.stopPropagation(); A[el.dataset.a](el);
 });
 // keypad buttons must not steal focus/caret from the display
-document.addEventListener('pointerdown', ev => { if (ev.target.closest('.key')) ev.preventDefault(); });
+document.addEventListener('pointerdown', ev => { if (ev.target.closest('.ck,.dp,.lm-i')) ev.preventDefault(); });
 document.addEventListener('input', ev => {
   const t = ev.target;
   if (t.id === 'user-in') syncMask();
@@ -1320,20 +1675,31 @@ document.addEventListener('change', ev => {
   if (t.dataset.lu) { const id = t.dataset.lu, v = t.value; mutate(d => { const ln = d.lines.find(l => l.id === id); if (ln) ln.unit = v; }); }
 });
 document.addEventListener('keyup', ev => { if (ev.target.id === 'disp') S.caret = [ev.target.selectionStart, ev.target.selectionEnd]; });
-document.addEventListener('selectionchange', () => { const d = disp(); if (d && document.activeElement === d) S.caret = [d.selectionStart, d.selectionEnd]; });
+document.addEventListener('selectionchange', () => { const d = disp(); if (d && document.activeElement === d && (S.caret?.[0] !== d.selectionStart || S.caret?.[1] !== d.selectionEnd)) { S.caret = [d.selectionStart, d.selectionEnd]; updPreview(); } });
 document.addEventListener('keydown', ev => {
   if (dlg().open || ev.metaKey || ev.ctrlKey || ev.altKey || S.view !== 'calc' || (!S.user && !S.admin)) return;
   const t = ev.target, inDisp = t.id === 'disp', typing = /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) && !inDisp;
   if (typing) return;
+  if (S.off) { if (inDisp) ev.preventDefault(); return; }
+  if (S.menu) {
+    ev.preventDefault();
+    if (/^\d$/.test(ev.key)) menuDigit(+ev.key);
+    else if (ev.key === 'Enter' || ev.key === '=') { const f = S.menu.onEq; if (f) { closeMenu(); f(); updPreview(); } }
+    else if (ev.key === 'Escape') closeMenu();
+    else if (ev.key === 'ArrowUp') menuPage(-1);
+    else if (ev.key === 'ArrowDown') menuPage(1);
+    return;
+  }
   if (ev.key === 'Enter' || (ev.key === '=' )) { ev.preventDefault(); equals(); return; }
   if (ev.key === 'Escape') { ev.preventDefault(); if (S.histOpen) keyAct('@hist'); else keyAct('@ac'); return; }
   if (ev.key === 'ArrowUp' || ev.key === 'ArrowDown') { ev.preventDefault(); histNav(ev.key === 'ArrowUp' ? 1 : -1); return; }
-  if ((ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') && (!inDisp || S.justEval)) { ev.preventDefault(); moveCaret(ev.key === 'ArrowLeft' ? -1 : 1); return; }
+  if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') { ev.preventDefault(); moveCaret(ev.key === 'ArrowLeft' ? -1 : 1); return; }
+  if (inDisp && ev.key === 'Backspace' && S.justEval) { ev.preventDefault(); back(); return; }
   if (inDisp) { if (S.justEval && ev.key.length === 1) { // typing after "=": digits start fresh, operators continue
       if (/[\d.(]/.test(ev.key)) { ev.preventDefault(); ins(ev.key); } else S.justEval = false; } return; }
   if (ev.key === 'Backspace') { ev.preventDefault(); back(); return; }
   const map = { '*': '×', '/': '÷', '-': '−', 'x': '×' };
-  if (/^[\d.+\-*/^()!%,]$|^x$/.test(ev.key)) { ev.preventDefault(); ins(map[ev.key] || ev.key); }
+  if (/^[\d.+\-*/^()!%,]$|^x$|^[A-FXYM]$/.test(ev.key)) { ev.preventDefault(); ins(map[ev.key] || VAR_CH[ev.key] || ev.key); }
 });
 document.addEventListener('submit', ev => {
   const f = ev.target; ev.preventDefault();
