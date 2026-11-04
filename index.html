@@ -35,50 +35,43 @@ h1,h2{letter-spacing:-.01em}
 .empty{padding:14px 4px;margin:0}
 /* top bar */
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.top-in{padding:10px 24px;display:flex;align-items:center;gap:16px}
+.top-in{padding:6px 16px;display:flex;align-items:center;gap:12px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;text-decoration:none;flex:none}
-.logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#ff8a3d,#d9480f);color:#fff;font-size:18px;font-weight:800}
-.tabs{display:flex;gap:4px;flex:1;justify-content:center}
-.tab{border:0;background:none;border-radius:10px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--muted)}
-.tab:hover{background:var(--soft)}
-.tab.on{background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
-.top-r{display:flex;align-items:center;gap:10px;flex:none}
+.logo{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,#ff8a3d,#d9480f);color:#fff;font-size:18px;font-weight:800}
 .sync{font-size:12px;color:var(--muted);white-space:nowrap}
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 11px;cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap}
 .shell{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
 .shell>.top{flex:none;position:relative}
-.bnav{display:none}
 .main{flex:1;min-height:0;overflow:auto;padding:20px 24px 40px;-webkit-overflow-scrolling:touch}
 .head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .head h1{margin:0;font-size:24px}
 .head-r{display:flex;gap:8px;flex:1;justify-content:flex-end;min-width:260px}
 .head-r input{flex:1;max-width:420px}
-/* calculator — tata letak & layar mengikuti fx-115ES */
-.main.v-calc{display:flex;gap:16px;padding:12px 18px;overflow:hidden}
-.fx{--dot:clamp(2.4px,.36vh,4.4px);flex:0 1 calc((100vh - 56px)*1.16);min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(6px,1vh,12px);padding:clamp(8px,1.3vh,18px) clamp(10px,1.5vw,26px) clamp(10px,1.5vh,22px);border-radius:26px;background:linear-gradient(178deg,#e4e6e8 0%,#cfd2d6 40%,#c3c6cb 100%);border:clamp(4px,.7vh,9px) solid #2c3038;box-shadow:0 10px 30px rgba(10,15,25,.3),inset 0 1px 0 #fff;color:#2c3038;user-select:none;-webkit-user-select:none}
-.fx-top{flex:none;display:flex;align-items:center;gap:14px;min-height:28px}
-.fx-brand{font-weight:800;font-size:clamp(15px,2.2vh,26px);color:#4d525a;letter-spacing:.02em;display:flex;flex-direction:column;line-height:1.05}
-.fx-brand small{font-size:.48em;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2f7f8f}
-.fx-sol{display:none;margin-left:auto;height:clamp(28px,5.4vh,66px);width:clamp(180px,33%,420px);background:#3a2a22;border:2px solid #23262c;border-radius:4px;padding:2px;gap:2px;grid-template-columns:repeat(4,1fr)}
-.fx-sol i{background:linear-gradient(135deg,#8c5a3c,#6d4029)}
-.fx-h{display:none;margin-left:auto;background:#fff;color:#2c3038;border-color:#9b9fa6}
+/* calculator — semua ukuran mengikuti ukuran bodi (container query), jadi proporsinya sama di layar apa pun */
+.main.v-calc{display:flex;gap:14px;padding:10px 14px;overflow:hidden}
+.fx{flex:0 0 auto;width:min(calc(100% - 330px),calc(100vh - 64px));min-width:0;min-height:0;padding:clamp(8px,1.3vh,16px);border-radius:20px;background:linear-gradient(178deg,#e6e8ea 0%,#d3d6d9 42%,#c6c9cd 100%);border:clamp(3px,.45vh,6px) solid #2c3038;box-shadow:0 6px 22px rgba(10,15,25,.26),inset 0 1px 0 #fff;color:#2c3038;user-select:none;-webkit-user-select:none}
+.fx-in{container-type:size;width:100%;height:100%}
+.fx-col{height:100cqh;display:flex;flex-direction:column;gap:1.1cqh}
 /* layar */
-.lcd-fr{flex:none;padding:clamp(7px,1.3vh,16px) clamp(9px,1.4vw,20px);border-radius:14px;background:linear-gradient(180deg,#a9acb1,#d3d5d8 16%,#c6c8cc);box-shadow:inset 0 2px 5px rgba(20,25,35,.35)}
-.lcd{position:relative;height:clamp(118px,25vh,320px);display:flex;flex-direction:column;padding:clamp(3px,.6vh,8px) clamp(8px,1vw,16px) clamp(4px,.7vh,10px);border-radius:5px;overflow:hidden;color:#27377f;background:linear-gradient(112deg,#bcd7cf 0%,#b3d0cb 34%,#c5dbcd 58%,#d2dfc6 100%);box-shadow:inset 0 2px 6px rgba(20,40,40,.45)}
-.l-ind{flex:none;display:flex;justify-content:space-between;gap:2px;font:700 clamp(8px,min(1.4vh,1.5vw),15px)/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;white-space:nowrap;overflow:hidden}
+.lcd-fr{flex:none;padding:min(1.1cqh,1.7cqw) min(1.5cqh,2.2cqw);border-radius:min(1.4cqh,2cqw);background:linear-gradient(180deg,#a9acb1,#d3d5d8 16%,#c6c8cc);box-shadow:inset 0 2px 5px rgba(20,25,35,.35)}
+.lcd{--dot:max(2.2px,min(.36cqh,.52cqw));--gfs:max(13px,min(3cqh,4.4cqw));position:relative;height:25cqh;display:flex;flex-direction:column;padding:.5cqh min(1.2cqh,1.8cqw) .6cqh;border-radius:4px;overflow:hidden;color:#27377f;background:linear-gradient(112deg,#bcd7cf 0%,#b3d0cb 34%,#c5dbcd 58%,#d2dfc6 100%);box-shadow:inset 0 2px 6px rgba(20,40,40,.45)}
+.l-ind{flex:none;display:flex;justify-content:space-between;gap:2px;font:700 max(8px,min(1.5cqh,2.1cqw))/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;white-space:nowrap;overflow:hidden}
 .l-ind span{opacity:.11}
 .l-ind span.on{opacity:1}
-.l-body{flex:1;min-height:0;display:flex;flex-direction:column;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace;font-weight:800;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 60%,transparent 74%);mask-image:radial-gradient(circle at 50% 50%,#000 60%,transparent 74%);-webkit-mask-size:var(--dot) var(--dot);mask-size:var(--dot) var(--dot)}
-.lcd.off .l-body,.lcd.off .l-ind,.lcd.off .hnav{visibility:hidden}
+.l-body{flex:1;min-height:0;display:flex;flex-direction:column;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace;font-weight:800}
+.l-expr,.l-res,.l-menu,.l-grid{-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 60%,transparent 74%);mask-image:radial-gradient(circle at 50% 50%,#000 60%,transparent 74%);-webkit-mask-size:var(--dot) var(--dot);mask-size:var(--dot) var(--dot)}
+.l-menu,.l-grid{-webkit-mask-size:calc(var(--dot)*.62) calc(var(--dot)*.62);mask-size:calc(var(--dot)*.62) calc(var(--dot)*.62)}
+.lcd.off .l-body,.lcd.off .l-ind,.lcd.off .l-foot{visibility:hidden}
 .l-expr,.l-res{flex:1 1 50%;min-height:0;display:flex;align-items:center;white-space:nowrap;scrollbar-width:none;font-variant-numeric:tabular-nums}
-.l-expr{position:relative;justify-content:flex-start;overflow:hidden;font-size:clamp(25px,min(5.6vh,4.6vw),64px);line-height:1.1}
-.l-res{justify-content:flex-end;overflow:hidden;font-size:clamp(29px,min(6.6vh,5.4vw),76px);line-height:1.1}
-.l-expr[hidden],.l-res[hidden],.l-menu[hidden]{display:none}
+.l-expr{position:relative;justify-content:flex-start;overflow:hidden;font-size:max(21px,min(5.6cqh,7.6cqw));line-height:1.1}
+.l-res{justify-content:flex-end;overflow:hidden;font-size:max(25px,min(6.8cqh,9.2cqw));line-height:1.1}
+.l-expr[hidden],.l-res[hidden],.l-menu[hidden],.l-grid[hidden]{display:none}
 .l-res .pv{opacity:.34;font-size:.62em}
 .l-err{font-weight:800}
 .l-msg{display:block;font-size:.3em;font-weight:700;margin-left:.9em;white-space:normal;line-height:1.15;max-width:48%}
 .l-res:has(.l-err){justify-content:center}
 .lcd sup{font-size:.6em;vertical-align:.62em;line-height:0}
+.h-list sub{font-size:.65em}
 .lcd sub{font-size:.6em;vertical-align:-.3em;line-height:0}
 .cur{display:inline-block;width:.11em;height:1.02em;margin-right:-.11em;vertical-align:-.14em;background:currentColor;animation:curb 1s steps(1) infinite}
 @keyframes curb{50%{opacity:0}}
@@ -92,56 +85,78 @@ h1,h2{letter-spacing:-.01em}
 .dx{margin-left:.12em;font-size:.82em}
 .at{font-size:1.1em}
 .rx{margin-right:-.05em}
-.l-menu{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:.3em;font-size:clamp(14px,min(3vh,2.5vw),36px);line-height:1.2}
+.l-menu{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:.25em;font-size:var(--gfs);line-height:1.22;overflow:hidden}
 .lm-t{font-weight:800}
-.lm-g{display:grid;grid-template-columns:repeat(var(--mc,2),minmax(0,1fr));gap:.05em .8em}
+.lm-big{text-align:center;font-size:1.4em}
+.lm-g{display:grid;grid-template-columns:repeat(var(--mc,2),minmax(0,1fr));gap:.04em .8em}
 .lm-i{border:0;background:none;padding:0;color:inherit;font:inherit;text-align:left;cursor:pointer;white-space:nowrap;overflow:hidden}
-.lm-i.dim{opacity:.42}
+.lm-i:hover{background:rgba(39,55,127,.13)}
 .lm-i sub{font-size:.65em;vertical-align:-.25em;line-height:0}
-.hnav{position:absolute;left:clamp(8px,1vw,16px);bottom:clamp(3px,.6vh,8px);font:700 clamp(9px,1.3vh,13px) -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;opacity:.75}
-.disp{position:absolute;left:0;bottom:0;width:1px;height:1px;padding:0;border:0!important;outline:0!important;opacity:0;pointer-events:none;background:none}
+.lm-l{display:flex;align-items:center;justify-content:space-between;gap:1em;white-space:nowrap;font-size:1.25em;line-height:1.3}
+.lm-l sub{font-size:.65em;vertical-align:-.25em;line-height:0}
+.lm-l .fr{font-size:.72em}
+.l-grid{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;line-height:1.24}
+.lg{width:100%;border-collapse:collapse;table-layout:fixed;flex:none}
+.lg th,.lg td{padding:0 .4em;font-weight:800;white-space:nowrap;overflow:hidden;text-align:right;height:1.24em}
+.lg th:first-child{width:4.6em;text-align:left}
+.lg tbody th{opacity:.6}
+.lg thead th{opacity:.72;border-bottom:.08em solid currentColor}
+.lg td.on{background:#27377f;color:#d4e3d3}
+.lg-in{flex:1;min-height:1.24em;display:flex;align-items:flex-end;justify-content:space-between;gap:1em;white-space:nowrap;overflow:hidden}
+.lg-in small{font-size:.72em;opacity:.65}
+.l-err2{font-weight:800}
+.l-foot{position:absolute;left:min(1.2cqh,1.8cqw);bottom:.6cqh;display:flex;gap:.8em;font:700 max(9px,min(1.45cqh,2.1cqw)) -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;pointer-events:none}
+.l-foot span:empty{display:none}
+.hnav{opacity:.72}
 /* tombol */
-.keys{flex:1;min-height:0;display:flex;flex-direction:column;gap:clamp(5px,.9vh,12px)}
-.kf,.kn{min-height:0;display:grid;column-gap:clamp(5px,1vw,20px);row-gap:clamp(1px,.35vh,6px)}
+.keys{flex:1;min-height:0;display:flex;flex-direction:column;gap:1cqh}
+.kf,.kn{min-height:0;display:grid;column-gap:min(1.1cqh,1.8cqw);row-gap:.35cqh}
 .kf{flex:5 1 0;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr))}
-.kn{flex:4.45 1 0;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
-.ck{min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(0px,.15vh,3px);padding:0;border:0;background:none;color:inherit;cursor:pointer;touch-action:manipulation;font:inherit}
-.ck-l{flex:none;height:clamp(11px,min(1.75vh,2.5vw),21px);display:flex;align-items:flex-end;justify-content:center;gap:.4em;font-size:clamp(8.5px,min(1.42vh,2vw),17px);line-height:1;white-space:nowrap;overflow:visible}
+.kn{flex:4.3 1 0;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
+.ck{min-width:0;min-height:0;display:flex;flex-direction:column;gap:.15cqh;padding:0;border:0;background:none;color:inherit;cursor:pointer;touch-action:manipulation;font:inherit}
+.ck-l{flex:none;height:max(10px,min(1.85cqh,3cqw));display:flex;align-items:flex-end;justify-content:center;gap:.4em;font-size:max(8px,min(1.5cqh,2.3cqw));line-height:1;white-space:nowrap}
 .ck-l b{font-weight:600}
-.ck-l .ls{color:#8a6420}
-.ck-l .la{color:#a23838}
-.ck-l .lm{color:#2f7f8f}
-.ck-l .lb{color:#3a3f47;font-weight:700}
-.ck-l .c-g{color:#5d6168}
-.ck-l .c-p{color:#8a3fa0}
-.ck-l .c-t{color:#2f7f8f}
+.ck-l .ls{color:#80591a}
+.ck-l .la{color:#a23232}
+.ck-l .lm{color:#1f7486}
+.ck-l .lb{color:#333840;font-weight:700}
+.ck-l .c-g{color:#565a61}
+.ck-l .c-p{color:#853a9b}
+.ck-l .c-t{color:#1f7486}
 .ck-l sup,.ck-l sub{font-size:.68em;line-height:0}
 .ck-l .box{width:.55em;height:.7em;border:.09em solid currentColor;border-radius:.05em;vertical-align:-.04em}
 .ck-l .kd{font-size:.68em;margin:0}
 .ck-l .kd .fr-n{border-bottom-width:.1em}
 .fx.sh .ls,.fx.al .la{font-weight:800;text-shadow:0 0 .5px currentColor}
-.ck-c{flex:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:clamp(7px,1.15vh,16px);color:#fff;font-size:clamp(12px,min(2.5vh,2.9vw),29px);font-weight:600;line-height:1;background:linear-gradient(180deg,#67757f,#4a565f 60%,#3f4a52);box-shadow:0 clamp(1px,.3vh,4px) 0 #24292f,inset 0 1px 0 rgba(255,255,255,.22);transition:transform .05s}
+.fx.sh .ck.tk[data-v=shift] .ck-c,.fx.al .ck.tk[data-v=alpha] .ck-c{background:linear-gradient(180deg,#d9963a,#b4751f)}
+.ck-c{flex:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:min(1cqh,1.6cqw);color:#fff;font-size:max(11px,min(2.5cqh,3.8cqw));font-weight:600;line-height:1;background:linear-gradient(180deg,#67757f,#4a565f 60%,#3f4a52);box-shadow:0 .28cqh 0 #24292f,inset 0 1px 0 rgba(255,255,255,.22);margin-bottom:.28cqh;transition:transform .05s}
 .ck:hover .ck-c{filter:brightness(1.1)}
-.ck:active .ck-c{transform:translateY(clamp(1px,.25vh,3px));box-shadow:0 0 0 #24292f,inset 0 1px 2px rgba(0,0,0,.35)}
+.ck:active .ck-c{transform:translateY(.22cqh);box-shadow:0 .06cqh 0 #24292f,inset 0 1px 2px rgba(0,0,0,.35)}
 .ck-c sup,.ck-c sub{font-size:.62em;line-height:0}
 .ck-c .box{width:.58em;height:.74em;border:.09em solid currentColor;border-radius:.06em;vertical-align:-.06em}
 .ck-c .fr-n{border-bottom-color:#fff}
 .k2{display:inline-flex;flex-direction:column;gap:.05em;font-size:.56em;margin:0 .1em}
 .kbar{display:inline-block;width:.7em;height:.44em;background:currentColor;border-radius:.05em}
-.ck.tk .ck-c{border-radius:50%;background:linear-gradient(180deg,#46618b,#2d4468);box-shadow:0 clamp(1px,.3vh,4px) 0 #1a2740,inset 0 1px 0 rgba(255,255,255,.25)}
-.ck.nk .ck-c{font-size:clamp(17px,min(3.7vh,4.3vw),44px);font-weight:500;background:linear-gradient(180deg,#3f444c,#292d33 60%,#1f2227);box-shadow:0 clamp(2px,.4vh,5px) 0 #0b0d10,inset 0 1px 0 rgba(255,255,255,.18)}
-.ck.rd .ck-c{font-size:clamp(15px,min(3.1vh,3.7vw),38px);font-weight:500;background:linear-gradient(180deg,#b65a53,#973e3b 60%,#823331);box-shadow:0 clamp(2px,.4vh,5px) 0 #4e1b1a,inset 0 1px 0 rgba(255,255,255,.25)}
-.ck[data-v=exp] .ck-c,.ck[data-v=ans] .ck-c{font-size:clamp(14px,min(2.9vh,3.5vw),36px)}
-.ck[data-v=sd] .ck-c{font-size:clamp(11px,min(2.2vh,2.6vw),26px)}
+.ck.tk .ck-c{border-radius:50%;background:linear-gradient(180deg,#46618b,#2d4468);box-shadow:0 .28cqh 0 #1a2740,inset 0 1px 0 rgba(255,255,255,.25)}
+.ck.nk .ck-c{font-size:max(15px,min(3.6cqh,5.4cqw));font-weight:500;background:linear-gradient(180deg,#3f444c,#292d33 60%,#1f2227);box-shadow:0 .34cqh 0 #0b0d10,inset 0 1px 0 rgba(255,255,255,.18)}
+.ck.rd .ck-c{font-size:max(14px,min(3.1cqh,4.6cqw));font-weight:500;background:linear-gradient(180deg,#b65a53,#973e3b 60%,#823331);box-shadow:0 .34cqh 0 #4e1b1a,inset 0 1px 0 rgba(255,255,255,.25)}
+.ck[data-v=exp] .ck-c,.ck[data-v=ans] .ck-c{font-size:max(13px,min(2.9cqh,4.3cqw))}
+.ck[data-v=sd] .ck-c{font-size:max(10px,min(2.2cqh,3.3cqw))}
 .ck-c .kfr{font-size:.56em;line-height:1;margin:0}
 .ck-c .kfr .box{width:.95em;height:.72em;display:block}
 .ck-c .kfr .fr-n,.ck-c .kfr .fr-d{padding:.09em .08em}
 .ck-l .kfr{font-size:.72em;margin:0 0 0 .1em}
 .ck-l .kfr .box{display:block;width:.8em;height:.5em}
 .ck-l .kfr .fr-n,.ck-l .kfr .fr-d{padding:.03em 0}
+/* BASE-N: tombol yang tidak berlaku diredupkan, label DEC/HEX/… jadi utama */
+.fx.m-BASE .ck[data-v=calc],.fx.m-BASE .ck[data-v=int],.fx.m-BASE .ck[data-v=inv],.fx.m-BASE .ck[data-v=logab],.fx.m-BASE .ck[data-v=frac],.fx.m-BASE .ck[data-v=sqrt],.fx.m-BASE .ck[data-v=rcl],.fx.m-BASE .ck[data-v=eng],.fx.m-BASE .ck[data-v=sd],.fx.m-BASE .ck[data-v=mp],.fx.m-BASE .ck[data-v=dot],.fx.m-BASE .ck[data-v=exp],
+.fx.b10 .ck[data-v=neg],.fx.b10 .ck[data-v=dms],.fx.b10 .ck[data-v=hyp],.fx.b10 .ck[data-v=sin],.fx.b10 .ck[data-v=cos],.fx.b10 .ck[data-v=tan],
+.fx.b8 .ck[data-v=neg],.fx.b8 .ck[data-v=dms],.fx.b8 .ck[data-v=hyp],.fx.b8 .ck[data-v=sin],.fx.b8 .ck[data-v=cos],.fx.b8 .ck[data-v=tan],.fx.b8 .ck[data-v="8"],.fx.b8 .ck[data-v="9"],
+.fx.b2 .ck[data-v=neg],.fx.b2 .ck[data-v=dms],.fx.b2 .ck[data-v=hyp],.fx.b2 .ck[data-v=sin],.fx.b2 .ck[data-v=cos],.fx.b2 .ck[data-v=tan],.fx.b2 .ck[data-v="2"],.fx.b2 .ck[data-v="3"],.fx.b2 .ck[data-v="4"],.fx.b2 .ck[data-v="5"],.fx.b2 .ck[data-v="6"],.fx.b2 .ck[data-v="7"],.fx.b2 .ck[data-v="8"],.fx.b2 .ck[data-v="9"]{opacity:.38}
+.fx.m-BASE .lm{font-weight:800}
 /* D-pad REPLAY */
-.dpad{grid-column:3/5;grid-row:1/3;place-self:center;position:relative;aspect-ratio:1;height:100%;max-width:100%;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#3e5a86,#22385c);box-shadow:0 2px 0 #142238,0 0 0 clamp(2px,.4vh,5px) #aeb1b6}
-.dp{position:absolute;inset:0;border:0;padding:0;background:none;color:#a9bbd6;cursor:pointer;font-size:clamp(8px,1.5vh,18px);touch-action:manipulation}
+.dpad{grid-column:3/5;grid-row:1/3;place-self:center;position:relative;aspect-ratio:1;height:96%;max-width:100%;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#3e5a86,#22385c);box-shadow:0 2px 0 #142238,0 0 0 .35cqh #aeb1b6}
+.dp{position:absolute;inset:0;border:0;padding:0;background:none;color:#b4c4dc;cursor:pointer;font-size:max(8px,min(1.5cqh,2.3cqw));touch-action:manipulation}
 .dp:hover{background:rgba(255,255,255,.09)}
 .dp:active{background:rgba(255,255,255,.2)}
 .dp span{position:absolute;line-height:1}
@@ -149,11 +164,9 @@ h1,h2{letter-spacing:-.01em}
 .dp.dn{clip-path:polygon(0 100%,100% 100%,50% 50%)}.dp.dn span{bottom:5%;left:50%;transform:translateX(-50%)}
 .dp.lf{clip-path:polygon(0 0,0 100%,50% 50%)}.dp.lf span{left:5%;top:50%;transform:translateY(-50%)}
 .dp.rt2{clip-path:polygon(100% 0,100% 100%,50% 50%)}.dp.rt2 span{right:5%;top:50%;transform:translateY(-50%)}
-.dp-c{position:absolute;inset:19%;border-radius:50%;display:grid;place-items:center;pointer-events:none;background:linear-gradient(160deg,#3a5580,#2a4369);box-shadow:0 0 0 1px #1b2c49,inset 0 1px 0 rgba(255,255,255,.2);color:#8ea2c0;font-size:clamp(6px,1.15vh,15px);font-weight:700;letter-spacing:.03em}
-@media (min-height:880px){.fx-sol{display:grid}}
-@media (max-width:1100px) and (min-width:761px){.fx{flex:1 1 62%}.hist{flex:1 1 38%;min-width:260px;padding:10px}}
-@media (max-width:760px){.lcd{height:clamp(96px,19vh,240px)}.fx-sol{height:clamp(24px,3.6vh,40px);margin-left:auto}.fx-sol+.fx-h{margin-left:0}}
-@media (max-height:800px) and (min-width:761px){.fx-top{display:none}.main.v-calc{padding:8px 14px}}
+.dp-c{position:absolute;inset:19%;border-radius:50%;display:grid;place-items:center;pointer-events:none;background:linear-gradient(160deg,#3a5580,#2a4369);box-shadow:0 0 0 1px #1b2c49,inset 0 1px 0 rgba(255,255,255,.2);color:#9fb2ce;font-size:max(6px,min(1.05cqh,1.6cqw));font-weight:700;letter-spacing:.03em}
+.top-h{display:none}
+/* notasi matematika (layar & riwayat) */
 .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .12em;font-size:.82em;line-height:1.1}
 .fr-n{padding:0 .15em .06em;border-bottom:.08em solid currentColor}
 .fr-d{padding:.06em .15em 0}
@@ -162,105 +175,19 @@ h1,h2{letter-spacing:-.01em}
 .rt-in{border-top:.07em solid currentColor;padding:0 .1em}
 .h-e .fr{font-size:.9em}
 /* history */
-.hist{flex:1 1 300px;min-width:280px;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:0;min-width:0}
+.hist{flex:1 1 0;min-width:0;padding:12px 14px;display:flex;flex-direction:column;gap:10px;min-height:0;min-width:0}
 .h-x{display:none}
 .h-back{display:none}
 .h-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
 .h-head h2{margin:0;font-size:16px;white-space:nowrap}
-.h-list{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:6px}
-.h-row{padding:9px 11px;border-radius:12px;background:var(--soft);cursor:pointer;text-align:right}
+.h-list{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));align-content:start;gap:8px}
+.h-tag{font-size:10.5px;font-weight:700;letter-spacing:.02em;color:var(--acc);background:color-mix(in srgb,var(--acc) 14%,transparent);border-radius:5px;padding:1px 5px}
+.h-row{padding:9px 11px;border-radius:12px;background:var(--soft);cursor:pointer;text-align:right;display:flex;flex-direction:column;min-width:0}
 .h-row:hover{outline:1px solid var(--acc)}
 .h-e{color:var(--muted);font-size:13.5px;word-break:break-all}
 .h-r{font-weight:700;font-size:18px;word-break:break-all;font-variant-numeric:tabular-nums}
-.h-meta{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-top:2px}
+.h-meta{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:3px}
 .h-meta .small{white-space:nowrap}
-/* luas & volume */
-.main.v-geo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
-.geo-l{display:flex;flex-direction:column;gap:12px;min-width:0}
-.seg2{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;background:var(--soft);padding:5px;border-radius:14px}
-.seg2 button{border:0;background:none;padding:9px;border-radius:10px;font-weight:700;cursor:pointer;color:var(--muted)}
-.seg2 button.on{background:var(--card);box-shadow:var(--shadow);color:var(--acc)}
-.seg2.sm{padding:3px;border-radius:11px}.seg2.sm button{padding:6px;font-size:13.5px}
-.shape-pick{display:flex;gap:8px}
-.shape-pick select{flex:1;font-size:16px;padding:10px 12px;font-weight:600}
-.shape-pick .btn.on{border-color:var(--acc);color:var(--acc)}
-.cgs[hidden]{display:none}
-.cgs{display:flex;flex-direction:column;gap:8px}
-.cg-t{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-top:4px}
-.shp{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:7px 9px;cursor:pointer;font-weight:600;font-size:13px;text-align:left;line-height:1.2}
-.shp span{font-size:16px;width:20px;text-align:center;flex:none}
-.shp:hover{border-color:var(--acc)}
-.shp.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card));color:var(--acc)}
-.fcard{padding:16px;display:flex;flex-direction:column;gap:12px}
-.f-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.f-head h2{margin:0;font-size:19px}
-.rumus{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--acc);margin-top:4px}
-.dg{width:190px;height:auto;flex:none;color:var(--text)}
-.dg .f1{fill:color-mix(in srgb,var(--acc) 18%,transparent);stroke:var(--acc);stroke-width:1.6;stroke-linejoin:round}
-.dg .f2{fill:color-mix(in srgb,var(--acc) 30%,transparent);stroke:var(--acc);stroke-width:1.6;stroke-linejoin:round}
-.dg .f3{fill:color-mix(in srgb,var(--acc) 8%,transparent);stroke:var(--acc);stroke-width:1.6;stroke-linejoin:round}
-.dg .hole{fill:var(--card);stroke:var(--acc);stroke-width:1.6}
-.dg .ln{fill:none;stroke:var(--acc);stroke-width:1;stroke-dasharray:3 3}
-.dg .dim{fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3}
-.dg text{fill:var(--text);font:600 13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.fopt{display:flex;flex-direction:column;gap:4px}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.fi{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;min-width:0}
-.fi.wide{grid-column:1/-1}
-.fi>span:first-child{flex:1}
-.fi i{font-weight:500;font-style:normal}
-.fi-in{display:flex;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
-.fi-in:focus-within{outline:2px solid color-mix(in srgb,var(--acc) 45%,transparent);border-color:var(--acc)}
-.fi-in input{flex:1;border:0;outline:0!important;border-radius:0;font-size:16px;padding:9px 11px;font-variant-numeric:tabular-nums}
-.fi-in .u{border:0;border-left:1px solid var(--line);border-radius:0;background:var(--soft);font-size:13px;font-weight:700;padding:0 8px;width:62px;flex:none;outline:0}
-.fi-in .u.fixed{display:grid;place-items:center;color:var(--muted)}
-.fi.bad .fi-in{border-color:var(--red)}
-.ferr{color:var(--red);font-weight:500}
-.fi>input{font-size:16px}
-.tip{margin:0}
-.res-in{border-radius:12px;padding:12px 14px;background:color-mix(in srgb,var(--acc) 10%,var(--card));border:1px solid color-mix(in srgb,var(--acc) 35%,transparent);display:flex;flex-direction:column;gap:2px}
-.res-in.empty{background:var(--soft);border-color:var(--line)}
-.res-f{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;word-break:break-word}
-.res-big{font-size:30px;font-weight:800;color:var(--acc);font-variant-numeric:tabular-nums;line-height:1.2}
-.res-big small{font-size:17px}
-.f-act{display:grid;grid-template-columns:1fr 2fr;gap:10px}
-.f-act .btn{padding:11px}
-.geo-r{padding:16px;display:flex;flex-direction:column;gap:12px;position:sticky;top:0;max-height:calc(100dvh - 110px);overflow:auto}
-.doc-h{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
-.doc-name{flex:1 1 100%;display:flex;flex-direction:column;gap:3px;min-width:0}
-.doc-name input{font-size:17px;font-weight:700;padding:9px 12px}
-.doc-act{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;width:100%}
-.tot{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tot>div{background:var(--soft);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column}
-.tot span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.tot b{font-size:22px;font-variant-numeric:tabular-nums}
-.tot small{color:var(--muted)}
-.lines{display:flex;flex-direction:column;gap:6px}
-.ln{display:grid;grid-template-columns:24px minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:12px}
-.ln.editing{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 8%,transparent)}
-.ln-i{width:24px;height:24px;border-radius:7px;background:var(--soft);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--muted)}
-.ln-m{min-width:0;cursor:pointer}
-.ln-t{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ln-d{word-break:break-word}
-.ln-r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-.ln-r b{font-size:16px}
-.ln-r .u{padding:2px 4px;font-size:12px;border-radius:7px}
-.ln-a{display:flex;gap:3px}
-.recap summary{cursor:pointer;font-weight:600;font-size:14px}
-.recap table{width:100%;border-collapse:collapse;margin-top:6px}
-.recap td{padding:5px 4px;border-top:1px solid var(--line)}
-.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-/* saved data */
-.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.dcard{padding:14px;display:flex;flex-direction:column;gap:10px}
-.dcard.on{border-color:var(--acc)}
-.dc-m{cursor:pointer;display:flex;flex-direction:column;gap:3px}
-.dc-n{font-weight:700;font-size:16.5px;word-break:break-word}
-.dc-t{display:flex;gap:16px;margin-top:4px;font-variant-numeric:tabular-nums}
-.dc-a{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.dc-a .btn{padding:5px 4px;font-size:12.5px}
-.draft{padding:12px 14px;display:flex;flex-direction:column;cursor:pointer;margin-bottom:12px;border-style:dashed;border-color:var(--acc)}
 /* dialogs */
 dialog{border:0;padding:0;border-radius:18px;background:var(--card);color:var(--text);width:min(460px,calc(100vw - 24px));box-shadow:0 30px 80px rgba(0,0,0,.3)}
 dialog::backdrop{background:rgba(10,8,5,.45)}
@@ -301,42 +228,27 @@ dialog::backdrop{background:rgba(10,8,5,.45)}
 .gate-err{color:#ffc2c2;min-height:18px;margin-top:10px;font-size:14px}
 .gate-note{color:rgba(255,255,255,.65);font-size:12.5px;margin:6px 0 0;line-height:1.5}
 .gate .check{justify-content:center;color:rgba(255,255,255,.85);font-weight:500;font-size:14px;margin:4px 0 10px}
-/* medium screens: calculator full width, history below */
+/* layar sempit: bodi kalkulator penuh, riwayat jadi panel dari kanan */
 @media (max-width:760px){
-  .fx{flex:1 1 auto}
-  .fx-h{display:inline-flex}
+  .fx{flex:1 1 auto;width:auto}
+  .top-h{display:inline-block}
   .hist{position:fixed;top:0;right:0;bottom:0;width:min(420px,90vw);z-index:60;border-radius:16px 0 0 16px;transform:translateX(105%);transition:transform .2s;box-shadow:0 0 40px rgba(0,0,0,.3);padding-top:calc(14px + env(safe-area-inset-top));padding-bottom:calc(14px + env(safe-area-inset-bottom))}
   .hist.open{transform:none}
   .h-x{display:inline-block}
   .h-back{display:block;position:fixed;inset:0;z-index:55;background:rgba(10,8,5,.45)}
+  .h-list{grid-template-columns:minmax(0,1fr)}
 }
 /* phones + small tablets */
 @media (max-width:820px){
-  .top-in{padding:8px 12px;gap:10px}
-  .tabs{display:none}
-  .top-r{margin-left:auto}
-  .main{padding:12px 12px 24px}
+  .top-in{padding:6px 12px;gap:10px}
   .main.v-calc{padding:6px;gap:8px}
-  .fx{border-radius:18px}
-  .bnav{display:grid;grid-template-columns:repeat(3,1fr);flex:none;z-index:30;background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
-  .bnav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:12px;font-weight:600;color:var(--muted);padding:4px;border-radius:10px;cursor:pointer}
-  .bnav button span{font-size:20px}
-  .bnav button.on{color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent)}
-  .main.v-geo{grid-template-columns:1fr}
-  .geo-r{position:static;max-height:none;overflow:visible}
-  .dg{width:130px}
-  .f-head h2{font-size:17px}
-  .ln{grid-template-columns:22px minmax(0,1fr) auto;row-gap:4px}
-  .ln-a{grid-column:2/-1;justify-content:flex-end}
-  .head-r{min-width:0;flex-basis:100%}
-  .head-r input{max-width:none}
-  .dgrid{grid-template-columns:1fr}
+  .fx{border-radius:16px;padding:7px}
   .sync{display:none}
 }
 /* very short windows (landscape phone): allow scrolling instead of squashing keys */
 @media (max-height:480px){
   .main.v-calc{overflow:auto}
-  .fx{min-height:560px;flex:1 1 auto}
+  .fx{height:560px;flex:none;width:100%}
 }
 </style>
 </head>
@@ -344,8 +256,8 @@ dialog::backdrop{background:rgba(10,8,5,.45)}
 <div id="app"><div style="padding:40px;font-family:sans-serif;color:#888">Memuat Calc…</div></div>
 <dialog id="dlg"></dialog>
 <noscript>Calc memerlukan JavaScript.</noscript>
-<script>// Calc — kalkulator scientific + luas (m²) & volume (m³) konstruksi. Akun (nama pengguna + PIN) sama dengan Planner & Notes; data di Supabase (proyek saku-yuk), sinkron real time.
-const BUILD = '20261104-085357';
+<script>// Calc — kalkulator scientific bergaya fx-115ES. Akun (nama pengguna + PIN) sama dengan Planner & Notes; data di Supabase (proyek saku-yuk), sinkron real time.
+const BUILD = '20261104-091600';
 const SB_URL = 'https://ieyqxmzztoxgpvwexbkj.supabase.co', SB_KEY = 'sb_publishable_o-PQxhkJJ8FG4mHYTUqEBw_uXv9n-eG'; // public key; tables closed, only cl_*/pl_* functions
 const ADMIN = 'admin';
 const HIST_MAX = 150;
@@ -368,16 +280,18 @@ const fullDT = t => { const d = new Date(t); return `${d.getDate()} ${MON[d.getM
 const rid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
 const clone = o => JSON.parse(JSON.stringify(o));
 
-// number display (setting: Indonesia 1.234,56 or international 1,234.56)
-const loc = () => LS.get('dec') === 'en' ? 'en-US' : 'id-ID';
-const N = (x, d = 4) => Number.isFinite(x) ? x.toLocaleString(loc(), { maximumFractionDigits: d }) : '—';
-const R = (x, d = 3) => Number.isFinite(x) ? x.toLocaleString(loc(), { minimumFractionDigits: d, maximumFractionDigits: d }) : '—';
-
 // ---------- expression engine (no eval) ----------
-const FUNCS = ['asinh', 'acosh', 'atanh', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'sin', 'cos', 'tan', 'logab', 'log2', 'log', 'ln', 'exp', 'abs', 'sqrt', 'cbrt', 'root', 'nPr', 'nCr', 'round', 'floor', 'ceil', 'Pol', 'Rec', 'Rnd', '∫', 'd/dx', 'Σ'];
+const FUNCS = ['asinh', 'acosh', 'atanh', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'sin', 'cos', 'tan', 'logab', 'log2', 'log', 'ln', 'exp', 'abs', 'sqrt', 'cbrt', 'root', 'nPr', 'nCr', 'round', 'floor', 'ceil', 'Pol', 'Rec', 'Rnd', '∫', 'd/dx', 'Σ', 'arg', 'Conjg', 'det', 'Trn', 'P', 'Q', 'R'];
 const LAZY = new Set(['∫', 'd/dx', 'Σ']); // argumen pertama dihitung berulang dengan X berbeda
-const CONSTS = ['Ans', 'rand', 'pi', 'e'];
-const ID_RE = new RegExp('^(' + [...FUNCS, 'mod', ...CONSTS].join('|') + ')');
+const CONSTS = ['Ans', 'rand', 'pi', 'MatAns', 'MatA', 'MatB', 'MatC', 'VctAns', 'VctA', 'VctB', 'VctC', 'e', 'i'];
+const STATV = ['Stn', 'Σx²y', 'Σx²', 'Σx³', 'Σx⁴', 'Σxy', 'Σx', 'Σy²', 'Σy', 'σx', 'σy', 'x̄', 'ȳ', 'sx', 'sy', 'minX', 'maxX', 'minY', 'maxY', 'regA', 'regB', 'regC', 'regR'];
+const STATP = ['x̂₁', 'x̂₂', 'x̂', 'ŷ', 't▸'];
+const ID_RE = new RegExp('^(' + [...STATV, ...STATP, ...FUNCS.map(f => /^[PQR]$/.test(f) ? f + '(?=\\()' : f), 'mod', 'Dot', ...CONSTS].join('|') + ')');
+function normCdf(x) { // Φ(x) deret Taylor; di luar ±8 sudah 0 / 1
+  if (x < -8) return 0; if (x > 8) return 1;
+  let s = x, t = x; for (let k = 1; k < 300; k++) { t *= x * x / (2 * k + 1); s += t; if (Math.abs(t) < 1e-17) break; }
+  return .5 + s * Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI);
+}
 const VARS = { A: 'A', B: 'B', C: 'C', D: 'D', E: 'E', 'Ε': 'E', F: 'F', X: 'X', Y: 'Y', M: 'M' }; // Ε (epsilon) = variabel E dari tombol ALPHA, supaya tidak tertukar dengan 2E+3
 function tokenize(s) {
   const out = []; let i = 0;
@@ -387,14 +301,15 @@ function tokenize(s) {
     let m = /^(?:\d+\.?\d*|\.\d+)(?:[Eᴇ][+\-−]?\d+)?/.exec(rest);
     if (m) { out.push({ t: 'num', v: parseFloat(m[0].replace('ᴇ', 'E').replace('−', '-')) }); i += m[0].length; continue; }
     m = ID_RE.exec(rest);
-    if (m) { out.push({ t: FUNCS.includes(m[1]) ? 'fn' : m[1] === 'mod' ? 'op' : 'const', v: m[1] }); i += m[1].length; continue; }
+    if (m) { out.push({ t: STATV.includes(m[1]) ? 'stat' : STATP.includes(m[1]) ? 'sp' : FUNCS.includes(m[1]) ? 'fn' : m[1] === 'mod' || m[1] === 'Dot' ? 'op' : 'const', v: m[1] }); i += m[1].length; continue; }
     if (rest.startsWith('⁻¹') || rest.startsWith('ⁿ√')) { out.push({ t: 'op', v: rest.slice(0, 2) }); i += 2; continue; }
+    if ((m = /^▸(?:r∠θ|a\+bi)/.exec(rest))) { out.push({ t: 'op', v: m[0] }); i += m[0].length; continue; }
     if (VARS[c]) { out.push({ t: 'var', v: VARS[c] }); i++; continue; }
     const map = { '−': '-', '–': '-', '*': '×', '·': '×', 'x': '×', '/': '÷', ':': '÷', 'π': 'pi', '√': '√', '∛': '∛' };
     const v = map[c] || c;
     if (v === 'pi') out.push({ t: 'const', v: 'pi' });
     else if ('√∛'.includes(v)) out.push({ t: 'fn', v: v === '√' ? 'sqrt' : 'cbrt', pre: true });
-    else if ('+-×÷^()!%²³,⁄⌟°ᴰʳᵍ'.includes(v)) out.push({ t: 'op', v });
+    else if ('+-×÷^()!%²³,⁄⌟°ᴰʳᵍ∠'.includes(v)) out.push({ t: 'op', v });
     else throw new Error('Karakter tidak dikenal: ' + c);
     i++;
   }
@@ -439,11 +354,12 @@ function evaluate(src, opt = {}) {
     logab: (a, b) => Math.log(b) / Math.log(a),
     root: (x, y) => { if (x < 0 && Math.abs(y % 2) === 1) return -Math.pow(-x, 1 / y); return Math.pow(x, 1 / y); },
     nPr, nCr, round: (x, d = 0) => Math.round(x * 10 ** d) / 10 ** d, floor: Math.floor, ceil: Math.ceil,
+    P: normCdf, Q: x => normCdf(x) - .5, R: x => 1 - normCdf(x),
     Rnd: x => opt.rnd ? opt.rnd(x) : Number(x.toPrecision(10)),
     Pol: (x, y) => { const r = Math.hypot(x, y), th = outR(Math.atan2(y, x)); if (opt.out) { opt.out.multi = [['r', r], ['θ', th]]; opt.out.vars = { X: r, Y: th }; } return r; },
     Rec: (r, t) => { const x = tidy(r * Math.cos(inR(t))), y = tidy(r * Math.sin(inR(t))); if (opt.out) { opt.out.multi = [['X', x], ['Y', y]]; opt.out.vars = { X: x, Y: y }; } return x; }
   };
-  const starts = t => t && (t.t === 'num' || t.t === 'const' || t.t === 'var' || t.t === 'fn' || (t.t === 'op' && t.v === '('));
+  const starts = t => t && (t.t === 'num' || t.t === 'const' || t.t === 'var' || t.t === 'stat' || t.t === 'fn' || (t.t === 'op' && t.v === '('));
   function expr() {
     let a = term()[0];
     while (isOp('+') || isOp('-')) {
@@ -492,6 +408,7 @@ function evaluate(src, opt = {}) {
       else if (isOp('ᴰ')) { i++; v = outR(v * Math.PI / 180); }
       else if (isOp('ʳ')) { i++; v = outR(v); }
       else if (isOp('ᵍ')) { i++; v = outR(v * Math.PI / 200); }
+      else if (toks[i]?.t === 'sp') { const f = toks[i++].v, g = opt.stat?.fns?.[f]; if (!g) throw new Error('Data statistik belum cukup'); v = g(v); }
       else if (toks[i]?.t === 'fn' && (toks[i].v === 'nPr' || toks[i].v === 'nCr') && !isOp('(', toks[i + 1])) { const f = toks[i++].v; v = F[f](v, primary()); } // 5nPr2
       else return v;
     }
@@ -520,6 +437,8 @@ function evaluate(src, opt = {}) {
     if (!t) throw new Error('Ekspresi belum lengkap');
     if (t.t === 'num') return t.v;
     if (t.t === 'var') return vars[t.v] || 0;
+    if (t.t === 'stat') { const x = opt.stat?.[t.v]; if (x == null || Number.isNaN(x)) throw new Error('Data statistik belum cukup'); return x; }
+    if (t.t === 'const' && /^(i|Mat|Vct)/.test(t.v)) throw new Error(`${t.v} hanya di mode ${t.v === 'i' ? 'CMPLX' : t.v[0] === 'M' ? 'MATRIX' : 'VECTOR'}`);
     if (t.t === 'const') return t.v === 'pi' ? Math.PI : t.v === 'e' ? Math.E : t.v === 'Ans' ? ans : Math.random();
     if (t.t === 'op' && t.v === '(') { const v = expr(); close(); return v; }
     if (t.t === 'fn') {
@@ -552,7 +471,7 @@ function toFrac(x) {
 // "104⁄3" → "34⌟2⁄3" (pecahan campuran)
 function toMixed(f) { const m = /^(−?)(\d+)⁄(\d+)$/.exec(f || ''); if (!m || +m[2] < +m[3]) return f; return `${m[1]}${Math.floor(m[2] / m[3])}⌟${m[2] % m[3]}⁄${m[3]}`; }
 // expression → HTML "natural display": stacked fractions, powers, roots, ∫ Σ d/dx log▫(▯). ‸ marks the caret.
-const NAT = { asin: 'sin⁻¹', acos: 'cos⁻¹', atan: 'tan⁻¹', asinh: 'sinh⁻¹', acosh: 'cosh⁻¹', atanh: 'tanh⁻¹', abs: 'Abs', pi: 'π', rand: 'Ran#' };
+const NAT = { Stn: 'n', regA: 'A', regB: 'B', regC: 'C', regR: 'r', 't▸': '▸t', asin: 'sin⁻¹', acos: 'cos⁻¹', atan: 'tan⁻¹', asinh: 'sinh⁻¹', acosh: 'cosh⁻¹', atanh: 'tanh⁻¹', abs: 'Abs', pi: 'π', rand: 'Ran#' };
 function pretty(src) {
   const s = String(src ?? ''); let i = 0;
   const BOX = '<i class="box"></i>';
@@ -577,6 +496,7 @@ function pretty(src) {
         i += m[0].length; continue;
       }
       m = ID_RE.exec(rest);
+      if (m && m[1] === 'Dot') { it.push({ h: '·', op: 1 }); i += 3; continue; }
       if (m && m[1] !== 'mod') {
         const nm = m[1]; i += nm.length;
         if (s[i] === '(' && (LAZY.has(nm) || nm === 'logab')) {
@@ -617,140 +537,14 @@ const CUR = '<i class="cur"></i>';
 const prettyC = (s, pos) => pretty(s.slice(0, pos) + '‸' + s.slice(pos)).replaceAll('‸', CUR);
 const fmtCalc = x => { const s = String(Number(x.toPrecision(15))); return s.replace('e', 'E'); };
 
-// dimension inputs: accept "0,4", "40", "2*1,5", "3+0.25"
-function numIn(raw) {
-  const s = String(raw ?? '').trim(); if (!s) return null;
-  const v = evaluate(s.replace(/,/g, '.'), { deg: true });
-  return v;
-}
-
-// ---------- shapes (luas m² & volume m³) ----------
-const UNITS = { cm: 0.01, m: 1, mm: 0.001 }, AUNITS = { 'cm²': 1e-4, 'm²': 1 }, DEF_U = 'cm', DEF_AU = 'cm²';
-const L = (k, l, o = {}) => ({ k, l, t: 'len', ...o }), CNT = (k, l, o = {}) => ({ k, l, t: 'n', ...o }), AR = (k, l, o = {}) => ({ k, l, t: 'area', ...o }), DG = (k, l, o = {}) => ({ k, l, t: 'deg', ...o });
-const PI4 = Math.PI / 4;
-const SHAPES = [
-  // volume — struktur beton
-  { id: 'kolom', cat: 'vol', g: 'Struktur beton', n: 'Kolom', ic: '🏛', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang penampang'), L('l', 'l — lebar penampang'), L('t', 't — tinggi kolom')], rumus: 'V = p × l × t', c: v => [v.p * v.l * v.t, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'balok', cat: 'vol', g: 'Struktur beton', n: 'Balok', ic: '▬', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang balok'), L('l', 'l — lebar balok'), L('t', 't — tinggi balok')], rumus: 'V = p × l × t', c: v => [v.p * v.l * v.t, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'sloof', cat: 'vol', g: 'Struktur beton', n: 'Sloof', ic: '═', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang sloof'), L('l', 'l — lebar'), L('t', 't — tinggi')], rumus: 'V = p × l × t', c: v => [v.p * v.l * v.t, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'ringbalk', cat: 'vol', g: 'Struktur beton', n: 'Ring balok', ic: '▭', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('t', 't — tinggi')], rumus: 'V = p × l × t', c: v => [v.p * v.l * v.t, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'plat', cat: 'vol', g: 'Struktur beton', n: 'Plat lantai / dak', ic: '⬜', svg: ['box', 'p', 'l', 'tb'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('tb', 'tb — tebal plat')], rumus: 'V = p × l × tb', c: v => [v.p * v.l * v.tb, `${N(v.p)} × ${N(v.l)} × ${N(v.tb)}`] },
-  { id: 'footplat', cat: 'vol', g: 'Struktur beton', n: 'Pondasi footplat', ic: '⊥', svg: ['foot'], f: [L('p', 'p — panjang plat'), L('l', 'l — lebar plat'), L('t', 't — tebal plat'), L('pk', 'pk — panjang pedestal', { opt: 1 }), L('lk', 'lk — lebar pedestal', { opt: 1 }), L('tk', 'tk — tinggi pedestal', { opt: 1 })], rumus: 'V = p × l × t + pk × lk × tk', c: v => { const a = v.p * v.l * v.t, b = (v.pk || 0) * (v.lk || 0) * (v.tk || 0); return [a + b, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}` + (b ? ` + ${N(v.pk)} × ${N(v.lk)} × ${N(v.tk)}` : '')]; } },
-  { id: 'borepile', cat: 'vol', g: 'Struktur beton', n: 'Bore pile / tiang bulat', ic: '🛢', svg: ['cyl', 'd', 't'], f: [L('d', 'd — diameter'), L('t', 't — panjang / kedalaman')], rumus: 'V = ¼ π × d² × t', c: v => [PI4 * v.d * v.d * v.t, `¼π × ${N(v.d)}² × ${N(v.t)}`] },
-  { id: 'uditch', cat: 'vol', g: 'Saluran', n: 'U-Ditch', ic: '⊔', svg: ['ud'], f: [L('p', 'p — panjang saluran'), L('l', 'l — lebar'), L('t', 't — tinggi'), L('tb', 'tb — tebal dinding & lantai')],
-    opts: [{ k: 'mode', l: 'Ukuran l & t diukur dari', o: [['luar', 'Luar (beton)'], ['dalam', 'Dalam (saluran)']] }], rumus: 'V = p × (l × t − (l − 2tb) × (t − tb))',
-    c: (v, o) => { const Lw = o.mode === 'dalam' ? v.l + 2 * v.tb : v.l, T = o.mode === 'dalam' ? v.t + v.tb : v.t, li = Lw - 2 * v.tb, ti = T - v.tb;
-      if (li <= 0 || ti <= 0) throw new Error('Tebal terlalu besar untuk lebar/tinggi ini');
-      return [v.p * (Lw * T - li * ti), `${N(v.p)} × (${N(Lw)} × ${N(T)} − ${N(li)} × ${N(ti)})`]; } },
-  { id: 'cover', cat: 'vol', g: 'Saluran', n: 'Cover / tutup U-Ditch', ic: '▔', svg: ['box', 'p', 'l', 'tb'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('tb', 'tb — tebal')], rumus: 'V = p × l × tb', c: v => [v.p * v.l * v.tb, `${N(v.p)} × ${N(v.l)} × ${N(v.tb)}`] },
-  { id: 'boxc', cat: 'vol', g: 'Saluran', n: 'Box culvert', ic: '▣', svg: ['bc'], f: [L('p', 'p — panjang'), L('l', 'l — lebar luar'), L('t', 't — tinggi luar'), L('tb', 'tb — tebal dinding')], rumus: 'V = p × (l × t − (l − 2tb) × (t − 2tb))',
-    c: v => { const li = v.l - 2 * v.tb, ti = v.t - 2 * v.tb; if (li <= 0 || ti <= 0) throw new Error('Tebal terlalu besar untuk ukuran ini'); return [v.p * (v.l * v.t - li * ti), `${N(v.p)} × (${N(v.l)} × ${N(v.t)} − ${N(li)} × ${N(ti)})`]; } },
-  { id: 'buis', cat: 'vol', g: 'Saluran', n: 'Buis beton / pipa', ic: '◎', svg: ['pipe'], f: [L('D', 'D — diameter luar'), L('tb', 'tb — tebal dinding'), L('p', 'p — panjang')], rumus: 'V = ¼ π × (D² − (D − 2tb)²) × p',
-    c: v => { const di = v.D - 2 * v.tb; if (di < 0) throw new Error('Tebal terlalu besar untuk diameter ini'); return [PI4 * (v.D * v.D - di * di) * v.p, `¼π × (${N(v.D)}² − ${N(di)}²) × ${N(v.p)}`]; } },
-  { id: 'saltrap', cat: 'vol', g: 'Saluran', n: 'Saluran trapesium (pasangan)', ic: '⏢', svg: ['trapch'], f: [L('p', 'p — panjang saluran'), L('b', 'b — lebar dasar dalam'), L('h', 'h — tinggi saluran'), L('m', 'm — lebar miring tiap sisi (horizontal)'), L('tb', 'tb — tebal pasangan')],
-    rumus: 'V = p × tb × (b + 2·√(h² + m²))', c: v => { const s = Math.sqrt(v.h * v.h + v.m * v.m); return [v.p * v.tb * (v.b + 2 * s), `${N(v.p)} × ${N(v.tb)} × (${N(v.b)} + 2 × ${N(s)})`]; } },
-  { id: 'tangga', cat: 'vol', g: 'Struktur beton', n: 'Tangga beton', ic: '🪜', svg: ['stair'], f: [L('b', 'b — lebar tangga'), L('o', 'o — optrede (tinggi anak tangga)'), L('a', 'a — antrede (lebar injakan)'), CNT('n', 'n — jumlah anak tangga'), L('tb', 'tb — tebal plat tangga')],
-    rumus: 'V = b × n × (o × a / 2 + tb × √(o² + a²))', c: v => { const s = Math.sqrt(v.o * v.o + v.a * v.a); return [v.b * v.n * (v.o * v.a / 2 + v.tb * s), `${N(v.b)} × ${N(v.n)} × (${N(v.o)} × ${N(v.a)} / 2 + ${N(v.tb)} × ${N(s)})`]; } },
-  { id: 'dinding', cat: 'vol', g: 'Struktur beton', n: 'Dinding beton / pasangan', ic: '🧱', svg: ['wall'], f: [L('p', 'p — panjang dinding'), L('t', 't — tinggi dinding'), L('tb', 'tb — tebal dinding'), AR('bk', 'Bukaan pintu/jendela (luas)', { opt: 1 })],
-    rumus: 'V = (p × t − bukaan) × tb', c: v => [(v.p * v.t - (v.bk || 0)) * v.tb, `(${N(v.p)} × ${N(v.t)}${v.bk ? ' − ' + N(v.bk) : ''}) × ${N(v.tb)}`] },
-  { id: 'pagarpanel', cat: 'vol', g: 'Pagar', n: 'Pagar panel beton', ic: '🚧', svg: ['fence'],
-    f: [L('P', 'P — panjang pagar total'), L('t', 't — tinggi panel pagar'), L('jk', 'jk — jarak antar kolom (as ke as)'), L('tb', 'tb — tebal panel'), L('bk', 'bk — lebar kolom'), L('hk', 'hk — tebal kolom'),
-      L('tk', 'tk — tinggi kolom total (kosong = t)', { opt: 1 }), L('hp', 'hp — tinggi 1 lembar panel (untuk jumlah lembar)', { opt: 1 }),
-      L('pp', 'pp — panjang pondasi per kolom', { opt: 1 }), L('lp', 'lp — lebar pondasi per kolom', { opt: 1 }), L('tp', 'tp — tinggi pondasi per kolom', { opt: 1 })],
-    rumus: 'V = nk × bk × hk × tk + (P − nk × bk) × t × tb + nk × pp × lp × tp,  nk = ⌈P / jk⌉ + 1', c: v => pagar(v) },
-  // volume — tanah & pondasi
-  { id: 'galian', cat: 'vol', g: 'Tanah & pondasi', n: 'Galian / urugan trapesium', ic: '⛏', svg: ['trap', 'la', 'lb', 't'], f: [L('p', 'p — panjang galian'), L('la', 'la — lebar atas'), L('lb', 'lb — lebar bawah'), L('t', 't — kedalaman')], rumus: 'V = (la + lb) / 2 × t × p', c: v => [(v.la + v.lb) / 2 * v.t * v.p, `(${N(v.la)} + ${N(v.lb)}) / 2 × ${N(v.t)} × ${N(v.p)}`] },
-  { id: 'galiank', cat: 'vol', g: 'Tanah & pondasi', n: 'Galian / urugan kotak', ic: '⛏', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('t', 't — kedalaman / tebal')], rumus: 'V = p × l × t', c: v => [v.p * v.l * v.t, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'batukali', cat: 'vol', g: 'Tanah & pondasi', n: 'Pondasi batu kali', ic: '⏢', svg: ['trap', 'a', 'b', 't'], f: [L('p', 'p — panjang pondasi'), L('a', 'a — lebar atas'), L('b', 'b — lebar bawah'), L('t', 't — tinggi')], rumus: 'V = (a + b) / 2 × t × p', c: v => [(v.a + v.b) / 2 * v.t * v.p, `(${N(v.a)} + ${N(v.b)}) / 2 × ${N(v.t)} × ${N(v.p)}`] },
-  { id: 'lantaikerja', cat: 'vol', g: 'Tanah & pondasi', n: 'Lantai kerja / pasir urug', ic: '▁', svg: ['box', 'p', 'l', 'tb'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('tb', 'tb — tebal')], rumus: 'V = p × l × tb', c: v => [v.p * v.l * v.tb, `${N(v.p)} × ${N(v.l)} × ${N(v.tb)}`] },
-  // volume — bangun ruang lainnya
-  { id: 'kotak', cat: 'vol', g: 'Bangun ruang', n: 'Balok / kotak', ic: '📦', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('t', 't — tinggi')], rumus: 'V = p × l × t', c: v => [v.p * v.l * v.t, `${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'kubus', cat: 'vol', g: 'Bangun ruang', n: 'Kubus', ic: '🧊', svg: ['box', 's', 's', 's'], f: [L('s', 's — sisi')], rumus: 'V = s³', c: v => [v.s ** 3, `${N(v.s)}³`] },
-  { id: 'tabung', cat: 'vol', g: 'Bangun ruang', n: 'Tabung', ic: '🥫', svg: ['cyl', 'd', 't'], f: [L('d', 'd — diameter'), L('t', 't — tinggi')], rumus: 'V = ¼ π × d² × t', c: v => [PI4 * v.d * v.d * v.t, `¼π × ${N(v.d)}² × ${N(v.t)}`] },
-  { id: 'kerucut', cat: 'vol', g: 'Bangun ruang', n: 'Kerucut', ic: '🔺', svg: ['cone'], f: [L('d', 'd — diameter alas'), L('t', 't — tinggi')], rumus: 'V = ⅓ × ¼ π × d² × t', c: v => [PI4 * v.d * v.d * v.t / 3, `⅓ × ¼π × ${N(v.d)}² × ${N(v.t)}`] },
-  { id: 'terpancung', cat: 'vol', g: 'Bangun ruang', n: 'Kerucut terpancung', ic: '⏚', svg: ['frustum'], f: [L('D1', 'D1 — diameter bawah'), L('D2', 'D2 — diameter atas'), L('t', 't — tinggi')], rumus: 'V = π t / 12 × (D1² + D1·D2 + D2²)', c: v => [Math.PI * v.t / 12 * (v.D1 ** 2 + v.D1 * v.D2 + v.D2 ** 2), `π × ${N(v.t)} / 12 × (${N(v.D1)}² + ${N(v.D1)}×${N(v.D2)} + ${N(v.D2)}²)`] },
-  { id: 'bola', cat: 'vol', g: 'Bangun ruang', n: 'Bola', ic: '⚪', svg: ['sphere'], f: [L('d', 'd — diameter')], rumus: 'V = π / 6 × d³', c: v => [Math.PI / 6 * v.d ** 3, `π / 6 × ${N(v.d)}³`] },
-  { id: 'limas', cat: 'vol', g: 'Bangun ruang', n: 'Limas segi empat', ic: '◭', svg: ['pyr'], f: [L('p', 'p — panjang alas'), L('l', 'l — lebar alas'), L('t', 't — tinggi')], rumus: 'V = ⅓ × p × l × t', c: v => [v.p * v.l * v.t / 3, `⅓ × ${N(v.p)} × ${N(v.l)} × ${N(v.t)}`] },
-  { id: 'prisma', cat: 'vol', g: 'Bangun ruang', n: 'Prisma segitiga', ic: '⛺', svg: ['prism'], f: [L('a', 'a — alas segitiga'), L('ts', 'ts — tinggi segitiga'), L('p', 'p — panjang prisma')], rumus: 'V = ½ × a × ts × p', c: v => [v.a * v.ts * v.p / 2, `½ × ${N(v.a)} × ${N(v.ts)} × ${N(v.p)}`] },
-  // luas
-  { id: 'persegipjg', cat: 'area', g: 'Bidang datar', n: 'Persegi panjang', ic: '▭', svg: ['rect', 'p', 'l'], f: [L('p', 'p — panjang'), L('l', 'l — lebar')], rumus: 'A = p × l', c: v => [v.p * v.l, `${N(v.p)} × ${N(v.l)}`] },
-  { id: 'persegi', cat: 'area', g: 'Bidang datar', n: 'Persegi', ic: '◻', svg: ['rect', 's', 's'], f: [L('s', 's — sisi')], rumus: 'A = s²', c: v => [v.s * v.s, `${N(v.s)}²`] },
-  { id: 'segitiga', cat: 'area', g: 'Bidang datar', n: 'Segitiga', ic: '△', svg: ['tri'], f: [L('a', 'a — alas'), L('t', 't — tinggi')], rumus: 'A = ½ × a × t', c: v => [v.a * v.t / 2, `½ × ${N(v.a)} × ${N(v.t)}`] },
-  { id: 'trapesium', cat: 'area', g: 'Bidang datar', n: 'Trapesium', ic: '⏢', svg: ['trap', 'a', 'b', 't'], f: [L('a', 'a — sisi atas'), L('b', 'b — sisi bawah'), L('t', 't — tinggi')], rumus: 'A = (a + b) / 2 × t', c: v => [(v.a + v.b) / 2 * v.t, `(${N(v.a)} + ${N(v.b)}) / 2 × ${N(v.t)}`] },
-  { id: 'lingkaran', cat: 'area', g: 'Bidang datar', n: 'Lingkaran', ic: '○', svg: ['circ'], f: [L('d', 'd — diameter')], rumus: 'A = ¼ π × d²', c: v => [PI4 * v.d * v.d, `¼π × ${N(v.d)}²`] },
-  { id: 'jajar', cat: 'area', g: 'Bidang datar', n: 'Jajar genjang', ic: '▱', svg: ['para'], f: [L('a', 'a — alas'), L('t', 't — tinggi')], rumus: 'A = a × t', c: v => [v.a * v.t, `${N(v.a)} × ${N(v.t)}`] },
-  { id: 'ketupat', cat: 'area', g: 'Bidang datar', n: 'Belah ketupat / layang-layang', ic: '◇', svg: ['kite'], f: [L('d1', 'd1 — diagonal 1'), L('d2', 'd2 — diagonal 2')], rumus: 'A = ½ × d1 × d2', c: v => [v.d1 * v.d2 / 2, `½ × ${N(v.d1)} × ${N(v.d2)}`] },
-  { id: 'dindingluas', cat: 'area', g: 'Konstruksi', n: 'Dinding / plester / cat', ic: '🧱', svg: ['wall'], f: [L('p', 'p — panjang dinding'), L('t', 't — tinggi dinding'), AR('bk', 'Bukaan pintu/jendela (luas)', { opt: 1 }), CNT('s', 'Jumlah sisi (1 atau 2)', { opt: 1 })],
-    rumus: 'A = (p × t − bukaan) × sisi', c: v => { const s = v.s || 1; return [(v.p * v.t - (v.bk || 0)) * s, `(${N(v.p)} × ${N(v.t)}${v.bk ? ' − ' + N(v.bk) : ''})${s !== 1 ? ' × ' + N(s) : ''}`]; } },
-  { id: 'pagarpanelA', cat: 'area', g: 'Konstruksi', n: 'Pagar panel (luas bidang)', ic: '🚧', svg: ['fence'],
-    f: [L('P', 'P — panjang pagar total'), L('t', 't — tinggi pagar'), AR('bk', 'Bukaan pintu gerbang (luas)', { opt: 1 }), L('jk', 'jk — jarak antar kolom (untuk jumlah kolom)', { opt: 1 }), L('hp', 'hp — tinggi 1 lembar panel (untuk jumlah lembar)', { opt: 1 })],
-    rumus: 'A = P × t − bukaan', c: v => { const a = v.P * v.t - (v.bk || 0), cnt = pagarCount(v); return [a, `${N(v.P)} × ${N(v.t)}${v.bk ? ' − ' + N(v.bk) : ''}${cnt}`]; } },
-  { id: 'lantai', cat: 'area', g: 'Konstruksi', n: 'Lantai / keramik', ic: '🔲', svg: ['rect', 'p', 'l'], f: [L('p', 'p — panjang ruang'), L('l', 'l — lebar ruang')], rumus: 'A = p × l', c: v => [v.p * v.l, `${N(v.p)} × ${N(v.l)}`] },
-  { id: 'bkkolom', cat: 'area', g: 'Konstruksi', n: 'Bekisting kolom', ic: '🏛', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang penampang'), L('l', 'l — lebar penampang'), L('t', 't — tinggi kolom')], rumus: 'A = 2 × (p + l) × t', c: v => [2 * (v.p + v.l) * v.t, `2 × (${N(v.p)} + ${N(v.l)}) × ${N(v.t)}`] },
-  { id: 'bkbalok', cat: 'area', g: 'Konstruksi', n: 'Bekisting balok', ic: '▬', svg: ['box', 'p', 'l', 't'], f: [L('p', 'p — panjang balok'), L('l', 'l — lebar (alas)'), L('t', 't — tinggi sisi')], rumus: 'A = (l + 2t) × p', c: v => [(v.l + 2 * v.t) * v.p, `(${N(v.l)} + 2 × ${N(v.t)}) × ${N(v.p)}`] },
-  { id: 'bkplat', cat: 'area', g: 'Konstruksi', n: 'Bekisting plat', ic: '⬜', svg: ['rect', 'p', 'l'], f: [L('p', 'p — panjang'), L('l', 'l — lebar'), L('tb', 'tb — tebal plat (untuk sisi tepi)', { opt: 1 })], rumus: 'A = p × l + 2 × (p + l) × tb', c: v => { const e = 2 * (v.p + v.l) * (v.tb || 0); return [v.p * v.l + e, `${N(v.p)} × ${N(v.l)}` + (e ? ` + 2 × (${N(v.p)} + ${N(v.l)}) × ${N(v.tb)}` : '')]; } },
-  { id: 'atap', cat: 'area', g: 'Konstruksi', n: 'Atap miring', ic: '⌂', svg: ['roof'], f: [L('p', 'p — panjang atap (horizontal)'), L('l', 'l — lebar bidang (horizontal)'), DG('a', 'Sudut kemiringan (°)')], rumus: 'A = p × l / cos(sudut)',
-    c: v => { if (v.a >= 90) throw new Error('Sudut harus < 90°'); const c = Math.cos(v.a * Math.PI / 180); return [v.p * v.l / c, `${N(v.p)} × ${N(v.l)} / cos ${N(v.a)}°`]; } },
-  { id: 'selimut', cat: 'area', g: 'Konstruksi', n: 'Selimut tabung', ic: '🥫', svg: ['cyl', 'd', 't'], f: [L('d', 'd — diameter'), L('t', 't — tinggi')], rumus: 'A = π × d × t', c: v => [Math.PI * v.d * v.t, `π × ${N(v.d)} × ${N(v.t)}`] }
-];
-const chipsOpen = () => LS.get('chips') === '1';
-// pagar panel: jumlah kolom / segmen / lembar panel
-function pagarNum(v) {
-  if (!(v.jk > 0)) return null;
-  const seg = Math.max(1, Math.ceil(v.P / v.jk - 1e-9)), nk = seg + 1, lembar = v.hp > 0 ? seg * Math.ceil(v.t / v.hp - 1e-9) : 0;
-  return { seg, nk, lembar };
-}
-const pagarCount = v => { const c = pagarNum(v); return c ? `  (${c.nk} kolom, ${c.seg} bentang${c.lembar ? ', ' + c.lembar + ' lembar panel' : ''})` : ''; };
-function pagar(v) {
-  const c = pagarNum(v); if (!c) throw new Error('Jarak antar kolom harus > 0');
-  const tk = v.tk || v.t, net = v.P - c.nk * v.bk;
-  if (net < 0) throw new Error('Kolom terlalu lebar untuk panjang pagar ini');
-  const vk = c.nk * v.bk * v.hk * tk, vp = net * v.t * v.tb, vf = c.nk * (v.pp || 0) * (v.lp || 0) * (v.tp || 0);
-  return [vk + vp + vf, `kolom ${c.nk} × ${N(v.bk)} × ${N(v.hk)} × ${N(tk)} = ${R(vk)} + panel (${N(v.P)} − ${c.nk} × ${N(v.bk)}) × ${N(v.t)} × ${N(v.tb)} = ${R(vp)}${vf ? ` + pondasi ${c.nk} × ${N(v.pp)} × ${N(v.lp)} × ${N(v.tp)} = ${R(vf)}` : ''}${pagarCount(v)}`];
-}
-const SMAP = new Map(SHAPES.map(s => [s.id, s]));
-const UNIT_TXT = { vol: 'm³', area: 'm²' };
-
-// ---------- diagrams ----------
-function svgFor(sh) {
-  const [k, a, b, c] = sh.svg || [];
-  const T = (x, y, t, anc = 'middle') => `<text x="${x}" y="${y}" text-anchor="${anc}">${esc(t)}</text>`;
-  const W = inner => `<svg viewBox="0 0 220 150" class="dg" role="img" aria-label="Gambar ${esc(sh.n)}">${inner}</svg>`;
-  switch (k) {
-    case 'box': return W(`<path class="f1" d="M40 55h100v70H40z"/><path class="f2" d="M40 55l30-25h100l-30 25z"/><path class="f3" d="M140 55l30-25v70l-30 25z"/>${T(90, 142, a)}${T(166, 118, b, 'start')}${T(30, 95, c, 'end')}`);
-    case 'foot': return W(`<path class="f1" d="M30 100h120v30H30z"/><path class="f2" d="M30 100l30-20h120l-30 20z"/><path class="f3" d="M150 100l30-20v30l-30 20z"/><path class="f1" d="M85 40h30v50H85z"/><path class="f2" d="M85 40l12-8h30l-12 8z"/><path class="f3" d="M115 40l12-8v50l-12 8z"/>${T(90, 145, 'p')}${T(170, 128, 'l', 'start')}${T(24, 120, 't', 'end')}${T(78, 70, 'tk', 'end')}${T(100, 28, 'pk · lk')}`);
-    case 'cyl': return W(`<path class="f1" d="M70 35v85a40 12 0 0 0 80 0V35"/><ellipse class="f2" cx="110" cy="35" rx="40" ry="12"/><path class="ln" d="M70 35h80"/>${T(110, 28, a)}${T(160, 85, b, 'start')}`);
-    case 'cone': return W(`<path class="f1" d="M110 20L65 118a45 12 0 0 0 90 0z"/><path class="ln" d="M110 20v98M65 118h90"/>${T(110, 145, 'd')}${T(116, 75, 't', 'start')}`);
-    case 'frustum': return W(`<path class="f1" d="M85 35L60 115a50 13 0 0 0 100 0L135 35"/><ellipse class="f2" cx="110" cy="35" rx="25" ry="7"/>${T(110, 25, 'D2')}${T(110, 145, 'D1')}${T(158, 80, 't', 'start')}`);
-    case 'sphere': return W(`<circle class="f1" cx="110" cy="75" r="55"/><ellipse class="ln" cx="110" cy="75" rx="55" ry="15"/><path class="ln" d="M55 75h110"/>${T(110, 68, 'd')}`);
-    case 'pyr': return W(`<path class="f1" d="M50 115l50 15 70-30-60-75z"/><path class="ln" d="M50 115l60-90M100 130l10-105"/>${T(70, 140, 'p')}${T(146, 128, 'l', 'start')}${T(120, 70, 't', 'start')}`);
-    case 'prism': return W(`<path class="f1" d="M40 120h80l-40-70z"/><path class="f3" d="M120 120l60-35-40-70-60 35"/><path class="ln" d="M80 50v70"/>${T(80, 140, 'a')}${T(86, 95, 'ts', 'start')}${T(160, 112, 'p', 'start')}`);
-    case 'ud': return W(`<path class="f1" d="M40 20v105h140V20h-18v87H58V20z"/><path class="dim" d="M40 138h140M28 20v105M58 30h-18M40 116h0"/>${T(110, 150, 'l')}${T(22, 76, 't', 'end')}${T(49, 15, 'tb')}${T(110, 70, 'saluran')}${T(110, 86, '× p (panjang)')}`);
-    case 'bc': return W(`<path class="f1" fill-rule="evenodd" d="M40 20h140v105H40zM58 38h104v69H58z"/><path class="dim" d="M40 138h140M28 20v105"/>${T(110, 150, 'l')}${T(22, 76, 't', 'end')}${T(49, 15, 'tb')}${T(110, 76, '× p (panjang)')}`);
-    case 'pipe': return W(`<circle class="f1" cx="100" cy="75" r="58"/><circle class="hole" cx="100" cy="75" r="44"/><path class="dim" d="M42 75h116"/>${T(100, 68, 'D')}${T(150, 30, 'tb', 'start')}${T(170, 132, '× p', 'start')}`);
-    case 'trap': return W(`<path class="f1" d="M30 30h160l-40 90H70z"/>${T(110, 22, a)}${T(110, 140, b)}${T(184, 80, c, 'start')}`);
-    case 'trapch': return W(`<path class="f1" d="M20 30h20l35 75h70l35-75h20l-42 92H62z"/>${T(110, 136, 'b')}${T(30, 70, 'h', 'end')}${T(58, 24, 'm')}${T(196, 66, 'tb', 'start')}${T(110, 60, '× p (panjang)')}`);
-    case 'stair': return W(`<path class="f1" d="M30 125h30v-20h25v-20h25v-20h25v-20h25v-20h25v20l-130 100"/>${T(72, 120, 'a')}${T(55, 100, 'o', 'end')}${T(130, 120, 'tb', 'start')}${T(170, 140, '× b (lebar)')}`);
-    case 'fence': return W(`<path class="f3" d="M30 40h160v70H30z"/><path class="ln" d="M30 57.5h160M30 75h160M30 92.5h160"/>${[30, 83, 136, 183].map(x => `<path class="f1" d="M${x - 4} 30h11v90h-11z"/>`).join('')}<path class="dim" d="M30 132h160M200 40v70M31 22h53"/>${T(110, 146, 'P')}${T(205, 79, 't', 'start')}${T(57, 16, 'jk')}${T(22, 146, 'kolom', 'start')}`);
-    case 'wall': return W(`<path class="f1" fill-rule="evenodd" d="M30 25h160v100H30zM55 60h30v65H55zM120 55h45v35h-45z"/>${T(110, 142, 'p')}${T(22, 78, 't', 'end')}${T(142, 76, 'bukaan')}`);
-    case 'rect': return W(`<path class="f1" d="M45 30h130v90H45z"/>${T(110, 140, a)}${T(36, 79, b, 'end')}`);
-    case 'tri': return W(`<path class="f1" d="M30 120h160L90 25z"/><path class="dim" d="M90 25v95"/>${T(110, 140, 'a')}${T(96, 85, 't', 'start')}`);
-    case 'circ': return W(`<circle class="f1" cx="110" cy="75" r="55"/><path class="dim" d="M55 75h110"/>${T(110, 68, 'd')}`);
-    case 'para': return W(`<path class="f1" d="M60 30h140l-40 90H20z"/><path class="dim" d="M60 30v90"/>${T(90, 140, 'a')}${T(66, 80, 't', 'start')}`);
-    case 'kite': return W(`<path class="f1" d="M110 15l70 60-70 60-70-60z"/><path class="dim" d="M40 75h140M110 15v120"/>${T(150, 70, 'd1')}${T(116, 40, 'd2', 'start')}`);
-    case 'roof': return W(`<path class="f1" d="M20 110l90-70 90 70z"/><path class="dim" d="M20 120h180M110 40v70"/>${T(110, 138, 'l (horizontal)')}${T(48, 104, 'sudut', 'start')}`);
-  }
-  return '';
-}
-
 // ---------- state ----------
+const loadJ = (k, d) => { try { return JSON.parse(LS.get(k) || 'null') || d; } catch { return d; } };
+const MODES_INIT = () => { const m = LS.get('mode'); return ['COMP', 'CMPLX', 'STAT', 'BASE', 'EQN', 'MATRIX', 'TABLE', 'VECTOR'].includes(m) ? m : 'COMP'; };
 const S = {
   user: null, admin: false, pass: '', users: [], pin: '', hasPin: false, gate: null,
   items: new Map(), seq: 0, queue: new Set(),
-  view: LS.get('view') || 'calc',
-  expr: '', ans: Number(LS.get('ans') || 0) || 0, justEval: false, ang: { rad: 'R', gra: 'G' }[LS.get('deg')] || 'D', io: LS.get('io') || 'math', shift: false, alpha: false, pend: null, menu: null, prompt: null, off: false, ovr: false, mixed: false, engE: null, mem: Number(LS.get('mem') || 0) || 0, vars: (() => { try { return JSON.parse(LS.get('vars') || '{}'); } catch { return {}; } })(), fmt: (() => { try { return JSON.parse(LS.get('fmt') || 'null') || { k: 'norm', n: 2 }; } catch { return { k: 'norm', n: 2 }; } })(), err: '', caret: null,
-  cat: LS.get('cat') || 'vol', shape: LS.get('shape') || 'kolom', forms: {}, edit: null,
-  curId: null, draft: null, q: '', calcQ: '',
+  expr: '', ans: Number(LS.get('ans') || 0) || 0, justEval: false, ang: { rad: 'R', gra: 'G' }[LS.get('deg')] || 'D', io: LS.get('io') || 'math', mode: MODES_INIT(), base: +LS.get('base') || 10, ansB: 0, ansV: null, cf: LS.get('cf') || 'rect', fracPref: LS.get('frac') || 'dc', statFreq: !!LS.get('freq'), grid: null, cvars: {}, mats: loadJ('mats', {}), vcts: loadJ('vcts', {}), stat: loadJ('stat', { type: '1', rows: [] }), tbl: loadJ('tbl', { f: '', a: 1, b: 5, s: 1 }), shift: false, alpha: false, pend: null, menu: null, prompt: null, off: false, ovr: false, mixed: false, engE: null, mem: Number(LS.get('mem') || 0) || 0, vars: (() => { try { return JSON.parse(LS.get('vars') || '{}'); } catch { return {}; } })(), fmt: (() => { try { return JSON.parse(LS.get('fmt') || 'null') || { k: 'norm', n: 2 }; } catch { return { k: 'norm', n: 2 }; } })(), err: '', caret: null,
+  calcQ: '',
   sync: { busy: false, again: false, at: null, err: '' }
 };
 const RO = () => S.admin;
@@ -769,15 +563,9 @@ function loadCache() {
   S.seq = Number(LS.get(cacheKey() + '.seq') || 0);
   if (!S.admin) try { S.queue = new Set(JSON.parse(LS.get(cacheKey() + '.queue') || '[]')); } catch {}
   if (S.admin) try { S.users = JSON.parse(LS.get('admin.users') || '[]'); } catch {}
-  S.draft = null; try { S.draft = JSON.parse(LS.get(cacheKey() + '.draft') || 'null'); } catch {}
-  if (!S.draft) S.draft = newDoc();
-  S.curId = LS.get(cacheKey() + '.cur') || null;
-  if (S.curId && !curItem()) S.curId = null;
 }
-const newDoc = () => ({ name: '', lines: [], created: Date.now() });
 const live = kind => [...S.items.values()].filter(i => i.kind === kind && !i.deleted);
 const hist = () => live('hist').sort((a, b) => (b.data.t || 0) - (a.data.t || 0));
-const saved = () => live('data').sort((a, b) => b.updated - a.updated);
 
 function put(it, quiet) { // local write → queue → push
   if (RO()) return;
@@ -786,102 +574,16 @@ function put(it, quiet) { // local write → queue → push
   S.items.set(key(it), it); S.queue.add(key(it)); saveCache(); if (!quiet) render(); pushSoon();
 }
 
-// ---------- current data (draft until saved with a name; saved data autosaves) ----------
-const curItem = () => S.curId ? S.items.get(S.admin ? S.curId : S.user + '/' + S.curId) : null;
-function cur() { const it = curItem(); if (S.curId && (!it || it.deleted)) { S.curId = null; LS.del(cacheKey() + '.cur'); } return it && !it.deleted ? it.data : S.draft; }
-function mutate(fn, quiet) {
-  if (RO()) return;
-  const it = curItem();
-  if (it && !it.deleted) { const d = clone(it.data); fn(d); put({ ...it, data: d }, quiet); }
-  else { fn(S.draft); LS.set(cacheKey() + '.draft', JSON.stringify(S.draft)); if (!quiet) render(); }
-}
-function saveDraft() {
-  const d = S.draft;
-  if (!d.name.trim()) { toast('Isi nama data dulu, mis. "Rumah Pak Budi – Lt.1"'); $('#doc-name')?.focus(); return; }
-  const id = rid('d_');
-  put({ id, owner: S.user, kind: 'data', deleted: false, data: { ...clone(d), name: d.name.trim(), created: Date.now() } }, true);
-  S.curId = id; LS.set(cacheKey() + '.cur', id);
-  S.draft = newDoc(); LS.del(cacheKey() + '.draft');
-  render(); toast('Tersimpan ✓ — perubahan berikutnya tersimpan otomatis');
-}
-function openDoc(k) {
-  const it = S.items.get(k); if (!it) return;
-  S.curId = S.admin ? k : it.id; LS.set(cacheKey() + '.cur', S.curId); S.edit = null;
-  setView('geo');
-}
-function newData() {
-  S.curId = null; LS.del(cacheKey() + '.cur'); S.edit = null;
-  if (S.draft.lines.length || S.draft.name) { S.draft = newDoc(); LS.del(cacheKey() + '.draft'); }
-  setView('geo'); toast('Data baru dibuat'); setTimeout(() => $('#doc-name')?.focus(), 50);
-}
-function totals(d) {
-  const t = { vol: 0, area: 0, nv: 0, na: 0 };
-  for (const ln of d.lines || []) { const c = lineCat(ln); if (c === 'vol') { t.vol += ln.tot || 0; t.nv++; } else if (c === 'area') { t.area += ln.tot || 0; t.na++; } }
-  return t;
-}
-const lineCat = ln => ln.sh === 'expr' ? (ln.unit === 'm3' ? 'vol' : ln.unit === 'm2' ? 'area' : '') : SMAP.get(ln.sh)?.cat || '';
-const lineUnit = ln => ln.sh === 'expr' ? (ln.unit === 'm3' ? 'm³' : ln.unit === 'm2' ? 'm²' : '') : UNIT_TXT[SMAP.get(ln.sh)?.cat] || '';
-function lineDims(ln) {
-  if (ln.sh === 'expr') return ln.e;
-  const sh = SMAP.get(ln.sh); if (!sh) return '';
-  const parts = sh.f.filter(f => String(ln.v?.[f.k] ?? '').trim()).map(f => `${f.k} ${String(ln.v[f.k]).trim()}${f.t === 'len' ? ' ' + (ln.u?.[f.k] || 'm') : f.t === 'area' ? ' ' + (ln.u?.[f.k] || 'm²') : f.t === 'deg' ? '°' : ''}`);
-  const o = (sh.opts || []).map(op => ln.o?.[op.k] && ln.o[op.k] !== op.o[0][0] ? op.o.find(x => x[0] === ln.o[op.k])?.[1] : '').filter(Boolean);
-  return parts.join(' × ') + (o.length ? ' · ' + o.join(', ') : '');
-}
-
-// ---------- form compute ----------
-function form(id = S.shape) {
-  if (!S.forms[id]) {
-    let u = {}; try { u = JSON.parse(LS.get('units2.' + id) || '{}'); } catch {}
-    const sh = SMAP.get(id), o = {};
-    for (const f of sh.f) if (f.t === 'len' || f.t === 'area') u[f.k] ||= f.t === 'len' ? DEF_U : DEF_AU; // semua ukuran default cm for (const op of sh.opts || []) o[op.k] = op.o[0][0];
-    S.forms[id] = { v: {}, u, n: '1', lb: '', o };
-  }
-  return S.forms[id];
-}
-function compute(sh, fm) { // → {ok, val, tot, f, errs:{k:msg}, msg}
-  const v = {}, errs = {}; let missing = false;
-  for (const f of sh.f) {
-    const raw = fm.v[f.k];
-    if (raw == null || !String(raw).trim()) { if (!f.opt) missing = true; continue; }
-    try {
-      let x = numIn(raw);
-      if (x < 0) throw new Error('Tidak boleh negatif');
-      if (f.t === 'len') x *= UNITS[fm.u[f.k] || DEF_U];
-      if (f.t === 'area') x *= AUNITS[fm.u[f.k] || DEF_AU];
-      v[f.k] = x;
-    } catch (e) { errs[f.k] = e.message; }
-  }
-  let n = 1; try { n = String(fm.n ?? '').trim() ? numIn(fm.n) : 1; if (n < 0) throw new Error('Tidak boleh negatif'); } catch (e) { errs.n = e.message; }
-  if (Object.keys(errs).length) return { ok: false, errs, msg: 'Periksa isian yang ditandai merah.' };
-  if (missing) return { ok: false, errs, msg: '' };
-  try {
-    const [val, f] = sh.c(v, fm.o || {});
-    if (!Number.isFinite(val)) throw new Error('Hasil tidak valid');
-    if (val < 0) throw new Error('Hasil negatif — periksa ukuran (mis. bukaan lebih besar dari dinding)');
-    return { ok: true, val, n, tot: val * n, f, errs };
-  } catch (e) { return { ok: false, errs, msg: e.message }; }
-}
-function addLine() {
-  if (RO()) return;
-  const sh = SMAP.get(S.shape), fm = form(), r = compute(sh, fm);
-  if (!r.ok) { toast(r.msg || 'Lengkapi semua ukuran dulu.'); const f = sh.f.find(f => !f.opt && !String(fm.v[f.k] ?? '').trim()); if (f) $('#in-' + f.k)?.focus(); return; }
-  const ln = { id: S.edit || rid('l'), sh: sh.id, lb: fm.lb.trim(), v: { ...fm.v }, u: { ...fm.u }, o: { ...fm.o }, n: String(fm.n || '1'), r: r.val, tot: r.tot, f: r.f, t: Date.now() };
-  const editing = S.edit; S.edit = null; fm.lb = '';
-  mutate(d => { const i = d.lines.findIndex(x => x.id === ln.id); if (i >= 0) d.lines[i] = ln; else d.lines.push(ln); });
-  toast(editing ? 'Baris diperbarui ✓' : `Ditambahkan: ${R(r.tot)} ${UNIT_TXT[sh.cat]}`);
-}
-
 // ---------- calculator ----------
 const varsNow = () => ({ ...S.vars, M: S.mem });
 const rndOut = x => { const f = S.fmt; if (f.k === 'fix') return Number(x.toFixed(f.n)); if (f.k === 'sci') return Number(x.toExponential((f.n || 10) - 1)); return Number(x.toPrecision(10)); };
-function calcEval(s = S.expr, out) { return evaluate(s, { ang: S.ang, ans: S.ans, vars: varsNow(), rnd: rndOut, out }); }
-function pushHist(e, r, v) {
+function calcEval(s = S.expr, out) { return evaluate(s, { ang: S.ang, ans: S.ans, vars: varsNow(), rnd: rndOut, out, stat: S.mode === 'STAT' ? statCalc() : null }); }
+function pushHist(e, r, v, m = S.mode) {
   if (RO()) return;
-  put({ id: rid('h_'), owner: S.user, kind: 'hist', deleted: false, data: { e, r, v, t: Date.now(), deg: S.ang === 'D', ang: S.ang } }, true);
+  put({ id: rid('h_'), owner: S.user, kind: 'hist', deleted: false, data: { e, r, v, t: Date.now(), deg: S.ang === 'D', ang: S.ang, ...(m === 'COMP' ? {} : { m }) } }, true);
   const h = hist(); for (const x of h.slice(HIST_MAX)) put({ ...x, data: {}, deleted: true }, true);
 }
-function setVar(n, v) { if (n === 'M') { S.mem = v; LS.set('mem', String(v)); } else { S.vars[n] = v; LS.set('vars', JSON.stringify(S.vars)); } }
+function setVar(n, v) { delete S.cvars?.[n]; if (n === 'M') { S.mem = v; LS.set('mem', String(v)); } else { S.vars[n] = v; LS.set('vars', JSON.stringify(S.vars)); } }
 const fmtSci = (v, n) => v.toExponential(n).replace(/e\+?/, 'ᴇ').replace('-', '−');
 function fmtOut(v) { // tampilan hasil sesuai SETUP: Fix / Sci / Norm
   const f = S.fmt, a = Math.abs(v);
@@ -895,15 +597,13 @@ function dmsStr(v) { // 12.504 → 12°30°14.4
   const d = Math.floor(t / 3600); t -= d * 3600; const m = Math.floor(t / 60); t = Math.round((t - m * 60) * 100) / 100;
   return `${sg}${d}°${m}°${t}°`;
 }
-function disp() { return $('#disp'); }
-function caretPos() { const d = disp(), n = S.expr.length; const c = d && document.activeElement === d ? [d.selectionStart, d.selectionEnd] : S.caret || [n, n]; return [Math.min(c[0], n), Math.min(c[1], n)]; }
+function caretPos() { const n = S.expr.length, c = S.caret || [n, n]; return [Math.min(c[0], n), Math.min(c[1], n)]; }
 function setExpr(s, pos = s.length) {
   S.hIdx = -1; const ind = $('#hnav-ind'); if (ind) ind.textContent = '';
   S.expr = s; S.caret = [pos, pos]; S.err = '';
-  const d = disp(); if (d) { d.value = s; try { d.setSelectionRange(pos, pos); } catch {} d.scrollLeft = d.scrollWidth; }
   updPreview();
 }
-const CONT_RE = /^[+\-−×÷^²³!%),Eᴇ⁄⌟°ᴰʳᵍ∶=]|^⁻¹|^ⁿ√|^ mod |^nPr|^nCr/;
+const CONT_RE = /^[+\-−×÷^²³!%),Eᴇ⁄⌟°ᴰʳᵍ∶=∠]|^⁻¹|^ⁿ√|^ mod |^nPr|^nCr|^▸|^ and |^ or |^ xor |^ xnor |^Dot|^x̂|^ŷ|^t▸/;
 function ins(txt) {
   const startNew = S.justEval && !CONT_RE.test(txt); // after "=": a number/function starts fresh, an operator continues
   S.justEval = false;
@@ -914,7 +614,8 @@ function ins(txt) {
 }
 function tpl(txt, at) { const a = S.justEval && !CONT_RE.test(txt) ? 0 : caretPos()[0]; ins(txt); setExpr(S.expr, a + at); } // template: kursor masuk ke kotak pertama
 function back() {
-  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; S.lastEq = null; setExpr(e); focusDisp(); return; } // DEL setelah "=": kembali mengedit ekspresi
+  if (S.grid && (S.grid.ro || !S.expr)) return gridDel();
+  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; S.lastEq = null; setExpr(e); return; } // DEL setelah "=": kembali mengedit ekspresi
   S.justEval = false;
   const [a, b] = caretPos(), s = S.expr;
   if (a !== b) { setExpr(s.slice(0, a) + s.slice(b), a); return; }
@@ -926,14 +627,18 @@ function back() {
   setExpr(s.slice(0, a - n) + after, a - n);
 }
 function equals() {
+  if (S.grid) return gridEq();
   if (S.prompt) return promptOk();
+  if (S.mode === 'BASE') return baseEquals();
+  if (S.mode === 'CMPLX' || S.mode === 'MATRIX' || S.mode === 'VECTOR') return gEquals();
+  if (S.mode === 'TABLE') return tableGo();
   const again = S.justEval && S.lastEq, e = again ? S.lastEq.e : S.expr.trim(); if (!e) return;
   try {
     if (e.includes('=')) throw new Error('Tanda = hanya untuk SOLVE (SHIFT + CALC)');
     const out = {}; let v;
     for (const st of e.split('∶')) { v = calcEval(st, out); S.ans = v; } // A∶B dihitung berurutan, Ans ikut berjalan
     if (out.vars) for (const k in out.vars) setVar(k, out.vars[k]);
-    const fr = /⁄/.test(e) ? toFrac(v) : null; S.mixed = /⌟/.test(e);
+    const fr = /⁄/.test(e) ? toFrac(v) : null; S.mixed = /⌟/.test(e) || S.fracPref === 'abc';
     const num = fr ? (S.mixed ? toMixed(fr) : fr) : fmtCalc(v);
     const multi = out.multi ? out.multi.map(([k, x]) => `${k}=${fmtOut(x)}`).join('  ') : null;
     const show = multi || (fr || (S.fmt.k === 'norm' && S.fmt.n !== 1) ? null : fmtOut(v));
@@ -945,52 +650,66 @@ function equals() {
   } catch (err) { S.err = err.message; updPreview(); }
 }
 function refreshShow() { const q = S.lastEq; if (!S.justEval || !q || q.multi || S.showFrac) return; q.show = S.fmt.k === 'norm' && S.fmt.n !== 1 ? null : fmtOut(S.ans); }
-const errKind = m => /Karakter|Kurung|tempatnya|belum lengkap|tidak valid|Tanda =|SOLVE/.test(m) ? 'Syntax ERROR' : /Can't/.test(m) ? "Can't Solve" : 'Math ERROR';
+const errKind = m => /Dimensi/.test(m) ? 'Dimension ERROR' : /Karakter|Kurung|tempatnya|belum lengkap|tidak valid|Tanda =|SOLVE|hanya di mode/.test(m) ? 'Syntax ERROR' : /Can't/.test(m) ? "Can't Solve" : 'Math ERROR';
 // ---------- layar LCD ----------
 const IND = ['S', 'A', 'M', 'STO', 'RCL', 'STAT', 'CMPLX', 'MAT', 'VCT', 'D', 'R', 'G', 'FIX', 'SCI', 'Math', '▼', '▲', 'Disp'];
-const showTxt = (s, pos) => S.io === 'line' ? esc(pos === undefined ? s : s.slice(0, pos) + '‸' + s.slice(pos)).replaceAll('‸', CUR) : pos === undefined ? pretty(s) : prettyC(s, pos);
+const showTxt = (s, pos) => S.io === 'line' || S.mode === 'BASE' ? esc(pos === undefined ? s : s.slice(0, pos) + '‸' + s.slice(pos)).replaceAll('‸', CUR) : pos === undefined ? pretty(s) : prettyC(s, pos);
+const histM = () => hist().filter(x => (x.data.m || 'COMP') === S.mode && x.data.m !== 'EQN' && x.data.m !== 'TABLE');
+function previewVal(e) { // nilai sementara saat mengetik
+  if (/[∫Σ∶=]|d\/dx|rand|Pol|Rec|Mat|Vct|det|Trn|Dot/.test(e) || /^-?[\d.]+$/.test(e)) return '';
+  try {
+    if (S.mode === 'BASE') return /^[0-9A-F]+$/.test(e) ? '' : esc(fmtBase(baseEval(e, S.base), S.base));
+    if (S.mode === 'CMPLX') { const v = evalG(e, gOpt({})); return pretty(isC(v) ? fmtC(v) : fmtN(v)); }
+    if (S.mode === 'MATRIX' || S.mode === 'VECTOR' || S.mode === 'TABLE') return '';
+    const v = calcEval(e), f = /⁄/.test(e) ? toFrac(v) : null; return pretty(f && /⌟/.test(e) ? toMixed(f) : f || fmtCalc(v));
+  } catch { return ''; }
+}
+function fitText(box, target) { // kecilkan huruf kalau isi lebih lebar dari kotaknya
+  target.style.fontSize = '';
+  const rg = document.createRange(); rg.selectNodeContents(box); const w = rg.getBoundingClientRect().width, W = box.clientWidth;
+  if (W && w > W) target.style.fontSize = `${Math.max(.34, W / w * .98) * parseFloat(getComputedStyle(target).fontSize)}px`;
+}
 function updPreview() {
   const lcd = $('#lcd'); if (!lcd) return;
-  const m = S.menu, h = hist(), up = m ? m.page > 0 : h.length > 0 && S.hIdx < h.length - 1, dn = m ? (m.page + 1) * m.per < m.items.length : S.hIdx >= 0;
-  const on = { S: S.shift, A: S.alpha, M: !!S.mem, STO: S.pend === 'sto', RCL: S.pend === 'rcl', D: S.ang === 'D', R: S.ang === 'R', G: S.ang === 'G', FIX: S.fmt.k === 'fix', SCI: S.fmt.k === 'sci', Math: S.io === 'math', '▼': dn, '▲': up };
+  if (S.mode === 'EQN' && !S.menu && !S.grid && !S.off) { eqnMenu(); return; }
+  const m = S.menu, g = S.grid, h = histM(), inUp = g ? g.r > 0 : h.length > 0 && S.hIdx < h.length - 1, inDn = g ? g.r < gRows(g) - 1 : S.hIdx >= 0;
+  const on = { S: S.shift, A: S.alpha, M: !!S.mem, STO: S.pend === 'sto', RCL: S.pend === 'rcl', STAT: S.mode === 'STAT', CMPLX: S.mode === 'CMPLX', MAT: S.mode === 'MATRIX', VCT: S.mode === 'VECTOR', D: S.ang === 'D', R: S.ang === 'R', G: S.ang === 'G', FIX: S.fmt.k === 'fix', SCI: S.fmt.k === 'sci', Math: S.io === 'math', '▼': m ? (m.page + 1) * m.per < m.items.length : inDn, '▲': m ? m.page > 0 : inUp };
   lcd.querySelectorAll('[data-ind]').forEach(el => el.classList.toggle('on', !!on[el.dataset.ind]));
   lcd.classList.toggle('off', !!S.off);
-  const fx = $('#fx'); if (fx) { fx.classList.toggle('sh', !!S.shift); fx.classList.toggle('al', !!S.alpha); }
-  const ex = $('#l-expr'), rs = $('#l-res'), mn = $('#l-menu');
-  ex.hidden = rs.hidden = !!m; mn.hidden = !m;
+  const fx = $('#fx'); if (fx) fx.className = `fx${S.shift ? ' sh' : ''}${S.alpha ? ' al' : ''} m-${S.mode}${S.mode === 'BASE' ? ' b' + S.base : ''}`;
+  const ex = $('#l-expr'), rs = $('#l-res'), mn = $('#l-menu'), gr = $('#l-grid'), tag = $('#l-tag');
+  tag.textContent = m || g ? '' : S.mode === 'BASE' ? BASE_NM[S.base] : S.mode === 'EQN' || S.mode === 'TABLE' ? S.mode : '';
+  ex.hidden = rs.hidden = !!(m || g); mn.hidden = !m; gr.hidden = !!m || !g;
   if (m) {
     const items = m.items.slice(m.page * m.per, (m.page + 1) * m.per);
     mn.style.setProperty('--mc', m.cols);
-    mn.innerHTML = (m.title ? `<div class="lm-t">${m.title}</div>` : '') + (items.length ? `<div class="lm-g">${items.map((it, n) => `<button type="button" class="lm-i${it.off ? ' dim' : ''}" data-a="lcdpick" data-v="${n + 1}">${n + 1}:${it.l}</button>`).join('')}</div>` : '');
+    mn.innerHTML = (m.title ? `<div class="lm-t">${m.title}</div>` : '') + (m.html || '') + (items.length ? `<div class="lm-g">${items.map((it, n) => `<button type="button" class="lm-i" data-a="lcdpick" data-v="${n + 1}">${n + 1}:${it.l}</button>`).join('')}</div>` : '');
+    mn.style.fontSize = ''; const wide = Math.max(0, ...[...mn.querySelectorAll('.lm-l')].map(l => l.scrollWidth / l.clientWidth)); if (wide > 1) mn.style.fontSize = `${parseFloat(getComputedStyle(mn).fontSize) / wide * .98}px`;
     return;
   }
-  const n = S.expr.length, c = Math.min(caretPos()[0], n);
-  if (S.prompt) {
-    ex.innerHTML = `${esc(S.prompt.vs[S.prompt.i])}?`;
-    rs.innerHTML = S.err ? `<b class="l-err">${errKind(S.err)}</b><small class="l-msg">${esc(S.err)}</small>` : S.expr ? showTxt(S.expr, c) : `<span class="pv">${esc(fmtCalc(varsNow()[S.prompt.vs[S.prompt.i]] || 0))}</span>`;
+  if (g) { drawGrid(gr); return; }
+  const n = S.expr.length, c = Math.min(caretPos()[0], n), err = () => `<b class="l-err">${errKind(S.err)}</b><small class="l-msg">${esc(S.err)}</small>`;
+  const P = S.prompt, pre = S.mode === 'TABLE' && !P ? 'f(X)=' : '';
+  if (P) {
+    ex.innerHTML = `${esc(P.ask[P.i].l)}?`;
+    rs.innerHTML = S.err ? err() : S.expr ? showTxt(S.expr, c) : `<span class="pv">${esc(minus(fmtCalc(P.ask[P.i].get() || 0)))}</span>`;
   } else if (S.err) {
-    ex.innerHTML = showTxt(S.expr, c);
-    rs.innerHTML = `<b class="l-err">${errKind(S.err)}</b><small class="l-msg">${esc(S.err)}</small>`;
+    ex.innerHTML = pre + showTxt(S.expr, c); rs.innerHTML = err();
   } else if (S.justEval && S.lastEq) {
-    ex.innerHTML = showTxt(S.lastEq.e);
-    rs.innerHTML = showTxt(S.lastEq.show || S.expr);
+    ex.innerHTML = showTxt(S.lastEq.e); rs.innerHTML = S.mode === 'BASE' ? esc(S.lastEq.show) : showTxt(S.lastEq.show || S.expr);
   } else {
-    ex.innerHTML = showTxt(S.expr, c);
-    let t = ''; const e = S.expr.trim();
-    if (e && !/^-?[\d.]+$/.test(e) && !/[∫Σ∶=]|d\/dx|rand|Pol|Rec/.test(e)) { try { const v = calcEval(e), f = /⁄/.test(e) ? toFrac(v) : null; t = `<span class="pv">${pretty(f && /⌟/.test(e) ? toMixed(f) : f || fmtCalc(v))}</span>`; } catch {} }
-    rs.innerHTML = t;
+    ex.innerHTML = pre + showTxt(S.expr, c);
+    const v = S.expr.trim() ? previewVal(S.expr.trim()) : ''; rs.innerHTML = v ? `<span class="pv">${v}</span>` : '';
   }
   const cur = ex.querySelector('.cur');
-  ex.scrollLeft = cur ? Math.max(0, cur.offsetLeft - ex.clientWidth * .75) : 0;
-  rs.style.fontSize = ''; if (rs.scrollWidth > rs.clientWidth + 1) rs.style.fontSize = `${Math.max(.42, rs.clientWidth / rs.scrollWidth) * parseFloat(getComputedStyle(rs).fontSize)}px`;
+  ex.style.fontSize = ''; if (cur) ex.scrollLeft = Math.max(0, cur.offsetLeft - ex.clientWidth * .75); else { ex.scrollLeft = 0; fitText(ex, ex); }
+  fitText(rs, rs);
 }
 function lcdMenu(title, items, o = {}) { S.menu = { title, items, page: 0, per: 8, cols: 2, ...o }; updPreview(); }
 function closeMenu() { S.menu = null; updPreview(); }
-function menuPick(n) { const m = S.menu, it = m && m.items[m.page * m.per + n - 1]; if (!it) return; if (it.off) { it.f(); return; } S.menu = null; it.f(); updPreview(); }
+function menuPick(n) { const m = S.menu, it = m && m.items[m.page * m.per + n - 1]; if (!it) return; S.menu = null; it.f(); updPreview(); }
 function menuDigit(d) { const m = S.menu; if (m.digit) { if (m.digit(d) !== false) closeMenu(); return; } if (d) menuPick(d); }
 function menuPage(d) { const m = S.menu, p = m.page + d; if (p >= 0 && p * m.per < m.items.length) { m.page = p; updPreview(); } }
-const NA = x => () => toast(`${x} belum tersedia — saat ini baru mode COMP`);
-function modeMenu() { lcdMenu('', ['COMP', 'CMPLX', 'STAT', 'BASE-N', 'EQN', 'MATRIX', 'TABLE', 'VECTOR'].map(l => l === 'COMP' ? { l, f: () => toast('Mode COMP') } : { l, off: true, f: NA('Mode ' + l) })); }
 function setAng(a) { S.ang = a; LS.set('deg', a === 'D' ? 'deg' : a === 'R' ? 'rad' : 'gra'); }
 function setFmt(k, n) { S.fmt = { k, n }; LS.set('fmt', JSON.stringify(S.fmt)); refreshShow(); }
 function setIO(x) { S.io = x; LS.set('io', x); }
@@ -1000,7 +719,10 @@ function setupMenu() {
     { l: 'Deg', f: () => setAng('D') }, { l: 'Rad', f: () => setAng('R') }, { l: 'Gra', f: () => setAng('G') },
     { l: 'Fix', f: () => lcdMenu('Fix 0~9?', [], { digit: d => setFmt('fix', d) }) },
     { l: 'Sci', f: () => lcdMenu('Sci 0~9?', [], { digit: d => setFmt('sci', d) }) },
-    { l: 'Norm', f: () => lcdMenu('Norm 1~2?', [], { digit: d => { if (d !== 1 && d !== 2) return false; setFmt('norm', d); } }) }
+    { l: 'Norm', f: () => lcdMenu('Norm 1~2?', [], { digit: d => { if (d !== 1 && d !== 2) return false; setFmt('norm', d); } }) },
+    { l: 'ab/c', f: () => { S.fracPref = 'abc'; LS.set('frac', 'abc'); } }, { l: 'd/c', f: () => { S.fracPref = 'dc'; LS.del('frac'); } },
+    { l: 'a+bi', f: () => { S.cf = 'rect'; LS.del('cf'); } }, { l: 'r∠θ', f: () => { S.cf = 'polar'; LS.set('cf', 'polar'); } },
+    { l: 'Stat FREQ ON', f: () => { S.statFreq = true; LS.set('freq', '1'); } }, { l: 'Stat FREQ OFF', f: () => { S.statFreq = false; LS.del('freq'); } }
   ]);
 }
 const CONSTS_SCI = [['m<sub>p</sub> proton', '1.67262192369ᴇ−27'], ['m<sub>n</sub> neutron', '1.67492749804ᴇ−27'], ['m<sub>e</sub> elektron', '9.1093837015ᴇ−31'], ['m<sub>μ</sub> muon', '1.883531627ᴇ−28'], ['a<sub>0</sub> Bohr', '5.29177210903ᴇ−11'], ['h Planck', '6.62607015ᴇ−34'], ['μ<sub>N</sub> nuklir', '5.0507837461ᴇ−27'], ['μ<sub>B</sub> Bohr', '9.2740100783ᴇ−24'],
@@ -1021,6 +743,8 @@ function clrMenu() {
   lcdMenu('Bersihkan?', [{ l: 'Setup', f: ask('Setup', setup) }, { l: 'Memory', f: ask('Memory', mem) }, { l: 'All', f: ask('All', () => { setup(); mem(); }) }], { cols: 3 });
 }
 function sdToggle(mix) { // S⇔D: hasil pecahan ⇄ desimal; SHIFT: campuran ⇄ biasa
+  if (S.mode === 'CMPLX' && S.justEval && isC(S.lastEq?.val)) { const q = S.lastEq; q.pol = !q.pol; q.show = fmtC(q.val, q.pol === (S.cf === 'rect') ? 'polar' : 'rect'); updPreview(); return; } // a+bi ⇄ r∠θ
+  if (S.mode === 'MATRIX' || S.mode === 'VECTOR') return;
   if (!S.justEval) { equals(); if (!S.justEval || (S.showFrac && !mix)) return; }
   const f = toFrac(S.ans), has = f && /⁄/.test(f);
   if (S.showFrac && !mix) { S.showFrac = false; setExpr(fmtCalc(S.ans)); }
@@ -1054,21 +778,22 @@ function fracKey(mixed) {
 function negKey() { if (S.justEval) { S.justEval = false; S.lastEq = null; setExpr('−'); } else ins('−'); }
 // CALC & SOLVE: tanya nilai variabel di layar
 function varsIn(e) { const seen = []; for (const p of e.split(/[=∶]/)) for (const t of tokenize(p)) if (t.t === 'var' && !seen.includes(t.v)) seen.push(t.v); return seen; }
+function askSeq(ask, done) { S.justEval = false; S.lastEq = null; S.prompt = { ask, i: 0, done }; setExpr(''); }
 function calcKey(solve) {
+  if (solve && S.mode !== 'COMP') { toast('SOLVE hanya di mode COMP'); return; }
+  if (S.mode === 'TABLE' || S.mode === 'MATRIX' || S.mode === 'VECTOR' || S.mode === 'BASE') { toast('CALC hanya di mode COMP, CMPLX, dan STAT'); return; }
   const base = S.justEval && S.lastEq ? S.lastEq.e : S.expr.trim(); if (!base) return;
   let vs; try { vs = varsIn(base); } catch (err) { S.err = err.message; updPreview(); return; }
   if (solve && !vs.includes('X')) { S.err = 'SOLVE butuh variabel X'; updPreview(); return; }
   if (solve) vs = [...vs.filter(v => v !== 'X'), 'X'];
   if (!vs.length) { S.justEval = false; setExpr(base); equals(); return; }
-  S.justEval = false; S.lastEq = null; S.prompt = { e: base, vs, i: 0, solve }; setExpr('');
+  askSeq(vs.map(n => ({ l: n, get: () => varsNow()[n] || 0, set: v => setVar(n, v) })), () => { S.justEval = false; if (solve) solveX(base); else { setExpr(base); equals(); } });
 }
 function promptOk() {
   const p = S.prompt, raw = S.expr.trim();
-  if (raw) { try { setVar(p.vs[p.i], calcEval(raw)); } catch (err) { S.err = err.message; updPreview(); return; } }
-  p.i++; if (p.i < p.vs.length) { setExpr(''); return; }
-  S.prompt = null; S.justEval = false;
-  if (p.solve) { solveX(p.e); return; }
-  setExpr(p.e); equals();
+  if (raw) { try { p.ask[p.i].set(evaluate(raw, { ang: S.ang, ans: S.ans, vars: varsNow(), rnd: rndOut })); } catch (err) { S.err = err.message; updPreview(); return; } }
+  p.i++; if (p.i < p.ask.length) { setExpr(''); return; }
+  S.prompt = null; setExpr(''); p.done();
 }
 function solveX(e) {
   const [L, R = '0'] = e.split('='), base = varsNow();
@@ -1096,6 +821,7 @@ function solveX(e) {
   setExpr(fmtCalc(x)); S.lastEq = { e, r: fmtCalc(x), show, multi: true }; render();
 }
 function storeVar(n) {
+  if (S.pend === 'sto' && isC(S.ansV) && S.mode === 'CMPLX') { S.pend = null; setVar(n, S.ansV.re); S.cvars[n] = S.ansV; toast(`${fmtC(S.ansV)} → ${n}`); updPreview(); return; }
   if (S.pend === 'rcl') { S.pend = null; ins(VAR_CH[n] || n); toast(`${n} = ${fmtCalc(varsNow()[n] || 0)}`); return; }
   S.pend = null;
   if (!S.justEval && S.expr.trim()) { equals(); if (S.err) return; }
@@ -1106,19 +832,18 @@ const BX = '<i class="box"></i>', FRK = `<span class="fr kfr"><span class="fr-n"
 const VAR_CH = { E: 'Ε' };
 const vr = n => [n, '@var:' + n];
 const k = (id, cap, act, o = {}) => ({ id, cap, act, ...o });
-const NEEDS = (l, m) => [l, '@na:' + (m || l), 'g'];
 const KEY_F = [
   k('shift', '', '@shift', { lb: 'SHIFT', c: 'tk' }), k('alpha', '', '@alpha', { lb: 'ALPHA', c: 'tk' }), k('mode', '', '@mode', { lb: 'MODE', s: ['SETUP', '@setup'], c: 'tk' }), k('on', '', '@on', { lb: 'ON', c: 'tk' }),
   k('calc', 'CALC', '@calc', { s: ['SOLVE', '@solve'], a: ['=', '=' ] }), k('int', `∫<span class="k2">${BX}${BX}</span><i class="kbar"></i>`, '@t|∫(,,)|2', { s: [`<span class="fr kd"><span class="fr-n">d</span><span class="fr-d">dx</span></span>${BX}`, '@t|d/dx(,)|5'], a: [':', '∶'] }),
   k('inv', '<i>x</i><sup>−1</sup>', '⁻¹', { s: ['<i>x</i>!', '!'] }), k('logab', `log<sub>${BX}</sub>${BX}`, '@t|logab(,)|6', { s: [`Σ${BX}`, '@t|Σ(,,)|2'] }),
   k('frac', FRK, '@frac', { s: [`${BX}${FRK}`, '@mix'] }), k('sqrt', `√${BX}`, '@t|√()|2', { s: [`∛${BX}`, '@t|∛()|2'] }), k('sq', '<i>x</i><sup>2</sup>', '²', { s: ['<i>x</i><sup>3</sup>', '³'], m: 'DEC' }), k('pow', `<i>x</i><sup>${BX}</sup>`, '^', { s: [`<sup>${BX}</sup>√${BX}`, '@t|ⁿ√()|3'], m: 'HEX' }), k('log', 'log', 'log(', { s: [`10<sup>${BX}</sup>`, '@t|10^()|4'], m: 'BIN' }), k('ln', 'ln', 'ln(', { s: [`<i>e</i><sup>${BX}</sup>`, '@t|e^()|3'], m: 'OCT' }),
-  k('neg', '(−)', '@neg', { s: NEEDS('∠', 'CMPLX'), a: vr('A') }), k('dms', '° ′ ″', '@dms', { s: ['←', '@dmsb'], a: vr('B') }), k('hyp', 'hyp', '@hyp', { s: ['Abs', '@t|abs()|4'], a: vr('C') }), k('sin', 'sin', 'sin(', { s: ['sin<sup>−1</sup>', 'asin('], a: vr('D') }), k('cos', 'cos', 'cos(', { s: ['cos<sup>−1</sup>', 'acos('], a: vr('E') }), k('tan', 'tan', 'tan(', { s: ['tan<sup>−1</sup>', 'atan('], a: vr('F') }),
-  k('rcl', 'RCL', '@rcl', { s: ['STO', '@sto'] }), k('eng', 'ENG', '@eng', { s: ['←', '@engb'], a: ['<i>i</i>', '@na:CMPLX', 'p'] }), k('lp', '(', '(', { s: ['%', '%'] }), k('rp', ')', ')', { s: [',', ','], a: vr('X') }), k('sd', 'S⇔D', '@sd', { s: ['a<sup>b</sup>⁄<sub>c</sub>⇔<sup>d</sup>⁄<sub>c</sub>', '@sdmix'], a: vr('Y') }), k('mp', 'M+', '@m+', { s: ['M−', '@m-'], a: vr('M') })
+  k('neg', '(−)', '@neg', { s: ['∠', '@ang', 'p'], a: vr('A'), m: 0 }), k('dms', '° ′ ″', '@dms', { s: ['←', '@dmsb'], a: vr('B') }), k('hyp', 'hyp', '@hyp', { s: ['Abs', '@t|abs()|4'], a: vr('C') }), k('sin', 'sin', 'sin(', { s: ['sin<sup>−1</sup>', 'asin('], a: vr('D') }), k('cos', 'cos', 'cos(', { s: ['cos<sup>−1</sup>', 'acos('], a: vr('E') }), k('tan', 'tan', 'tan(', { s: ['tan<sup>−1</sup>', 'atan('], a: vr('F') }),
+  k('rcl', 'RCL', '@rcl', { s: ['STO', '@sto'] }), k('eng', 'ENG', '@eng', { s: ['←', '@engb'], a: ['<i>i</i>', '@i', 'p'] }), k('lp', '(', '(', { s: ['%', '%'] }), k('rp', ')', ')', { s: [',', ','], a: vr('X') }), k('sd', 'S⇔D', '@sd', { s: ['a<sup>b</sup>⁄<sub>c</sub>⇔<sup>d</sup>⁄<sub>c</sub>', '@sdmix'], a: vr('Y') }), k('mp', 'M+', '@m+', { s: ['M−', '@m-'], a: vr('M') })
 ];
 const KEY_N = [
   k('7', '7', '7', { s: ['CONST', '@const'] }), k('8', '8', '8', { s: ['CONV', '@conv'] }), k('9', '9', '9', { s: ['CLR', '@clr'] }), k('del', 'DEL', '@del', { s: ['INS', '@ins'], c: 'rd' }), k('ac', 'AC', '@ac', { s: ['OFF', '@off'], c: 'rd' }),
-  k('4', '4', '4', { s: NEEDS('MATRIX') }), k('5', '5', '5', { s: NEEDS('VECTOR') }), k('6', '6', '6'), k('mul', '×', '×', { s: ['nPr', 'nPr'] }), k('div', '÷', '÷', { s: ['nCr', 'nCr'] }),
-  k('1', '1', '1', { s: NEEDS('STAT') }), k('2', '2', '2', { s: [...NEEDS('CMPLX').slice(0, 2), 'p'] }), k('3', '3', '3', { s: [...NEEDS('BASE').slice(0, 2), 't'] }), k('add', '+', '+', { s: ['Pol', 'Pol('] }), k('sub', '−', '−', { s: ['Rec', 'Rec('] }),
+  k('4', '4', '4', { s: ['MATRIX', '@m4', 'g'] }), k('5', '5', '5', { s: ['VECTOR', '@m5', 'g'] }), k('6', '6', '6'), k('mul', '×', '×', { s: ['nPr', 'nPr'] }), k('div', '÷', '÷', { s: ['nCr', 'nCr'] }),
+  k('1', '1', '1', { s: ['STAT', '@m1', 'g'] }), k('2', '2', '2', { s: ['CMPLX', '@m2', 'p'] }), k('3', '3', '3', { s: ['BASE', '@m3', 't'] }), k('add', '+', '+', { s: ['Pol', 'Pol('] }), k('sub', '−', '−', { s: ['Rec', 'Rec('] }),
   k('0', '0', '0', { s: ['Rnd', 'Rnd('] }), k('dot', '•', '.', { s: ['Ran#', 'rand'] }), k('exp', '×10<sup><i>x</i></sup>', 'ᴇ', { s: ['π', 'π'], a: ['<i>e</i>', 'e'] }), k('ans', 'Ans', 'Ans', { s: ['DRG▸', '@drg'] }), k('eq', '=', '@eq')
 ];
 const KEY_MAP = new Map([...KEY_F, ...KEY_N].map(x => [x.id, x]));
@@ -1130,8 +855,9 @@ function pressKey(id) {
   if (S.menu) {
     S.shift = S.alpha = false;
     if (/^\d$/.test(id)) menuDigit(+id);
-    else if (id === 'eq') { const f = S.menu.onEq; if (f) { closeMenu(); f(); updPreview(); } }
-    else if (id === 'ac' || id === 'on' || id === 'mode') closeMenu();
+    else if (id === 'eq') menuEq();
+    else if (id === 'mode') { S.menu = null; modeMenu(); }
+    else if (id === 'ac' || id === 'on') menuClose();
     return;
   }
   if (S.pend) { // STO / RCL menunggu huruf variabel
@@ -1142,42 +868,47 @@ function pressKey(id) {
   const lay = S.shift ? key.s : S.alpha ? key.a : null, had = S.shift || S.alpha;
   S.shift = S.alpha = false;
   if (had && !lay) { updPreview(); return; } // tombol ini tidak punya fungsi SHIFT/ALPHA
-  keyAct(lay ? lay[1] : key.act);
+  let act = lay ? lay[1] : key.act;
+  if (S.mode === 'BASE') { act = baseAct(id, act, lay); if (!act) { updPreview(); return; } }
+  else if (S.mode === 'CMPLX' && id === 'eng' && !lay) act = '@i';
+  keyAct(act);
   updPreview();
 }
 // ◀ ▶ geser kursor (melompati nama fungsi utuh), ▲ ▼ buka riwayat (seperti kalkulator scientific)
 const FN_RE = FUNCS.join('|');
-const TOK_L = new RegExp(`(?:${FN_RE})\\($|Ans$|rand$| mod $|nPr$|nCr$|⁻¹$|ⁿ√\\($|ⁿ√$|√\\($|∛\\($`);
-const TOK_R = new RegExp(`^(?:(?:${FN_RE})\\(|Ans|rand| mod |nPr|nCr|⁻¹|ⁿ√\\(|ⁿ√|√\\(|∛\\()`);
+const NAMES = ['Ans', 'rand', ' mod ', 'nPr', 'nCr', '⁻¹', 'ⁿ√', ' and ', ' or ', ' xor ', ' xnor ', 'Dot', '▸r∠θ', '▸a+bi', 'MatAns', 'MatA', 'MatB', 'MatC', 'VctAns', 'VctA', 'VctB', 'VctC', ...STATV, ...STATP].map(x => x.replace(/\+/g, '\\+')).join('|');
+const TOK_L = new RegExp(`(?:${FN_RE}|Not|Neg|ⁿ√|√|∛)\\($|(?:${NAMES})$`);
+const TOK_R = new RegExp(`^(?:(?:${FN_RE}|Not|Neg|ⁿ√|√|∛)\\(|${NAMES})`);
 function moveCaret(d) {
   S.err = '';
-  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; S.lastEq = null; setExpr(e, d < 0 ? e.length : 0); focusDisp(); return; } // edit the last expression again
+  if (S.justEval && S.lastEq) { const e = S.lastEq.e; S.justEval = false; S.showFrac = false; S.lastEq = null; setExpr(e, d < 0 ? e.length : 0); return; } // edit the last expression again
   S.justEval = false;
   const [a, b] = caretPos(), s = S.expr; let pos;
   if (a !== b) pos = d < 0 ? a : b;
   else if (d < 0) { const m = TOK_L.exec(s.slice(0, a)); pos = Math.max(0, a - (m ? m[0].length : 1)); }
   else { const m = TOK_R.exec(s.slice(a)); pos = Math.min(s.length, a + (m ? m[0].length : 1)); }
-  S.caret = [pos, pos]; focusDisp(); updPreview();
+  S.caret = [pos, pos]; updPreview();
 }
-function focusDisp() { const d = disp(); if (!d) return; d.value = S.expr; d.focus({ preventScroll: true }); const [a, b] = S.caret || [S.expr.length, S.expr.length]; try { d.setSelectionRange(a, b); } catch {} }
 function histNav(d) { // d = +1 older (▲), −1 newer (▼)
-  const h = hist(); if (!h.length) { toast('Riwayat masih kosong'); return; }
+  const h = histM(); if (!h.length) { toast('Riwayat masih kosong'); return; }
   if (S.hIdx == null || S.hIdx < 0) { S.hIdx = -1; S.hDraft = S.justEval ? '' : S.expr; }
   const n = Math.max(-1, Math.min(h.length - 1, S.hIdx + d));
   if (n === S.hIdx) { toast(d > 0 ? 'Riwayat paling lama' : 'Sudah di ekspresi terbaru'); return; }
   S.justEval = false; S.showFrac = false; S.lastEq = null;
-  const e = n < 0 ? S.hDraft || '' : h[n].data.e; setExpr(e); S.hIdx = n; focusDisp(); updPreview();
+  const e = n < 0 ? S.hDraft || '' : h[n].data.e; setExpr(e); S.hIdx = n; updPreview();
   const ind = $('#hnav-ind'); if (ind) ind.textContent = n < 0 ? '' : `riwayat ${n + 1}/${h.length}`;
 }
 function keyAct(v) {
+  if (S.grid?.ro && v !== '@eq' && v !== '@hist') { gridAc(); if (v === '@ac' || v === '@del' || v === '@on') return; }
+  if (S.grid && !S.grid.ro && /^@(calc|solve|rcl|sto|m\+|m-|eng|engb|sd|sdmix|dms|dmsb|ins)$/.test(v)) return;
   if (v[0] !== '@') return ins(v);
+  if (v.startsWith('@base:')) { setBase(+v.slice(6)); return; }
   if (v.startsWith('@t|')) { const [, txt, at] = v.split('|'); tpl(txt, +at); return; }
   if (v.startsWith('@var:')) { const n = v.slice(5); ins(VAR_CH[n] || n); return; }
-  if (v.startsWith('@na:')) { const x = v.slice(4); toast(`Fungsi ${x} hanya untuk mode ${x} — belum tersedia`); return; }
   switch (v) {
-    case '@ac': S.justEval = false; S.lastEq = null; S.prompt = null; S.pend = null; S.engE = null; setExpr(''); break;
-    case '@on': S.off = false; S.menu = null; S.justEval = false; S.lastEq = null; S.prompt = null; S.pend = null; setExpr(''); break;
-    case '@off': S.off = true; S.menu = null; S.prompt = null; S.pend = null; S.justEval = false; S.lastEq = null; setExpr(''); break;
+    case '@ac': if (S.grid) { gridAc(); break; } S.justEval = false; S.lastEq = null; S.prompt = null; S.pend = null; S.engE = null; setExpr(S.mode === 'TABLE' && S.prompt ? S.tbl.f : ''); break;
+    case '@on': S.off = false; clearScreen(); break;
+    case '@off': clearScreen(); S.off = true; break;
     case '@del': back(); break;
     case '@ins': S.ovr = !S.ovr; toast(S.ovr ? 'Mode timpa (INS) aktif' : 'Mode sisip aktif'); break;
     case '@eq': equals(); break;
@@ -1207,13 +938,488 @@ function keyAct(v) {
     case '@up': histNav(1); break;
     case '@down': { const [a] = caretPos(); if (!S.justEval && /[⁄⌟]/.test(S.expr[a] || '')) moveCaret(1); else histNav(-1); break; } // ▼ dari pembilang ke penyebut
     case '@hist': S.histOpen = !S.histOpen; render(); break;
+    case '@i': inMode('CMPLX', () => ins('i')); break;
+    case '@ang': inMode('CMPLX', () => ins('∠')); break;
+    case '@m1': inMode('STAT', statMenu); break;
+    case '@m2': inMode('CMPLX', () => lcdMenu('', [insM('arg', 'arg('), insM('Conjg', 'Conjg('), insM('▸r∠θ', '▸r∠θ'), insM('▸a+bi', '▸a+bi')])); break;
+    case '@m3': inMode('BASE', baseMenu); break;
+    case '@m4': inMode('MATRIX', matMenu); break;
+    case '@m5': inMode('VECTOR', vctMenu); break;
   }
 }
 function dpadAct(v) {
   if (S.off) { toast('Kalkulator mati — tekan ON'); return; }
   S.shift = S.alpha = false;
-  if (S.menu) { if (v === '@up') menuPage(-1); else if (v === '@down') menuPage(1); else closeMenu(); return; }
+  if (S.menu) { if (v === '@up') menuPage(-1); else if (v === '@down') menuPage(1); else menuClose(); return; }
+  if (S.grid) { gridNav(v); return; }
   keyAct(v); updPreview();
+}
+
+// ---------- mode: umum ----------
+const MODES = ['COMP', 'CMPLX', 'STAT', 'BASE', 'EQN', 'MATRIX', 'TABLE', 'VECTOR'], MODE_L = { BASE: 'BASE-N' };
+function clearScreen() { S.justEval = false; S.lastEq = null; S.prompt = null; S.pend = null; S.grid = null; S.menu = null; S.engE = null; S.showFrac = false; setExpr(''); }
+function setModeRaw(m) { S.mode = m; LS.set('mode', m); clearScreen(); }
+function setMode(m) {
+  setModeRaw(m);
+  if (m === 'STAT') statTypeMenu();
+  else if (m === 'EQN') eqnMenu();
+  else if (m === 'MATRIX') storePick('Mat', 'Matriks?', n => dimMenu('Mat', n));
+  else if (m === 'VECTOR') storePick('Vct', 'Vektor?', n => dimMenu('Vct', n));
+  else if (m === 'TABLE' && S.tbl.f) setExpr(S.tbl.f);
+  updPreview();
+}
+function modeMenu() { lcdMenu('', MODES.map(m => ({ l: MODE_L[m] || m, f: () => setMode(m) }))); }
+const inMode = (m, f) => { if (S.mode === m) f(); else toast(`Fungsi ini aktif di mode ${MODE_L[m] || m} — tekan MODE`); };
+const insM = (l, t) => ({ l, f: () => ins(t) });
+function lines(rows) { return rows.map(([k, v]) => `<div class="lm-l"><span>${k}=</span><b>${pretty(v)}</b></div>`).join(''); }
+const minus = s => String(s).replace(/^-/, '−');
+const fmtN = x => minus(fmtOut(x));
+function niceN(x) { // hasil solusi: pecahan kalau desimalnya panjang
+  const v = Number(x.toPrecision(12));
+  if (S.fmt.k !== 'norm' || Number.isInteger(v)) return fmtN(v);
+  const f = toFrac(v), m = /⁄(\d+)$/.exec(f || '');
+  return m && +m[1] <= 9999 && String(v).length > 7 ? f : fmtN(v);
+}
+// ---------- editor sel di layar (EQN, MATRIX, VECTOR, STAT, TABLE) ----------
+const gRows = g => g.data.length + (g.blank ? 1 : 0);
+const gCols = g => g.heads.length;
+const gGet = (g, r, c) => g.data[r] ? g.data[r][g.map ? g.map[c] : c] : null;
+function openGrid(o) { S.grid = { r: 0, c: 0, top: 0, ...o }; S.justEval = false; S.lastEq = null; setExpr(''); }
+function closeGrid() { S.grid = null; setExpr(''); }
+function gridSet(v) {
+  const g = S.grid; if (g.blank && g.r >= g.data.length) g.data.push([...g.blank]);
+  g.data[g.r][g.map ? g.map[g.c] : g.c] = v; g.save?.();
+}
+function gridNext() {
+  const g = S.grid; if (g.c < gCols(g) - 1) g.c++; else if (g.r < gRows(g) - 1) { g.r++; g.c = 0; }
+}
+const gridAtEnd = g => g.r === gRows(g) - 1 && g.c === gCols(g) - 1;
+function gridCommit() { // true kalau isi sel diterima
+  const raw = S.expr.trim(); if (!raw) return true;
+  try { gridSet(calcEval(raw)); setExpr(''); return true; } catch (err) { S.err = err.message; updPreview(); return false; }
+}
+function gridEq() {
+  const g = S.grid; if (g.ro) { g.onEq?.(); return; }
+  if (S.expr.trim()) { if (gridCommit()) { if (!(g.onEq && gridAtEnd(g))) gridNext(); updPreview(); } return; }
+  if (g.onEq && gridAtEnd(g)) { g.onEq(); return; }
+  gridNext(); updPreview();
+}
+function gridAc() {
+  const g = S.grid; if (!g.ro && S.expr) { setExpr(''); return; }
+  S.err = ''; const f = g.onAc; closeGrid(); f?.();
+}
+function gridDel() {
+  const g = S.grid; if (g.ro) return gridAc();
+  if (g.blank) { if (g.r < g.data.length) { g.data.splice(g.r, 1); g.save?.(); } if (g.r >= gRows(g)) g.r = gRows(g) - 1; g.c = 0; }
+  else { gridSet(0); }
+  updPreview();
+}
+function gridNav(v) {
+  const g = S.grid; if (!g.ro && !gridCommit()) return;
+  if (v === '@up') g.r = Math.max(0, g.r - 1);
+  else if (v === '@down') g.r = Math.min(gRows(g) - 1, g.r + 1);
+  else if (v === '@left') g.c = Math.max(0, g.c - 1);
+  else g.c = Math.min(gCols(g) - 1, g.c + 1);
+  updPreview();
+}
+function drawGrid(el) {
+  const g = S.grid, rows = gRows(g), cs = getComputedStyle(el), H = el.clientHeight || 100, base = parseFloat(cs.getPropertyValue('--gfs')) || 18;
+  const maxV = Math.max(1, Math.floor(H / (13 * 1.34)) - 2), vis = Math.min(rows, maxV), fs = Math.max(13, Math.min(base, H / (vis + 2) / 1.34));
+  if (g.r < g.top) g.top = g.r; if (g.r >= g.top + vis) g.top = g.r - vis + 1; if (g.top > rows - vis) g.top = Math.max(0, rows - vis);
+  let body = '';
+  for (let r = g.top; r < g.top + vis; r++) {
+    body += `<tr><th>${r + 1}</th>`;
+    for (let c = 0; c < gCols(g); c++) { const v = gGet(g, r, c), t = v == null ? '' : typeof v === 'string' ? v : fmtN(Number(v.toPrecision(7))); body += `<td${r === g.r && c === g.c ? ' class="on"' : ''}>${esc(t)}</td>`; }
+    body += '</tr>';
+  }
+  const cur = gGet(g, g.r, g.c), n = S.expr.length, val = S.err ? `<b class="l-err2">${errKind(S.err)}</b>` : S.expr ? prettyC(S.expr, Math.min(caretPos()[0], n)) : cur == null ? '' : typeof cur === 'string' ? esc(cur) : pretty(fmtN(cur));
+  const hint = g.ro ? '[AC] Kembali' : g.onEq && gridAtEnd(g) ? '[=] Hitung' : g.blank ? '[AC] Selesai' : g.onEq ? '[=] Lanjut' : '[AC] Selesai';
+  el.style.fontSize = fs + 'px';
+  el.innerHTML = `<table class="lg"><thead><tr><th>${esc(g.title || '')}</th>${g.heads.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table><div class="lg-in"><small>${hint}</small><span>${val}</span></div>`;
+}
+// ---------- CMPLX, MATRIX, VECTOR: hitung bilangan kompleks, matriks, vektor ----------
+const cx = (re, im = 0) => ({ re, im });
+const isC = x => x && x.re !== undefined, isMt = x => x && x.mat, isVc = x => x && x.vct;
+const toC = x => typeof x === 'number' ? cx(x) : x;
+const scal = x => typeof x === 'number' || isC(x);
+const DIM = 'Dimensi tidak cocok';
+function needR(x) { if (typeof x !== 'number') throw new Error('Fungsi ini hanya untuk bilangan real'); return x; }
+function gAdd(a, b, s = 1) {
+  if (typeof a === 'number' && typeof b === 'number') return a + s * b;
+  if (scal(a) && scal(b)) { const x = toC(a), y = toC(b); return cx(x.re + s * y.re, x.im + s * y.im); }
+  if (isMt(a) && isMt(b)) { if (a.mat.length !== b.mat.length || a.mat[0].length !== b.mat[0].length) throw new Error(DIM); return { mat: a.mat.map((r, i) => r.map((v, j) => v + s * b.mat[i][j])) }; }
+  if (isVc(a) && isVc(b)) { if (a.vct.length !== b.vct.length) throw new Error(DIM); return { vct: a.vct.map((v, i) => v + s * b.vct[i]) }; }
+  throw new Error(DIM);
+}
+function gMul(a, b) {
+  if (typeof a === 'number' && typeof b === 'number') return a * b;
+  if (scal(a) && scal(b)) { const x = toC(a), y = toC(b); return cx(x.re * y.re - x.im * y.im, x.re * y.im + x.im * y.re); }
+  if (typeof a === 'number' && isMt(b)) return { mat: b.mat.map(r => r.map(v => a * v)) };
+  if (isMt(a) && typeof b === 'number') return gMul(b, a);
+  if (typeof a === 'number' && isVc(b)) return { vct: b.vct.map(v => a * v) };
+  if (isVc(a) && typeof b === 'number') return gMul(b, a);
+  if (isMt(a) && isMt(b)) {
+    if (a.mat[0].length !== b.mat.length) throw new Error(DIM);
+    return { mat: a.mat.map(r => b.mat[0].map((_, j) => r.reduce((s, v, k) => s + v * b.mat[k][j], 0))) };
+  }
+  if (isVc(a) && isVc(b)) { // hasil kali silang
+    if (a.vct.length !== b.vct.length) throw new Error(DIM);
+    const [x, y, z = 0] = a.vct, [p, q, w = 0] = b.vct; return { vct: [y * w - z * q, z * p - x * w, x * q - y * p] };
+  }
+  throw new Error(DIM);
+}
+function gDiv(a, b) {
+  if (typeof b === 'number' && b === 0) throw new Error('Pembagian dengan nol');
+  if (typeof a === 'number' && typeof b === 'number') return a / b;
+  if (scal(a) && scal(b)) { const x = toC(a), y = toC(b), d = y.re * y.re + y.im * y.im; if (!d) throw new Error('Pembagian dengan nol'); return cx((x.re * y.re + x.im * y.im) / d, (x.im * y.re - x.re * y.im) / d); }
+  if ((isMt(a) || isVc(a)) && typeof b === 'number') return gMul(1 / b, a);
+  throw new Error(DIM);
+}
+function mDet(m) {
+  if (m.length !== m[0].length) throw new Error('det hanya untuk matriks bujur sangkar');
+  const a = m.map(r => [...r]), n = a.length; let d = 1;
+  for (let i = 0; i < n; i++) {
+    let p = i; for (let r = i + 1; r < n; r++) if (Math.abs(a[r][i]) > Math.abs(a[p][i])) p = r;
+    if (!a[p][i]) return 0; if (p !== i) { [a[p], a[i]] = [a[i], a[p]]; d = -d; }
+    d *= a[i][i]; for (let r = i + 1; r < n; r++) { const k = a[r][i] / a[i][i]; for (let c = i; c < n; c++) a[r][c] -= k * a[i][c]; }
+  }
+  return Math.abs(d) < 1e-13 ? 0 : Number(d.toPrecision(14));
+}
+function mInv(m) {
+  if (m.length !== m[0].length) throw new Error('Invers hanya untuk matriks bujur sangkar');
+  const n = m.length, a = m.map((r, i) => [...r, ...r.map((_, j) => i === j ? 1 : 0)]);
+  for (let i = 0; i < n; i++) {
+    let p = i; for (let r = i + 1; r < n; r++) if (Math.abs(a[r][i]) > Math.abs(a[p][i])) p = r;
+    if (Math.abs(a[p][i]) < 1e-13) throw new Error('Matriks tidak punya invers'); [a[p], a[i]] = [a[i], a[p]];
+    const k = a[i][i]; a[i] = a[i].map(v => v / k);
+    for (let r = 0; r < n; r++) if (r !== i) { const f = a[r][i]; a[r] = a[r].map((v, c) => v - f * a[i][c]); }
+  }
+  return a.map(r => r.slice(n).map(v => Number(v.toPrecision(14))));
+}
+function cPow(b, e) {
+  if (typeof b === 'number' && typeof e === 'number' && (b >= 0 || Number.isInteger(e))) return Math.pow(b, e);
+  if (Number.isInteger(e) && e >= 0 && e <= 64 && scal(b)) { let r = 1; for (let k = 0; k < e; k++) r = gMul(r, b); return r; }
+  const z = toC(b), w = toC(e); if (!z.re && !z.im) return 0;
+  const lnr = Math.log(Math.hypot(z.re, z.im)), th = Math.atan2(z.im, z.re), m = Math.exp(w.re * lnr - w.im * th), t = w.im * lnr + w.re * th;
+  return cx(m * Math.cos(t), m * Math.sin(t));
+}
+function evalG(src, opt) {
+  const toks = tokenize(String(src)); let i = 0; if (!toks.length) throw new Error('Ekspresi belum lengkap');
+  const K = { D: Math.PI / 180, R: 1, G: Math.PI / 200 }[opt.ang], isOp = (v, t = toks[i]) => t && t.t === 'op' && t.v === v;
+  const starts = t => t && (t.t === 'num' || t.t === 'const' || t.t === 'var' || t.t === 'fn' || (t.t === 'op' && t.v === '('));
+  function expr() { let a = term(); while (isOp('+') || isOp('-')) { const op = toks[i++].v; a = gAdd(a, term(), op === '+' ? 1 : -1); } return a; }
+  function term() {
+    let a = unary();
+    for (;;) {
+      if (isOp('×')) { i++; a = gMul(a, unary()); }
+      else if (isOp('÷')) { i++; a = gDiv(a, unary()); }
+      else if (isOp('Dot')) { i++; const b = unary(); if (!isVc(a) || !isVc(b) || a.vct.length !== b.vct.length) throw new Error(DIM); a = a.vct.reduce((s, v, k) => s + v * b.vct[k], 0); }
+      else if (starts(toks[i])) a = gMul(a, unary());
+      else return a;
+    }
+  }
+  function unary() { if (isOp('-')) { i++; return gMul(-1, unary()); } if (isOp('+')) { i++; return unary(); } return power(); }
+  function power() {
+    let b = postfix();
+    if (isOp('⌟')) { i++; const n = needR(postfix()); if (!isOp('⁄')) throw new Error('Pecahan campuran belum lengkap'); i++; const d = needR(postfix()); if (!d) throw new Error('Pembagian dengan nol'); b = needR(b) + n / d; }
+    while (isOp('⁄')) { i++; b = gDiv(b, postfix()); }
+    if (isOp('∠')) { i++; const t = needR(postfix()) * K, r = needR(b); b = cx(r * Math.cos(t), r * Math.sin(t)); }
+    if (isOp('ⁿ√')) { i++; return cPow(unary(), 1 / needR(b)); }
+    if (isOp('^')) {
+      i++; const e = unary();
+      if (isMt(b)) { needR(e); if (e === -1) return { mat: mInv(b.mat) }; if (!Number.isInteger(e) || e < 1) throw new Error(DIM); let r = b; for (let k = 1; k < e; k++) r = gMul(r, b); return r; }
+      return cPow(b, e);
+    }
+    return b;
+  }
+  function postfix() {
+    let v = primary();
+    for (;;) {
+      if (isOp('²')) { i++; v = gMul(v, v); }
+      else if (isOp('³')) { i++; v = gMul(gMul(v, v), v); }
+      else if (isOp('⁻¹')) { i++; v = isMt(v) ? { mat: mInv(v.mat) } : gDiv(1, v); }
+      else if (isOp('!')) { i++; v = fact(needR(v)); }
+      else if (isOp('%')) { i++; v = gDiv(v, 100); }
+      else if (isOp('▸r∠θ') || isOp('▸a+bi')) { if (opt.out) opt.out.cf = toks[i].v === '▸r∠θ' ? 'polar' : 'rect'; i++; }
+      else return v;
+    }
+  }
+  function primary() {
+    const t = toks[i++]; if (!t) throw new Error('Ekspresi belum lengkap');
+    if (t.t === 'num') return t.v;
+    if (t.t === 'var') return opt.cvars?.[t.v] || opt.vars[t.v] || 0;
+    if (t.t === 'const') {
+      if (t.v === 'pi') return Math.PI; if (t.v === 'e') return Math.E; if (t.v === 'i') { if (S.mode !== 'CMPLX') throw new Error('i hanya di mode CMPLX'); return cx(0, 1); }
+      if (t.v === 'Ans') return opt.ans; if (t.v === 'rand') return Math.random();
+      const m = /^(Mat|Vct)(A|B|C|Ans)$/.exec(t.v); if (!m) throw new Error('Ekspresi tidak valid');
+      const x = m[1] === 'Mat' ? S.mats[m[2]] : S.vcts[m[2]]; if (!x) throw new Error(`Dimensi ${t.v} belum diisi`);
+      return m[1] === 'Mat' ? { mat: x } : { vct: x };
+    }
+    if (t.t === 'op' && t.v === '(') { const v = expr(); if (isOp(')')) i++; else if (i < toks.length) throw new Error('Kurung tidak lengkap'); return v; }
+    if (t.t === 'fn') {
+      const paren = isOp('('); let args;
+      if (paren) { i++; args = [expr()]; while (isOp(',')) { i++; args.push(expr()); } if (isOp(')')) i++; else if (i < toks.length) throw new Error('Kurung tidak lengkap'); }
+      else args = [t.pre ? unary() : power()];
+      const a = args[0];
+      if (t.v === 'abs') return isC(a) ? Math.hypot(a.re, a.im) : isVc(a) ? Math.hypot(...a.vct) : isMt(a) ? { mat: a.mat.map(r => r.map(Math.abs)) } : Math.abs(a);
+      if (t.v === 'arg') { const z = toC(a); return Math.atan2(z.im, z.re) / K; }
+      if (t.v === 'Conjg') { const z = toC(a); return cx(z.re, -z.im); }
+      if (t.v === 'det') { if (!isMt(a)) throw new Error(DIM); return mDet(a.mat); }
+      if (t.v === 'Trn') { if (!isMt(a)) throw new Error(DIM); return { mat: a.mat[0].map((_, j) => a.mat.map(r => r[j])) }; }
+      if (t.v === 'sqrt' && (isC(a) || a < 0)) return cPow(a, .5);
+      if (t.v === 'cbrt' && isC(a)) return cPow(a, 1 / 3);
+      if (LAZY.has(t.v) || t.v === 'Pol' || t.v === 'Rec') throw new Error('Fungsi ini tidak tersedia di mode ini — "tidak di tempatnya"');
+      const tk = [{ t: 'fn', v: t.v }, { t: 'op', v: '(' }]; args.forEach((x, k) => { if (k) tk.push({ t: 'op', v: ',' }); tk.push({ t: 'num', v: needR(x) }); }); tk.push({ t: 'op', v: ')' });
+      return evaluate(tk, { ang: opt.ang, ans: 0 });
+    }
+    throw new Error(t.v === ')' ? 'Kurung tutup berlebih' : `"${t.v}" tidak di tempatnya`);
+  }
+  let v = expr(); if (i < toks.length) throw new Error(isOp(')') ? 'Kurung tutup berlebih' : 'Ekspresi tidak valid');
+  if (isC(v)) { if (Math.abs(v.im) < 1e-13 * Math.max(1, Math.abs(v.re))) v = v.re; else if (Math.abs(v.re) < 1e-13 * Math.max(1, Math.abs(v.im))) v = cx(0, v.im); }
+  if (typeof v === 'number' && !Number.isFinite(v)) throw new Error(Number.isNaN(v) ? 'Hasil tidak terdefinisi' : 'Tak hingga');
+  return v;
+}
+function fmtC(z, form = S.cf, f = fmtN) {
+  if (form === 'polar') return `${f(Math.hypot(z.re, z.im))}∠${f(Math.atan2(z.im, z.re) / { D: Math.PI / 180, R: 1, G: Math.PI / 200 }[S.ang])}`;
+  const b = Math.abs(z.im), s = z.im < 0 ? '−' : '+', im = (b === 1 ? '' : f(b)) + 'i';
+  return z.re ? `${f(z.re)}${s}${im}` : `${z.im < 0 ? '−' : ''}${im}`;
+}
+const gOpt = out => ({ ang: S.ang, ans: S.ansV ?? S.ans, vars: varsNow(), cvars: S.cvars, out });
+function gEquals() {
+  const again = S.justEval && S.lastEq, e = again ? S.lastEq.e : S.expr.trim(); if (!e) return;
+  try {
+    if (e.includes('=')) throw new Error('Tanda = hanya untuk SOLVE (SHIFT + CALC)');
+    const out = {}; let v;
+    for (const st of e.split('∶')) { v = evalG(st, gOpt(out)); S.ansV = isMt(v) || isVc(v) ? null : v; if (typeof v === 'number') S.ans = v; else if (isC(v)) S.ans = v.re; }
+    S.engE = null; S.showFrac = false;
+    if (isMt(v) || isVc(v)) {
+      const m = isMt(v), name = m ? 'MatAns' : 'VctAns', data = m ? v.mat : [v.vct];
+      if (m) S.mats.Ans = v.mat; else S.vcts.Ans = v.vct;
+      if (!again) pushHist(e, m ? '[' + v.mat.map(r => r.map(x => fmtN(x)).join(', ')).join(' ; ') + ']' : '(' + v.vct.map(x => fmtN(x)).join(', ') + ')', NaN);
+      openGrid({ title: name, heads: data[0].map((_, j) => j + 1), data, ro: true, onAc: () => { setExpr(name); S.justEval = true; S.lastEq = { e, show: name, multi: true }; updPreview(); } });
+      render(); return;
+    }
+    const form = out.cf || S.cf;
+    const fr = typeof v === 'number' && /⁄/.test(e) ? toFrac(v) : null;
+    const show = isC(v) ? fmtC(v, form) : fr || (form === 'polar' && S.mode === 'CMPLX' && out.cf ? fmtC(cx(v), 'polar') : fmtN(v));
+    if (!again) pushHist(e, show, isC(v) ? v.re : v);
+    LS.set('ans', String(S.ans)); S.justEval = true; setExpr('Ans'); S.lastEq = { e, r: show, show, multi: true, val: v }; render();
+  } catch (err) { S.err = err.message; updPreview(); }
+}
+// ---------- BASE-N: bilangan bulat 32 bit ----------
+const BASE_NM = { 10: 'Dec', 16: 'Hex', 2: 'Bin', 8: 'Oct' }, BASE_PRE = { d: 10, h: 16, b: 2, o: 8 };
+function baseEval(src, base) {
+  const out = []; let p = 0; const s = String(src);
+  while (p < s.length) {
+    const r = s.slice(p); let m;
+    if (/^\s/.test(r)) { p++; continue; }
+    if ((m = /^(xnor|xor|and|or|Not|Neg|Ans)/.exec(r))) { out.push({ w: m[1] }); p += m[1].length; continue; }
+    if ((m = /^([dhbo])?([0-9A-F]+)/.exec(r))) {
+      const b = m[1] ? BASE_PRE[m[1]] : base;
+      if (![...m[2]].every(c => parseInt(c, 16) < b)) throw new Error(`Angka "${m[2]}" tidak valid di ${BASE_NM[b]}`);
+      const n = parseInt(m[2], b);
+      if (b === 10 ? n > 2147483648 : n > 0xFFFFFFFF) throw new Error('Di luar jangkauan 32 bit');
+      out.push({ n: b === 10 ? n : n | 0 }); p += m[0].length; continue;
+    }
+    if ('+-−×*÷/()'.includes(r[0])) { out.push({ o: { '−': '-', '*': '×', '/': '÷' }[r[0]] || r[0] }); p++; continue; }
+    throw new Error('Karakter tidak dikenal: ' + r[0]);
+  }
+  if (!out.length) throw new Error('Ekspresi belum lengkap');
+  let i = 0; const O = v => out[i]?.o === v, W = v => out[i]?.w === v;
+  const chk = v => { if (v > 2147483647 || v < -2147483648) throw new Error('Di luar jangkauan 32 bit'); return v; };
+  const orx = () => { let a = andx(); while (W('or') || W('xor') || W('xnor')) { const w = out[i++].w, b = andx(); a = w === 'or' ? a | b : w === 'xor' ? a ^ b : ~(a ^ b); } return a; };
+  const andx = () => { let a = add(); while (W('and')) { i++; a &= add(); } return a; };
+  const add = () => { let a = mul(); while (O('+') || O('-')) { const o = out[i++].o, b = mul(); a = chk(o === '+' ? a + b : a - b); } return a; };
+  const mul = () => { let a = un(); while (O('×') || O('÷')) { const o = out[i++].o, b = un(); if (o === '×') { const r = BigInt(a) * BigInt(b); if (r > 2147483647n || r < -2147483648n) throw new Error('Di luar jangkauan 32 bit'); a = Number(r); } else { if (!b) throw new Error('Pembagian dengan nol'); a = Math.trunc(a / b); } } return a; };
+  const un = () => { if (O('-')) { i++; return chk(-un()); } if (O('+')) { i++; return un(); } if (W('Not') || W('Neg')) { const w = out[i++].w, v = pri(); return w === 'Not' ? ~v : chk(-v); } return pri(); };
+  const pri = () => {
+    const t = out[i++]; if (!t) throw new Error('Ekspresi belum lengkap');
+    if (t.n !== undefined) return chk(t.n); if (t.w === 'Ans') return S.ansB || 0;
+    if (t.o === '(') { const v = orx(); if (O(')')) i++; else if (i < out.length) throw new Error('Kurung tidak lengkap'); return v; }
+    throw new Error('Ekspresi tidak valid');
+  };
+  const v = orx(); if (i < out.length) throw new Error('Ekspresi tidak valid'); return v;
+}
+function fmtBase(v, b) {
+  if (b === 10) return minus(v);
+  const u = v >>> 0, s = u.toString(b).toUpperCase();
+  if (b === 16) return s.padStart(8, '0');
+  if (b === 8) return s.padStart(11, '0');
+  return s.padStart(u < 65536 ? 16 : 32, '0').replace(/(.{4})(?=.)/g, '$1 ');
+}
+function baseEquals() {
+  const again = S.justEval && S.lastEq, e = again ? S.lastEq.e : S.expr.trim(); if (!e) return;
+  try {
+    const v = baseEval(e, S.base); S.ansB = v; S.ans = v; const show = fmtBase(v, S.base);
+    if (!again) pushHist(e, show, v);
+    S.justEval = true; setExpr('Ans'); S.lastEq = { e, r: show, show, multi: true }; render();
+  } catch (err) { S.err = err.message; updPreview(); }
+}
+function setBase(b) {
+  if (!S.justEval && S.expr.trim()) { try { const v = baseEval(S.expr, S.base); S.base = b; setExpr(v < 0 && b === 10 ? '−' + -v : (b === 10 ? String(v) : (v >>> 0).toString(b).toUpperCase())); } catch { S.base = b; setExpr(''); } }
+  else { S.base = b; if (S.justEval && S.lastEq) S.lastEq.show = fmtBase(S.ansB || 0, b); }
+  LS.set('base', String(b)); updPreview();
+}
+const BASE_KEY = { sq: 10, pow: 16, log: 2, ln: 8 }, HEX_KEY = { neg: 'A', dms: 'B', hyp: 'C', sin: 'D', cos: 'E', tan: 'F' };
+const BASE_OK = new Set(['lp', 'rp', 'del', 'ac', 'on', 'mode', 'ans', 'eq', 'add', 'sub', 'mul', 'div']);
+function baseAct(id, act, lay) { // tombol yang berlaku di BASE-N; lainnya diam seperti aslinya
+  if (lay) return ['@setup', '@off', '@m3', '@ins'].includes(lay[1]) ? lay[1] : null;
+  if (BASE_KEY[id]) return '@base:' + BASE_KEY[id];
+  if (HEX_KEY[id]) return S.base === 16 ? HEX_KEY[id] : null;
+  if (/^\d$/.test(id)) return +id < S.base ? id : null;
+  return BASE_OK.has(id) ? act : null;
+}
+const baseMenu = () => lcdMenu('', [...[['and', ' and '], ['or', ' or '], ['xor', ' xor '], ['xnor', ' xnor '], ['Not', 'Not('], ['Neg', 'Neg(']], ...[['d', 'd'], ['h', 'h'], ['b', 'b'], ['o', 'o']]].map(([l, t]) => insM(l, t)), { per: 6 });
+// ---------- EQN ----------
+const EQN_T = [
+  { l: 'a<sub>n</sub>X+b<sub>n</sub>Y=c<sub>n</sub>', n: 2, lin: 1, h: ['a', 'b', 'c'], v: ['X', 'Y'] },
+  { l: 'a<sub>n</sub>X+b<sub>n</sub>Y+c<sub>n</sub>Z=d<sub>n</sub>', n: 3, lin: 1, h: ['a', 'b', 'c', 'd'], v: ['X', 'Y', 'Z'] },
+  { l: 'aX²+bX+c=0', n: 2, h: ['a', 'b', 'c'] },
+  { l: 'aX³+bX²+cX+d=0', n: 3, h: ['a', 'b', 'c', 'd'] }
+];
+function eqnMenu() { lcdMenu('', EQN_T.map((t, i) => ({ l: t.l, f: () => eqnOpen(i) })), { cols: 1 }); }
+function eqnOpen(i) {
+  S.menu = null;
+  const t = EQN_T[i], key = 'eq' + i, rows = t.lin ? t.n : 1;
+  let d; try { d = JSON.parse(LS.get(key) || 'null'); } catch {}
+  if (!d || d.length !== rows) d = Array.from({ length: rows }, () => t.h.map(() => 0));
+  openGrid({ title: 'EQN', heads: t.h, data: d, save: () => LS.set(key, JSON.stringify(d)), onEq: () => eqnSolve(t, d) });
+}
+function polyRoots(c) { // koefisien tertinggi dulu → akar (Durand–Kerner + rapikan)
+  const n = c.length - 1, a = c.map(x => x / c[0]);
+  const ev = z => a.reduce((s, k) => gAdd(gMul(s, z), k), cx(0));
+  let r = Array.from({ length: n }, (_, k) => { const t = 2 * Math.PI * k / n + .4, m = 1 + Math.max(...a.slice(1).map(Math.abs)); return cx(m * .6 * Math.cos(t), m * .6 * Math.sin(t)); });
+  for (let it = 0; it < 500; it++) {
+    let mv = 0;
+    r = r.map((z, k) => { let d = cx(1); r.forEach((w, j) => { if (j !== k) d = gMul(d, gAdd(z, w, -1)); }); const st = toC(gDiv(ev(z), d)); mv = Math.max(mv, Math.hypot(st.re, st.im)); return gAdd(z, st, -1); });
+    if (mv < 1e-14) break;
+  }
+  return r.map(z => { const m = Math.max(1, Math.abs(z.re)); return Math.abs(z.im) < 1e-7 * m ? cx(Number(z.re.toPrecision(10))) : cx(Number(z.re.toPrecision(11)), Number(z.im.toPrecision(11))); })
+    .sort((x, y) => (Math.abs(x.im) > 0) - (Math.abs(y.im) > 0) || y.re - x.re || y.im - x.im);
+}
+const rootStr = z => z.im ? fmtC(z, 'rect', niceN) : niceN(z.re);
+function eqnSolve(t, d) {
+  const back = { onEq: () => {}, onAc: () => {}, digit: () => false };
+  const say = (rows, txt, sum) => { if (sum) pushHist(sum, txt, NaN, 'EQN'); lcdMenu('', [], { ...back, html: lines(rows) }); };
+  const term = (v, nm, first) => `${v < 0 ? '−' : first ? '' : '+'}${Math.abs(v) === 1 && nm ? '' : minus(Math.abs(v))}${nm}`;
+  if (t.lin) {
+    const n = t.n, A = d.map(r => r.slice(0, n)), det = mDet(A);
+    const sum = d.map(r => r.slice(0, n).map((v, j) => v ? term(v, t.v[j], false) : '').join('').replace(/^\+/, '') + '=' + minus(r[n])).join(' ; ');
+    if (!det) { // tanpa solusi tunggal: bedakan lewat rank
+      const rank = M => { const a = M.map(r => [...r]); let k = 0; for (let c = 0; c < a[0].length && k < a.length; c++) { let p = k; while (p < a.length && Math.abs(a[p][c]) < 1e-12) p++; if (p === a.length) continue; [a[p], a[k]] = [a[k], a[p]]; for (let r = k + 1; r < a.length; r++) { const f = a[r][c] / a[k][c]; a[r] = a[r].map((x, j) => x - f * a[k][j]); } k++; } return k; };
+      const txt = rank(d) > rank(A) ? 'Tidak ada solusi' : 'Solusi tak hingga';
+      lcdMenu(`<div class="lm-big">${txt}</div>`, [], back); return;
+    }
+    const inv = mInv(A), x = inv.map(r => r.reduce((s, v, j) => s + v * d[j][n], 0));
+    say(t.v.map((nm, i) => [nm, niceN(x[i])]), t.v.map((nm, i) => `${nm}=${niceN(x[i])}`).join('  '), sum);
+    return;
+  }
+  const c = d[0]; if (!c[0]) { toast('Koefisien a tidak boleh 0'); return; }
+  let r;
+  if (c.length === 3) { const D = c[1] * c[1] - 4 * c[0] * c[2], q = Math.sqrt(Math.abs(D)), p = -c[1] / (2 * c[0]), s = q / (2 * Math.abs(c[0])); r = D >= 0 ? [cx(p + s), cx(p - s)] : [cx(p, s), cx(p, -s)]; }
+  else r = polyRoots(c);
+  const sum = c.map((v, i) => v ? term(v, ['X³', 'X²', 'X', ''].slice(4 - c.length)[i], false) : '').join('').replace(/^\+/, '') + '=0';
+  say(r.map((z, i) => [`X<sub>${i + 1}</sub>`, rootStr(z)]), r.map((z, i) => `X${i + 1}=${rootStr(z)}`).join('  '), sum);
+}
+// ---------- MATRIX / VECTOR ----------
+const saveStore = () => { const f = o => Object.fromEntries(Object.entries(o).filter(([k]) => k !== 'Ans')); LS.set('mats', JSON.stringify(f(S.mats))); LS.set('vcts', JSON.stringify(f(S.vcts))); };
+function storePick(kind, title, f) { lcdMenu(title, ['A', 'B', 'C'].map(n => ({ l: kind + n, f: () => f(n) })), { cols: 3 })}
+function dimMenu(kind, n) {
+  if (kind === 'Mat') lcdMenu(`Mat${n} (m×n)`, [[3, 3], [3, 2], [3, 1], [2, 3], [2, 2], [2, 1], [1, 3], [1, 2]].map(([r, c]) => ({ l: `${r}×${c}`, f: () => { S.mats[n] = Array.from({ length: r }, () => Array(c).fill(0)); saveStore(); dataGrid(kind, n); } })), { cols: 4 });
+  else lcdMenu(`Vct${n} dimensi`, [3, 2].map(c => ({ l: `${c}`, f: () => { S.vcts[n] = Array(c).fill(0); saveStore(); dataGrid(kind, n); } })));
+}
+function dataGrid(kind, n) {
+  const m = kind === 'Mat', st = m ? S.mats : S.vcts;
+  if (!st[n]) return dimMenu(kind, n);
+  const data = m ? st[n] : [st[n]];
+  openGrid({ title: kind + n, heads: data[0].map((_, j) => j + 1), data, save: () => { if (!m) st[n] = data[0]; saveStore(); }, onAc: () => updPreview() });
+}
+function matMenu() {
+  lcdMenu('', [{ l: 'Dim', f: () => storePick('Mat', 'Dim?', n => dimMenu('Mat', n)) }, { l: 'Data', f: () => storePick('Mat', 'Data?', n => dataGrid('Mat', n)) }, insM('MatA', 'MatA'), insM('MatB', 'MatB'), insM('MatC', 'MatC'), insM('MatAns', 'MatAns'), insM('det', 'det('), insM('Trn', 'Trn(')]);
+}
+function vctMenu() {
+  lcdMenu('', [{ l: 'Dim', f: () => storePick('Vct', 'Dim?', n => dimMenu('Vct', n)) }, { l: 'Data', f: () => storePick('Vct', 'Data?', n => dataGrid('Vct', n)) }, insM('VctA', 'VctA'), insM('VctB', 'VctB'), insM('VctC', 'VctC'), insM('VctAns', 'VctAns'), insM('Dot', 'Dot')]);
+}
+// ---------- TABLE ----------
+function tableGo() {
+  const f = S.expr.trim(); if (!f) return;
+  try { tokenize(f); } catch (err) { S.err = err.message; updPreview(); return; }
+  S.tbl.f = f; LS.set('tbl', JSON.stringify(S.tbl));
+  askSeq([['Start', 'a'], ['End', 'b'], ['Step', 's']].map(([l, k]) => ({ l, get: () => S.tbl[k], set: v => { S.tbl[k] = v; } })), tableShow);
+}
+function tableShow() {
+  const { f, a, b, s } = S.tbl; LS.set('tbl', JSON.stringify(S.tbl));
+  const n = s ? Math.floor((b - a) / s + 1e-9) + 1 : 0;
+  if (!s || n < 1) { setExpr(f); S.err = 'Start, End, Step tidak cocok'; updPreview(); return; }
+  if (n > 300) { setExpr(f); S.err = 'Terlalu banyak baris (maksimal 300)'; updPreview(); return; }
+  const data = [];
+  for (let k = 0; k < n; k++) { const x = Number((a + k * s).toPrecision(12)); let y; try { y = evaluate(f, { ang: S.ang, ans: S.ans, vars: { ...varsNow(), X: x }, rnd: rndOut }); } catch { y = 'ERROR'; } data.push([x, y]); }
+  pushHist(`f(X)=${f}`, `X=${minus(a)}…${minus(b)}, ${n} baris`, NaN);
+  openGrid({ title: '', heads: ['X', 'F(X)'], data, ro: true, onAc: () => { setExpr(S.tbl.f); updPreview(); } });
+  render();
+}
+// ---------- STAT ----------
+const STAT_T = [['1', '1-VAR'], ['l', 'A+BX'], ['q', '_+CX²'], ['n', 'ln X'], ['e', 'e^X'], ['a', 'A•B^X'], ['p', 'A•X^B'], ['r', '1/X']];
+const statNameOf = t => STAT_T.find(x => x[0] === t)[1];
+function statTypeMenu() { lcdMenu('', STAT_T.map(([k, l]) => ({ l, f: () => { if (S.stat.type !== k) { S.stat = { type: k, rows: [] }; statSave(); } statOpen(); } }))); }
+const statSave = () => LS.set('stat', JSON.stringify(S.stat));
+function statOpen() {
+  const two = S.stat.type !== '1', heads = ['X'], map = [0];
+  if (two) { heads.push('Y'); map.push(1); }
+  if (S.statFreq) { heads.push('FREQ'); map.push(2); }
+  openGrid({ title: statNameOf(S.stat.type), heads, map, data: S.stat.rows, blank: [0, 0, 1], save: statSave, onAc: () => updPreview() });
+  S.grid.r = S.stat.rows.length;
+}
+function statCalc() {
+  const { type, rows } = S.stat, s = { Stn: 0, 'Σx': 0, 'Σx²': 0, 'Σx³': 0, 'Σx⁴': 0, 'Σy': 0, 'Σy²': 0, 'Σxy': 0, 'Σx²y': 0, fns: {} }, two = type !== '1';
+  if (!rows.length) return s;
+  let mnX = Infinity, mxX = -Infinity, mnY = Infinity, mxY = -Infinity;
+  for (const [x, y, fr] of rows) {
+    const f = S.statFreq ? fr : 1; s.Stn += f; s['Σx'] += f * x; s['Σx²'] += f * x * x; s['Σx³'] += f * x ** 3; s['Σx⁴'] += f * x ** 4;
+    s['Σy'] += f * y; s['Σy²'] += f * y * y; s['Σxy'] += f * x * y; s['Σx²y'] += f * x * x * y;
+    mnX = Math.min(mnX, x); mxX = Math.max(mxX, x); mnY = Math.min(mnY, y); mxY = Math.max(mxY, y);
+  }
+  const n = s.Stn; if (!n) return s;
+  const sd = (S1, S2) => Math.sqrt(Math.max(0, S2 - S1 * S1 / n) / n), ss = (S1, S2) => n > 1 ? Math.sqrt(Math.max(0, S2 - S1 * S1 / n) / (n - 1)) : NaN;
+  Object.assign(s, { 'x̄': s['Σx'] / n, 'σx': sd(s['Σx'], s['Σx²']), sx: ss(s['Σx'], s['Σx²']), minX: mnX, maxX: mxX });
+  const mean = s['x̄'], dev = s['σx'];
+  s.fns['t▸'] = x => { if (!dev) throw new Error('Simpangan baku nol'); return (x - mean) / dev; };
+  if (!two) return s;
+  Object.assign(s, { 'ȳ': s['Σy'] / n, 'σy': sd(s['Σy'], s['Σy²']), sy: ss(s['Σy'], s['Σy²']), minY: mnY, maxY: mxY });
+  if (type === 'q') {
+    const A = [[n, s['Σx'], s['Σx²']], [s['Σx'], s['Σx²'], s['Σx³']], [s['Σx²'], s['Σx³'], s['Σx⁴']]];
+    if (!mDet(A)) return s;
+    const inv = mInv(A), B = [s['Σy'], s['Σxy'], s['Σx²y']], [a, b, c] = inv.map(r => r.reduce((t, v, j) => t + v * B[j], 0));
+    Object.assign(s, { regA: a, regB: b, regC: c });
+    s.fns['ŷ'] = x => a + b * x + c * x * x;
+    const disc = y => { const D = b * b - 4 * c * (a - y); if (D < 0 || !c) throw new Error('Tidak ada nilai x'); return Math.sqrt(D); };
+    s.fns['x̂₁'] = y => (-b + disc(y)) / (2 * c); s.fns['x̂₂'] = y => (-b - disc(y)) / (2 * c);
+    return s;
+  }
+  // regresi linear pada nilai yang ditransformasi
+  const tx = { n: Math.log, p: Math.log, r: x => 1 / x }[type] || (x => x), ty = { e: Math.log, a: Math.log, p: Math.log }[type] || (y => y);
+  let Sx = 0, Sy = 0, Sxx = 0, Syy = 0, Sxy = 0;
+  for (const [x, y, fr] of rows) { const f = S.statFreq ? fr : 1, u = tx(x), v = ty(y); Sx += f * u; Sy += f * v; Sxx += f * u * u; Syy += f * v * v; Sxy += f * u * v; }
+  const dn = n * Sxx - Sx * Sx; if (!(Math.abs(dn) > 1e-14) || !Number.isFinite(dn + Sy)) return s;
+  const B0 = (n * Sxy - Sx * Sy) / dn, A0 = (Sy - B0 * Sx) / n, rd = Math.sqrt((n * Sxx - Sx * Sx) * (n * Syy - Sy * Sy));
+  s.regR = rd ? (n * Sxy - Sx * Sy) / rd : NaN;
+  const A = 'eap'.includes(type) ? Math.exp(A0) : A0, Br = type === 'a' ? Math.exp(B0) : B0;
+  s.regA = A; s.regB = Br;
+  s.fns['ŷ'] = { l: x => A + Br * x, n: x => A + Br * Math.log(x), e: x => A * Math.exp(Br * x), a: x => A * Br ** x, p: x => A * x ** Br, r: x => A + Br / x }[type];
+  s.fns['x̂'] = { l: y => (y - A) / Br, n: y => Math.exp((y - A) / Br), e: y => Math.log(y / A) / Br, a: y => Math.log(y / A) / Math.log(Br), p: y => (y / A) ** (1 / Br), r: y => Br / (y - A) }[type];
+  return s;
+}
+function statMenu() {
+  const t = S.stat.type, two = t !== '1', q = t === 'q';
+  const sum = two ? ['Σx²', 'Σx', 'Σy²', 'Σy', 'Σxy', 'Σx³', 'Σx²y', 'Σx⁴'] : ['Σx²', 'Σx'];
+  const vr = two ? [['n', 'Stn'], ['x̄', 'x̄'], ['σx', 'σx'], ['sx', 'sx'], ['ȳ', 'ȳ'], ['σy', 'σy'], ['sy', 'sy']] : [['n', 'Stn'], ['x̄', 'x̄'], ['σx', 'σx'], ['sx', 'sx']];
+  const reg = q ? [['A', 'regA'], ['B', 'regB'], ['C', 'regC'], ['x̂₁', 'x̂₁'], ['x̂₂', 'x̂₂'], ['ŷ', 'ŷ']] : [['A', 'regA'], ['B', 'regB'], ['r', 'regR'], ['x̂', 'x̂'], ['ŷ', 'ŷ']];
+  const mm = two ? ['minX', 'maxX', 'minY', 'maxY'] : ['minX', 'maxX'];
+  const sub = list => () => lcdMenu('', list.map(x => Array.isArray(x) ? insM(x[0], x[1]) : insM(x, x)));
+  lcdMenu('', [
+    { l: 'Type', f: statTypeMenu }, { l: 'Data', f: statOpen }, { l: 'Sum', f: sub(sum) }, { l: 'Var', f: sub(vr) },
+    two ? { l: 'Reg', f: sub(reg) } : { l: 'Distr', f: sub([['P(', 'P('], ['Q(', 'Q('], ['R(', 'R('], ['▸t', 't▸']]) }, { l: 'MinMax', f: sub(mm) }
+  ]);
 }
 
 // ---------- server ----------
@@ -1308,7 +1514,6 @@ async function login(raw, pass, remember, pin) {
     for (const x of r.rows || []) { const it = { id: x.id, owner: x.owner, kind: x.kind, data: x.data || {}, updated: Number(x.updated), deleted: !!x.deleted }; S.items.set(key(it), it); S.seq = Math.max(S.seq, Number(x.seq)); }
     saveCache(); LS.set('admin.users', JSON.stringify(S.users)); S.sync.at = new Date();
     SS.set('admin', pass); if (remember) LS.set('session', JSON.stringify({ admin: true })); else LS.del('session');
-    S.view = 'data';
   } else {
     let r = null;
     try { r = await rpc('pl_login', { p_owner: name, p_pin: pin || null }); } catch (e) { // offline: unlock with the PIN checked on this device before
@@ -1334,28 +1539,24 @@ function logout() {
 }
 
 // ---------- views ----------
-function setView(v) { S.view = v; S.histOpen = false; LS.set('view', v); render(); window.scrollTo(0, 0); const m = $('.main'); if (m) m.scrollTop = 0; }
-const TABS = [['calc', '🧮', 'Kalkulator'], ['geo', '📐', 'Luas & Volume'], ['data', '🗂', 'Data']];
 function render() {
   const app = $('#app');
   if (!S.user && !S.admin) { app.innerHTML = gateView(); syncMask(); setTimeout(() => ($('#pin-in') || $('#user-in'))?.focus(), 30); return; }
-  // keep focus + caret across re-renders (realtime updates arrive while typing)
-  const ae = document.activeElement, fid = ae?.id, sel = fid && ae.setSelectionRange && ae.type !== 'number' ? [ae.selectionStart, ae.selectionEnd] : null;
-  const body = S.view === 'geo' ? geoView() : S.view === 'data' ? dataView() : calcView();
+  const ae = document.activeElement, fid = ae?.id, sel = fid && ae.setSelectionRange ? [ae.selectionStart, ae.selectionEnd] : null;
   app.innerHTML = `<div class="shell"><header class="top"><div class="top-in">
-      <a class="brand" href="#" data-a="view" data-v="calc"><span class="logo">±</span><span>Calc</span></a>
-      <nav class="tabs">${TABS.map(([v, i, l]) => `<button type="button" class="tab${S.view === v ? ' on' : ''}" data-a="view" data-v="${v}">${i} ${l}</button>`).join('')}</nav>
-      <div class="top-r"><span class="sync">${syncText()}</span><button type="button" class="chip" data-a="menu">${S.admin ? '🛡 Admin' : '👤 ' + esc(S.user)}</button></div>
+      <span class="brand"><span class="logo">±</span><span>Calc</span></span>
+      <span class="sp"></span>
+      <span class="sync">${syncText()}</span>
+      <button type="button" class="btn sm top-h" data-a="key" data-v="@hist">Riwayat</button>
+      <button type="button" class="chip" data-a="menu">${S.admin ? 'Admin' : esc(S.user)}</button>
     </div></header>
-    <main class="main v-${S.view}">${body}</main>
-    <nav class="bnav">${TABS.map(([v, i, l]) => `<button type="button" class="${S.view === v ? 'on' : ''}" data-a="view" data-v="${v}"><span>${i}</span>${l}</button>`).join('')}</nav></div>`;
-  if (S.view === 'calc') { const d = disp(); if (d) { d.value = S.expr; d.scrollLeft = d.scrollWidth; } updPreview(); }
+    <main class="main v-calc">${calcView()}</main></div>`;
+  updPreview();
   if (fid) { const el = document.getElementById(fid); if (el && el !== document.activeElement) { el.focus({ preventScroll: true }); if (sel) try { el.setSelectionRange(...sel); } catch {} } }
 }
 
 // calculator view
 function calcView() {
-  const coarse = matchMedia('(pointer:coarse)').matches;
   const lbl = (l, cls) => l ? `<b class="${cls}${l[2] ? ' c-' + l[2] : ''}">${l[0]}</b>` : '';
   const cell = x => `<button type="button" class="ck ${x.c || ''}${/^[0-9]$|^dot$|^exp$|^ans$|^eq$|^mul$|^div$|^add$|^sub$/.test(x.id) ? ' nk' : ''}" data-a="ck" data-v="${x.id}"><span class="ck-l">${x.lb ? `<b class="lb">${x.lb}</b>` : ''}${lbl(x.s, 'ls')}${x.m ? `<b class="lm">${x.m}</b>` : ''}${lbl(x.a, 'la')}</span><span class="ck-c">${x.cap}</span></button>`;
   const dpad = `<div class="dpad" role="group" aria-label="Replay">
@@ -1365,133 +1566,32 @@ function calcView() {
       <button type="button" class="dp lf" data-a="dp" data-v="@left" title="Geser kursor ke kiri (←)"><span>◀</span></button>
       <span class="dp-c">REPLAY</span></div>`;
   const h = hist(), q = S.calcQ.trim().toLowerCase(), hf = q ? h.filter(x => (x.data.e + ' ' + x.data.r).toLowerCase().includes(q)) : h;
-  return `<section class="fx" id="fx">
-      <div class="fx-top"><span class="fx-brand">Calc<small>Natural Display</small></span><span class="fx-sol" aria-hidden="true"><i></i><i></i><i></i><i></i></span><button type="button" class="btn sm fx-h" data-a="key" data-v="@hist" title="Riwayat hitung">🕘 Riwayat</button></div>
+  return `<section class="fx" id="fx"><div class="fx-in"><div class="fx-col">
       <div class="lcd-fr"><div class="lcd" id="lcd">
         <div class="l-ind">${IND.map(x => `<span data-ind="${x}">${x}</span>`).join('')}</div>
         <div class="l-body">
           <div class="l-expr" id="l-expr"></div>
           <div class="l-res" id="l-res"></div>
           <div class="l-menu" id="l-menu" hidden></div>
+          <div class="l-grid" id="l-grid" hidden></div>
         </div>
-        <span class="hnav" id="hnav-ind"></span>
-        <input id="disp" class="disp" autocomplete="off" autocapitalize="off" spellcheck="false" ${coarse ? 'inputmode="none"' : ''} aria-label="Ekspresi">
+        <div class="l-foot"><span id="l-tag"></span><span class="hnav" id="hnav-ind"></span></div>
       </div></div>
       <div class="keys">
         <div class="kf">${dpad}${KEY_F.map(cell).join('')}</div>
         <div class="kn">${KEY_N.map(cell).join('')}</div>
       </div>
-    </section>
+    </div></div></section>
     ${S.histOpen ? '<div class="h-back" data-a="key" data-v="@hist"></div>' : ''}
     <section class="hist card${S.histOpen ? ' open' : ''}">
-      <div class="h-head"><h2>🕘 Riwayat hitung <span class="muted">${h.length}</span></h2><span class="sp"></span>${h.length && !RO() ? '<button type="button" class="btn sm danger" data-a="histclear" id="hc-btn">Hapus semua</button>' : ''}<button type="button" class="btn sm h-x" data-a="key" data-v="@hist" title="Tutup">✕</button></div>
+      <div class="h-head"><h2>Riwayat <span class="muted">${h.length}</span></h2><span class="sp"></span>${h.length && !RO() ? '<button type="button" class="btn sm danger" data-a="histclear" id="hc-btn">Hapus semua</button>' : ''}<button type="button" class="btn sm h-x" data-a="key" data-v="@hist" title="Tutup">✕</button></div>
       ${h.length > 6 ? `<input class="h-q" id="calc-q" type="search" placeholder="Cari riwayat…" value="${esc(S.calcQ)}">` : ''}
-      <div class="h-list">${hf.map(x => `<div class="h-row" data-a="hload" data-v="${esc(x.id)}" title="Klik untuk memakai lagi">
+      <div class="h-list">${hf.map(x => `<div class="h-row" data-a="hload" data-v="${esc(x.id)}" title="Klik untuk memakai lagi" data-m="${esc(x.data.m || '')}">
           <div class="h-e">${pretty(x.data.e)}</div><div class="h-r">${String(x.data.r).includes('=') ? '' : '= '}${pretty(x.data.r)}</div>
-          <div class="h-meta"><span class="muted small">${fullDT(x.data.t)}</span><span class="sp"></span>${RO() ? '' : `<button type="button" class="btn xs" data-a="hdata" data-v="${esc(x.id)}" title="Tambahkan hasil ini ke data perhitungan">＋ Data</button><button type="button" class="btn xs" data-a="hdel" data-v="${esc(x.id)}" title="Hapus">✕</button>`}</div>
+          <div class="h-meta">${x.data.m ? `<span class="h-tag">${esc(MODE_L[x.data.m] || x.data.m)}</span>` : ''}<span class="muted small">${fullDT(x.data.t)}</span><span class="sp"></span>${RO() ? '' : `<button type="button" class="btn xs" data-a="hdel" data-v="${esc(x.id)}" title="Hapus">✕</button>`}</div>
         </div>`).join('') || `<p class="muted small empty">Belum ada riwayat. Setiap kali menekan <b>=</b>, perhitungan tersimpan di sini dan ikut tersinkron ke HP/laptop lain.</p>`}</div>
     </section>`;
 }
-
-// luas & volume view
-function geoView() {
-  const sh = SMAP.get(S.shape), fm = form(), r = compute(sh, fm), ro = RO();
-  const cats = [['vol', '🧊 Volume (m³)'], ['area', '▭ Luas (m²)']];
-  const groups = [...new Set(SHAPES.filter(s => s.cat === S.cat).map(s => s.g))];
-  const fld = f => {
-    const err = r.errs?.[f.k];
-    const U = f.t === 'len' ? UNITS : f.t === 'area' ? AUNITS : null;
-    const unit = U ? `<select class="u" data-u="${f.k}" aria-label="Satuan ${esc(f.k)}">${Object.keys(U).map(u => `<option${fm.u[f.k] === u ? ' selected' : ''}>${u}</option>`).join('')}</select>` : `<span class="u fixed">${f.t === 'deg' ? '°' : 'bh'}</span>`;
-    return `<label class="fi${err ? ' bad' : ''}"><span>${esc(f.l)}${f.opt ? ' <i class="muted">(opsional)</i>' : ''}</span>
-      <span class="fi-in"><input id="in-${f.k}" data-f="${f.k}" inputmode="decimal" autocomplete="off" value="${esc(fm.v[f.k] ?? '')}" placeholder="0"${ro ? ' disabled' : ''}>${unit}</span>${err ? `<small class="ferr">${esc(err)}</small>` : ''}</label>`;
-  };
-  const d = cur(), t = totals(d), saved = !!S.curId;
-  return `<section class="geo-l">
-      <div class="seg2">${cats.map(([v, l]) => `<button type="button" class="${S.cat === v ? 'on' : ''}" data-a="cat" data-v="${v}">${l}</button>`).join('')}</div>
-      <div class="shape-pick"><select id="shape-sel" aria-label="Pilih jenis pekerjaan / bentuk">${groups.map(g => `<optgroup label="${esc(g)}">${SHAPES.filter(s => s.cat === S.cat && s.g === g).map(s => `<option value="${s.id}"${s.id === sh.id ? ' selected' : ''}>${s.ic} ${esc(s.n)}</option>`).join('')}</optgroup>`).join('')}</select>
-        <button type="button" class="btn${chipsOpen() ? ' on' : ''}" data-a="chips" title="Tampilkan semua bentuk">${chipsOpen() ? '▴ Tutup' : '▦ Semua'}</button></div>
-      <div class="cgs"${chipsOpen() ? '' : ' hidden'}>${groups.map(g => `<div class="cg"><span class="cg-t">${esc(g)}</span><div class="chips">${SHAPES.filter(s => s.cat === S.cat && s.g === g).map(s => `<button type="button" class="shp${s.id === sh.id ? ' on' : ''}" data-a="shape" data-v="${s.id}" title="${esc(s.n)}"><span>${s.ic}</span>${esc(s.n)}</button>`).join('')}</div></div>`).join('')}</div>
-      <form class="card fcard" id="geo-form" autocomplete="off">
-        <div class="f-head"><div><h2>${sh.ic} ${esc(sh.n)}</h2><div class="rumus">${esc(sh.rumus)}</div></div>${svgFor(sh)}</div>
-        ${(sh.opts || []).map(op => `<div class="fopt"><span class="muted small">${esc(op.l)}</span><div class="seg2 sm">${op.o.map(([v, l]) => `<button type="button" class="${fm.o[op.k] === v ? 'on' : ''}" data-a="fopt" data-k="${op.k}" data-v="${v}">${esc(l)}</button>`).join('')}</div></div>`).join('')}
-        <div class="fgrid">${sh.f.map(fld).join('')}
-          <label class="fi${r.errs?.n ? ' bad' : ''}"><span>Jumlah (×)</span><span class="fi-in"><input id="in-n" data-f="n" inputmode="decimal" value="${esc(fm.n)}" placeholder="1"${ro ? ' disabled' : ''}><span class="u fixed">bh</span></span>${r.errs?.n ? `<small class="ferr">${esc(r.errs.n)}</small>` : ''}</label>
-          <label class="fi wide"><span>Nama item <i class="muted">(opsional, mis. K1, B2, Saluran Jl. Mawar)</i></span><input id="in-lb" data-f="lb" value="${esc(fm.lb)}" maxlength="80"${ro ? ' disabled' : ''}></label>
-        </div>
-        <p class="muted small tip">💡 Isian boleh berupa hitungan, mis. <b>2*1,5</b> atau <b>3+0,25</b>. Desimal pakai koma atau titik. Satuan ukuran default <b>cm</b> (bisa diganti m / mm); hasil dalam m² / m³.</p>
-        <div class="res" id="geo-res">${resBox(sh, r)}</div>
-        ${ro ? '' : `<div class="f-act">${S.edit ? '<button type="button" class="btn" data-a="editcancel">Batal</button>' : '<button type="button" class="btn" data-a="fclear">Kosongkan</button>'}<button type="submit" class="btn primary">${S.edit ? '✓ Perbarui baris' : '＋ Tambah ke data'}</button></div>`}
-      </form>
-    </section>
-    <section class="geo-r card">
-      <div class="doc-h">
-        <label class="doc-name"><span class="muted small">${saved ? '✓ Data tersimpan · otomatis sinkron' : '📝 Data baru (belum disimpan)'}</span>
-          <input id="doc-name" value="${esc(d.name)}" placeholder="Nama data, mis. Rumah Pak Budi – Lt.1" maxlength="120"${ro ? ' disabled' : ''}></label>
-        <div class="doc-act">${ro ? '' : `${saved ? '' : '<button type="button" class="btn primary" data-a="savedoc">💾 Simpan</button>'}<button type="button" class="btn" data-a="newdoc" title="Mulai data perhitungan baru">＋ Baru</button>`}<button type="button" class="btn" data-a="docmenu" title="Salin / ekspor">⋯</button></div>
-      </div>
-      ${S.admin && curItem() ? `<p class="muted small">👤 ${esc(curItem().owner)} · hanya baca</p>` : ''}
-      <div class="tot"><div><span>Total volume</span><b>${R(t.vol)} m³</b><small>${t.nv} item</small></div><div><span>Total luas</span><b>${R(t.area)} m²</b><small>${t.na} item</small></div></div>
-      <div class="lines">${(d.lines || []).map((ln, i) => lineRow(ln, i, ro)).join('') || `<p class="muted small empty">Belum ada item. Pilih bentuk di kiri, isi ukuran, lalu tekan <b>＋ Tambah ke data</b>. Hasil dari kalkulator juga bisa dimasukkan lewat <b>＋ Data</b> di riwayat hitung.</p>`}</div>
-      ${recap(d)}
-    </section>`;
-}
-function resBox(sh, r) {
-  const u = UNIT_TXT[sh.cat];
-  if (!r.ok) return `<div class="res-in empty"><span class="muted">${r.msg ? '⚠ ' + esc(r.msg) : 'Isi ukuran untuk melihat hasil.'}</span></div>`;
-  return `<div class="res-in"><div class="res-f">${esc(r.f)} = <b>${R(r.val)} ${u}</b></div>
-    ${r.n !== 1 ? `<div class="res-f">${R(r.val)} × ${N(r.n)} bh</div>` : ''}<div class="res-big">${R(r.tot)} <small>${u}</small></div></div>`;
-}
-function lineRow(ln, i, ro) {
-  const sh = SMAP.get(ln.sh), name = ln.sh === 'expr' ? 'Kalkulator' : sh?.n || ln.sh, u = lineUnit(ln);
-  return `<div class="ln${S.edit === ln.id ? ' editing' : ''}">
-    <span class="ln-i">${i + 1}</span>
-    <div class="ln-m" data-a="${ro ? '' : 'editline'}" data-v="${esc(ln.id)}">
-      <div class="ln-t">${ln.lb ? `<b>${esc(ln.lb)}</b> · ` : ''}${ln.sh === 'expr' ? '🧮' : sh?.ic || ''} ${esc(name)}</div>
-      <div class="ln-d muted small">${esc(lineDims(ln))}${Number(ln.n) !== 1 && ln.n ? ` · × ${esc(ln.n)} bh` : ''}</div>
-    </div>
-    <div class="ln-r"><b>${ln.sh === 'expr' ? esc(N(ln.tot, 6)) : R(ln.tot)}</b> ${ln.sh === 'expr' && !ro ? `<select class="u" data-lu="${esc(ln.id)}" aria-label="Satuan"><option value=""${!ln.unit ? ' selected' : ''}>—</option><option value="m3"${ln.unit === 'm3' ? ' selected' : ''}>m³</option><option value="m2"${ln.unit === 'm2' ? ' selected' : ''}>m²</option></select>` : `<small>${u}</small>`}</div>
-    ${ro ? '' : `<div class="ln-a"><button type="button" class="btn xs" data-a="editline" data-v="${esc(ln.id)}" title="Ubah">✎</button><button type="button" class="btn xs" data-a="dupline" data-v="${esc(ln.id)}" title="Duplikat">⧉</button><button type="button" class="btn xs" data-a="delline" data-v="${esc(ln.id)}" title="Hapus">✕</button></div>`}
-  </div>`;
-}
-function recap(d) {
-  const g = new Map();
-  for (const ln of d.lines || []) { const c = lineCat(ln); if (!c) continue; const k = ln.sh === 'expr' ? 'expr-' + c : ln.sh; const x = g.get(k) || { n: ln.sh === 'expr' ? 'Kalkulator' : SMAP.get(ln.sh)?.n, c, v: 0, cnt: 0 }; x.v += ln.tot || 0; x.cnt++; g.set(k, x); }
-  if (g.size < 2) return '';
-  return `<details class="recap"><summary>Rekap per jenis (${g.size})</summary><table>${[...g.values()].sort((a, b) => a.c.localeCompare(b.c) || b.v - a.v).map(x => `<tr><td>${esc(x.n)} <span class="muted small">${x.cnt} item</span></td><td class="num">${R(x.v)} ${UNIT_TXT[x.c]}</td></tr>`).join('')}</table></details>`;
-}
-
-// saved data view
-function dataView() {
-  const q = S.q.trim().toLowerCase(), all = saved(), list = q ? all.filter(it => (it.data.name + ' ' + it.owner + ' ' + (it.data.lines || []).map(l => l.lb).join(' ')).toLowerCase().includes(q)) : all;
-  const dr = S.draft, curK = curItem() ? key(curItem()) : '';
-  return `<div class="head"><h1>🗂 Data tersimpan <span class="muted">${all.length}</span></h1>
-      <div class="head-r"><input id="data-q" type="search" placeholder="Cari nama data atau item…" value="${esc(S.q)}">${RO() ? '' : '<button type="button" class="btn primary" data-a="newdoc">＋ Data baru</button>'}</div></div>
-    ${!RO() && dr.lines.length ? `<div class="card draft" data-a="opendraft"><b>📝 ${esc(dr.name || 'Draft belum disimpan')}</b><span class="muted small">${dr.lines.length} item · belum disimpan — klik untuk melanjutkan</span></div>` : ''}
-    <div class="dgrid">${list.map(it => { const d = it.data, t = totals(d); return `<div class="card dcard${key(it) === curK ? ' on' : ''}">
-        <div class="dc-m" data-a="opendoc" data-v="${esc(key(it))}">
-          <div class="dc-n">${esc(d.name || '(tanpa nama)')}</div>
-          <div class="muted small">${S.admin ? '👤 ' + esc(it.owner) + ' · ' : ''}diubah ${fullDT(it.updated)} · ${(d.lines || []).length} item</div>
-          <div class="dc-t"><span>🧊 <b>${R(t.vol)}</b> m³</span><span>▭ <b>${R(t.area)}</b> m²</span></div>
-        </div>
-        ${RO() ? '' : `<div class="dc-a"><button type="button" class="btn sm" data-a="opendoc" data-v="${esc(key(it))}">Buka</button><button type="button" class="btn sm" data-a="rename" data-v="${esc(key(it))}">Ganti nama</button><button type="button" class="btn sm" data-a="dupdoc" data-v="${esc(key(it))}">Duplikat</button><button type="button" class="btn sm danger" data-a="deldoc" data-v="${esc(key(it))}">Hapus</button></div>`}
-      </div>`; }).join('') || `<p class="muted empty">${q ? 'Tidak ada yang cocok.' : 'Belum ada data tersimpan. Buka <b>📐 Luas & Volume</b>, tambahkan item, beri nama, lalu tekan <b>💾 Simpan</b>.'}</p>`}</div>`;
-}
-
-// ---------- export ----------
-function docText(d) {
-  const t = totals(d), rows = (d.lines || []).map((ln, i) => `${i + 1}. ${ln.lb ? ln.lb + ' — ' : ''}${ln.sh === 'expr' ? 'Kalkulator' : SMAP.get(ln.sh)?.n}: ${lineDims(ln)}${Number(ln.n) !== 1 ? ' × ' + ln.n + ' bh' : ''} = ${ln.sh === 'expr' ? N(ln.tot, 6) : R(ln.tot)} ${lineUnit(ln)}`);
-  return `${d.name || 'Data perhitungan'}\n${rows.join('\n')}\n\nTotal volume: ${R(t.vol)} m³\nTotal luas: ${R(t.area)} m²`;
-}
-function docCsv(d) {
-  const sep = loc() === 'id-ID' ? ';' : ',', q = s => `"${String(s ?? '').replace(/"/g, '""')}"`;
-  const num = x => Number.isFinite(x) ? x.toLocaleString(loc(), { useGrouping: false, maximumFractionDigits: 6 }) : '';
-  const rows = [['No', 'Nama item', 'Jenis', 'Ukuran', 'Rumus', 'Hasil per bh', 'Jumlah', 'Total', 'Satuan']];
-  (d.lines || []).forEach((ln, i) => rows.push([i + 1, ln.lb, ln.sh === 'expr' ? 'Kalkulator' : SMAP.get(ln.sh)?.n, lineDims(ln), ln.f || ln.e, num(ln.r), ln.n, num(ln.tot), lineUnit(ln)]));
-  const t = totals(d); rows.push([], ['', '', '', '', '', '', 'Total volume', num(t.vol), 'm³'], ['', '', '', '', '', '', 'Total luas', num(t.area), 'm²']);
-  return '﻿' + rows.map(r => r.map(q).join(sep)).join('\r\n');
-}
-function download(name, text, type) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
-async function copyText(t) { try { await navigator.clipboard.writeText(t); toast('Disalin ✓'); } catch { toast('Tidak bisa menyalin di browser ini.'); } }
 
 // ---------- gate ----------
 function gateView() {
@@ -1523,11 +1623,10 @@ function syncMask() {
 // ---------- dialogs ----------
 const dlg = () => $('#dlg');
 function openMenu() {
-  const theme = LS.get('theme') || 'auto', dec = LS.get('dec') === 'en' ? 'en' : 'id';
+  const theme = LS.get('theme') || 'auto';
   dlg().innerHTML = `<div class="dlg"><h2>${S.admin ? '🛡 Admin' : '👤 ' + esc(S.user)}</h2>
     <p class="muted small" style="margin:0">${syncText()} · versi ${BUILD}</p>
     <div class="fld"><span>Tampilan</span><div class="seg">${[['auto', 'Otomatis'], ['light', 'Terang'], ['dark', 'Gelap']].map(([v, l]) => `<label><input type="radio" name="theme" value="${v}"${theme === v ? ' checked' : ''}><span>${l}</span></label>`).join('')}</div></div>
-    <div class="fld"><span>Format angka hasil</span><div class="seg two-s">${[['id', '1.234,567'], ['en', '1,234.567']].map(([v, l]) => `<label><input type="radio" name="dec" value="${v}"${dec === v ? ' checked' : ''}><span>${l}</span></label>`).join('')}</div></div>
     ${S.admin ? '<p class="muted small" style="margin:0">Mode Admin hanya melihat data semua pengguna (hanya baca), diperbarui real time.</p>' : `
     <div class="fld"><span>🔒 PIN masuk</span><p class="small" style="margin:0">${S.hasPin ? '✓ PIN aktif — diminta setiap kali masuk.' : 'Belum ada PIN. Pasang PIN agar data tidak bisa dibuka hanya dengan nama pengguna.'} PIN ini sama dengan PIN Planner & Notes.</p>
       ${S.hasPin ? '<input type="password" id="pin-old" inputmode="numeric" maxlength="12" placeholder="PIN saat ini" autocomplete="off">' : ''}
@@ -1535,25 +1634,6 @@ function openMenu() {
       <div class="dlg-f" style="justify-content:flex-start"><button type="button" class="btn primary" data-a="pinsave">${S.hasPin ? 'Ubah PIN' : 'Pasang PIN'}</button>${S.hasPin ? '<button type="button" class="btn danger" data-a="pinoff">Hapus PIN</button>' : ''}<span class="small" id="pin-msg" style="align-self:center;color:var(--red)"></span></div></div>`}
     <div class="dlg-f"><button type="button" class="btn danger" data-a="logout">Keluar</button><span class="sp"></span><button type="button" class="btn primary" data-a="close">Tutup</button></div></div>`;
   if (!dlg().open) dlg().showModal();
-}
-function openDocMenu() {
-  const d = cur(), it = curItem();
-  dlg().innerHTML = `<div class="dlg"><h2>${esc(d.name || 'Data perhitungan')}</h2>
-    <p class="muted small" style="margin:0">${(d.lines || []).length} item${it ? ' · diubah ' + fullDT(it.updated) : ' · belum disimpan'}</p>
-    <div class="dlg-grid">
-      <button type="button" class="btn" data-a="copydoc">📋 Salin sebagai teks</button>
-      <button type="button" class="btn" data-a="csvdoc">⬇ Unduh CSV (Excel)</button>
-      ${RO() ? '' : `${it ? `<button type="button" class="btn" data-a="dupdoc" data-v="${esc(key(it))}">⧉ Duplikat data</button><button type="button" class="btn danger" data-a="deldoc" data-v="${esc(key(it))}">🗑 Hapus data</button>` : ''}<button type="button" class="btn danger" data-a="clearlines">Kosongkan semua item</button>`}
-    </div>
-    <div class="dlg-f"><span class="sp"></span><button type="button" class="btn primary" data-a="close">Tutup</button></div></div>`;
-  if (!dlg().open) dlg().showModal();
-}
-function openRename(k) {
-  const it = S.items.get(k); if (!it) return;
-  dlg().innerHTML = `<form class="dlg" id="rename-form" data-k="${esc(k)}"><h2>Ganti nama data</h2>
-    <input id="rename-in" value="${esc(it.data.name)}" maxlength="120" required>
-    <div class="dlg-f"><span class="sp"></span><button type="button" class="btn" data-a="close">Batal</button><button type="submit" class="btn primary">Simpan</button></div></form>`;
-  if (!dlg().open) dlg().showModal(); setTimeout(() => $('#rename-in')?.select(), 30);
 }
 async function pinChange(old, nw, out) {
   out.textContent = 'Menyimpan…';
@@ -1578,9 +1658,7 @@ function sure(el, label, fn) { // two clicks instead of confirm()
 }
 
 // ---------- actions ----------
-const findLine = id => (cur().lines || []).find(l => l.id === id);
 const A = {
-  view: el => setView(el.dataset.v),
   menu: () => openMenu(),
   close: () => dlg().close(),
   logout: () => logout(),
@@ -1589,51 +1667,14 @@ const A = {
   ck: el => pressKey(el.dataset.v),
   dp: el => dpadAct(el.dataset.v),
   lcdpick: el => menuPick(+el.dataset.v),
-  hload: el => { const h = S.items.get(S.user ? S.user + '/' + el.dataset.v : [...S.items.keys()].find(k => k.endsWith('/' + el.dataset.v))); if (!h) return; S.justEval = false; S.lastEq = null; S.prompt = null; S.histOpen = false; setExpr(h.data.e); render(); },
+  hload: el => {
+    const h = S.items.get(S.user ? S.user + '/' + el.dataset.v : [...S.items.keys()].find(k => k.endsWith('/' + el.dataset.v))); if (!h) return;
+    const m = h.data.m || 'COMP'; if (m === 'EQN' || m === 'TABLE') { toast(`Hasil mode ${m} — tidak bisa dimuat ulang ke layar`); return; }
+    if (m !== S.mode) setModeRaw(m); else clearScreen();
+    S.histOpen = false; setExpr(h.data.e); render();
+  },
   hdel: el => { const h = S.items.get(S.user + '/' + el.dataset.v); if (h) put({ ...h, data: {}, deleted: true }); },
-  hdata: el => {
-    const h = S.items.get(S.user + '/' + el.dataset.v); if (!h) return; let v = h.data.v; if (!Number.isFinite(v)) try { v = evaluate(h.data.r); } catch { v = NaN; }
-    mutate(d => d.lines.push({ id: rid('l'), sh: 'expr', lb: '', e: h.data.e, r: v, tot: v, n: '1', unit: '', t: Date.now() }), true);
-    toast(`Ditambahkan ke "${cur().name || 'data baru'}" — ubah satuannya di 📐 Luas & Volume`); render();
-  },
   histclear: el => sure(el, 'Yakin? Klik lagi', () => { for (const h of hist()) put({ ...h, data: {}, deleted: true }, true); render(); toast('Riwayat dihapus.'); }),
-  cat: el => { S.cat = el.dataset.v; LS.set('cat', S.cat); if (SMAP.get(S.shape).cat !== S.cat) { S.shape = SHAPES.find(s => s.cat === S.cat).id; LS.set('shape', S.shape); } S.edit = null; render(); },
-  shape: el => { S.shape = el.dataset.v; LS.set('shape', S.shape); S.edit = null; if (matchMedia('(max-width:820px)').matches) LS.del('chips'); render(); setTimeout(() => { if (!matchMedia('(pointer:coarse)').matches) $('#in-' + SMAP.get(S.shape).f[0].k)?.focus(); }, 20); },
-  chips: () => { chipsOpen() ? LS.del('chips') : LS.set('chips', '1'); render(); },
-  fopt: el => { form().o[el.dataset.k] = el.dataset.v; render(); },
-  fclear: () => { const fm = form(); fm.v = {}; fm.n = '1'; fm.lb = ''; render(); },
-  editline: el => {
-    const ln = findLine(el.dataset.v); if (!ln) return;
-    if (ln.sh === 'expr') { S.justEval = false; S.expr = ln.e; setView('calc'); toast('Ekspresi dibuka di kalkulator'); return; }
-    const sh = SMAP.get(ln.sh); S.cat = sh.cat; S.shape = sh.id; S.edit = ln.id;
-    const fm = form(sh.id); fm.v = { ...ln.v }; fm.u = Object.fromEntries(sh.f.filter(f => f.t === 'len' || f.t === 'area').map(f => [f.k, ln.u?.[f.k] || (f.t === 'len' ? 'm' : 'm²')])); fm.o = { ...fm.o, ...ln.o }; fm.n = ln.n || '1'; fm.lb = ln.lb || '';
-    render(); $('#geo-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  },
-  editcancel: () => { S.edit = null; const fm = form(); fm.v = {}; fm.lb = ''; fm.n = '1'; render(); },
-  dupline: el => { mutate(d => { const i = d.lines.findIndex(l => l.id === el.dataset.v); if (i >= 0) d.lines.splice(i + 1, 0, { ...clone(d.lines[i]), id: rid('l'), t: Date.now() }); }); },
-  delline: el => { if (S.edit === el.dataset.v) S.edit = null; mutate(d => { d.lines = d.lines.filter(l => l.id !== el.dataset.v); }); },
-  savedoc: () => saveDraft(),
-  newdoc: el => {
-    if (!S.curId && S.draft.lines.length) return sure(el, '⚠ Buang draft? Klik lagi', newData);
-    newData();
-  },
-  opendraft: () => { S.curId = null; LS.del(cacheKey() + '.cur'); setView('geo'); },
-  opendoc: el => openDoc(el.dataset.v),
-  docmenu: () => openDocMenu(),
-  copydoc: () => copyText(docText(cur())),
-  csvdoc: () => { const d = cur(); download((d.name || 'data-perhitungan').replace(/[^\w\- .]+/g, '_') + '.csv', docCsv(d), 'text/csv;charset=utf-8'); },
-  clearlines: el => sure(el, '⚠ Yakin? Klik lagi', () => { mutate(d => { d.lines = []; }); dlg().close(); }),
-  rename: el => openRename(el.dataset.v),
-  dupdoc: el => {
-    const it = S.items.get(el.dataset.v); if (!it) return;
-    const id = rid('d_'); put({ id, owner: S.user, kind: 'data', deleted: false, data: { ...clone(it.data), name: (it.data.name || 'Data') + ' (salinan)', created: Date.now() } }, true);
-    if (dlg().open) dlg().close(); render(); toast('Duplikat dibuat ✓');
-  },
-  deldoc: el => sure(el, '⚠ Hapus? Klik lagi', () => {
-    const it = S.items.get(el.dataset.v); if (!it) return;
-    put({ ...it, deleted: true }, true); if (S.curId === it.id) { S.curId = null; LS.del(cacheKey() + '.cur'); }
-    if (dlg().open) dlg().close(); render(); toast('Data dihapus.');
-  }),
   pinsave: () => {
     const old = $('#pin-old')?.value || '', a = $('#pin-new').value, b = $('#pin-new2').value, out = $('#pin-msg');
     if (!/^\d{4,12}$/.test(a)) { out.textContent = PIN_MSG.format; return; }
@@ -1645,7 +1686,6 @@ const A = {
 };
 document.addEventListener('click', ev => {
   const el = ev.target.closest('[data-a]'); if (!el || !A[el.dataset.a] || el.disabled) return;
-  if (ev.target.closest('select') && !el.matches('select')) return; // unit select inside a clickable row
   ev.preventDefault(); ev.stopPropagation(); A[el.dataset.a](el);
 });
 // keypad buttons must not steal focus/caret from the display
@@ -1653,58 +1693,47 @@ document.addEventListener('pointerdown', ev => { if (ev.target.closest('.ck,.dp,
 document.addEventListener('input', ev => {
   const t = ev.target;
   if (t.id === 'user-in') syncMask();
-  if (t.dataset.u) unitChange(t);
-  if (t.id === 'disp') { S.expr = t.value; S.justEval = false; S.err = ''; S.caret = [t.selectionStart, t.selectionEnd]; updPreview(); }
   if (t.id === 'calc-q') { S.calcQ = t.value; render(); }
-  if (t.id === 'data-q') { S.q = t.value; render(); }
-  if (t.dataset.f) {
-    const fm = form(); if (t.dataset.f === 'n') fm.n = t.value; else if (t.dataset.f === 'lb') { fm.lb = t.value; return; } else fm.v[t.dataset.f] = t.value;
-    const sh = SMAP.get(S.shape), r = compute(sh, fm), box = $('#geo-res'); if (box) box.innerHTML = resBox(sh, r);
-    const lab = t.closest('.fi'), err = r.errs?.[t.dataset.f]; lab?.classList.toggle('bad', !!err);
-    let sm = lab?.querySelector('.ferr'); if (err) { if (!sm) { sm = document.createElement('small'); sm.className = 'ferr'; lab.appendChild(sm); } sm.textContent = err; } else sm?.remove();
-  }
-  if (t.id === 'doc-name') { const v = t.value; mutate(d => { d.name = v; }, true); }
 });
-function unitChange(t) { const fm = form(); fm.u[t.dataset.u] = t.value; LS.set('units2.' + S.shape, JSON.stringify(fm.u)); const sh = SMAP.get(S.shape); const box = $('#geo-res'); if (box) box.innerHTML = resBox(sh, compute(sh, fm)); }
 document.addEventListener('change', ev => {
   const t = ev.target;
-  if (t.dataset.u) unitChange(t);
   if (t.name === 'theme') { t.value === 'auto' ? LS.del('theme') : LS.set('theme', t.value); applyTheme(); }
-  if (t.name === 'dec') { t.value === 'id' ? LS.del('dec') : LS.set('dec', t.value); render(); }
-  if (t.id === 'shape-sel') { S.shape = t.value; LS.set('shape', S.shape); S.edit = null; render(); }
-  if (t.dataset.lu) { const id = t.dataset.lu, v = t.value; mutate(d => { const ln = d.lines.find(l => l.id === id); if (ln) ln.unit = v; }); }
 });
-document.addEventListener('keyup', ev => { if (ev.target.id === 'disp') S.caret = [ev.target.selectionStart, ev.target.selectionEnd]; });
-document.addEventListener('selectionchange', () => { const d = disp(); if (d && document.activeElement === d && (S.caret?.[0] !== d.selectionStart || S.caret?.[1] !== d.selectionEnd)) { S.caret = [d.selectionStart, d.selectionEnd]; updPreview(); } });
+const menuClose = () => { const f = S.menu?.onAc; closeMenu(); f?.(); updPreview(); };
+const menuEq = () => { const f = S.menu?.onEq; if (f) { closeMenu(); f(); updPreview(); } };
 document.addEventListener('keydown', ev => {
-  if (dlg().open || ev.metaKey || ev.ctrlKey || ev.altKey || S.view !== 'calc' || (!S.user && !S.admin)) return;
-  const t = ev.target, inDisp = t.id === 'disp', typing = /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) && !inDisp;
-  if (typing) return;
-  if (S.off) { if (inDisp) ev.preventDefault(); return; }
+  if (dlg().open || ev.metaKey || ev.ctrlKey || ev.altKey || (!S.user && !S.admin)) return;
+  const t = ev.target, k = ev.key;
+  if (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+  if (t.tagName === 'BUTTON' && (k === 'Enter' || k === ' ')) return;
+  if (S.off) return;
   if (S.menu) {
     ev.preventDefault();
-    if (/^\d$/.test(ev.key)) menuDigit(+ev.key);
-    else if (ev.key === 'Enter' || ev.key === '=') { const f = S.menu.onEq; if (f) { closeMenu(); f(); updPreview(); } }
-    else if (ev.key === 'Escape') closeMenu();
-    else if (ev.key === 'ArrowUp') menuPage(-1);
-    else if (ev.key === 'ArrowDown') menuPage(1);
+    if (/^\d$/.test(k)) menuDigit(+k);
+    else if (k === 'Enter' || k === '=') menuEq();
+    else if (k === 'Escape') menuClose();
+    else if (k === 'ArrowUp') menuPage(-1);
+    else if (k === 'ArrowDown') menuPage(1);
     return;
   }
-  if (ev.key === 'Enter' || (ev.key === '=' )) { ev.preventDefault(); equals(); return; }
-  if (ev.key === 'Escape') { ev.preventDefault(); if (S.histOpen) keyAct('@hist'); else keyAct('@ac'); return; }
-  if (ev.key === 'ArrowUp' || ev.key === 'ArrowDown') { ev.preventDefault(); histNav(ev.key === 'ArrowUp' ? 1 : -1); return; }
-  if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') { ev.preventDefault(); moveCaret(ev.key === 'ArrowLeft' ? -1 : 1); return; }
-  if (inDisp && ev.key === 'Backspace' && S.justEval) { ev.preventDefault(); back(); return; }
-  if (inDisp) { if (S.justEval && ev.key.length === 1) { // typing after "=": digits start fresh, operators continue
-      if (/[\d.(]/.test(ev.key)) { ev.preventDefault(); ins(ev.key); } else S.justEval = false; } return; }
-  if (ev.key === 'Backspace') { ev.preventDefault(); back(); return; }
+  if (k === 'Enter' || k === '=') { ev.preventDefault(); keyAct('@eq'); updPreview(); return; }
+  if (k === 'Escape') { ev.preventDefault(); if (S.histOpen) keyAct('@hist'); else keyAct('@ac'); updPreview(); return; }
+  const dir = { ArrowUp: '@up', ArrowDown: '@down', ArrowLeft: '@left', ArrowRight: '@right' }[k];
+  if (dir) { ev.preventDefault(); dpadAct(dir); return; }
+  if (k === 'Backspace') { ev.preventDefault(); keyAct('@del'); updPreview(); return; }
   const map = { '*': '×', '/': '÷', '-': '−', 'x': '×' };
-  if (/^[\d.+\-*/^()!%,]$|^x$|^[A-FXYM]$/.test(ev.key)) { ev.preventDefault(); ins(map[ev.key] || VAR_CH[ev.key] || ev.key); }
+  let ch = null;
+  if (S.mode === 'BASE') { const u = k.toUpperCase(); if (/^[0-9A-F]$/.test(u) && parseInt(u, 16) < S.base) ch = u; else if (/^[+\-*/()]$/.test(k)) ch = map[k] || k; }
+  else if (/^[\d.+\-*/^()!%,]$|^x$|^[A-FXYM]$/.test(k)) ch = map[k] || VAR_CH[k] || k;
+  if (ch) { ev.preventDefault(); keyAct(ch); updPreview(); }
+});
+document.addEventListener('paste', ev => {
+  if (/^(INPUT|TEXTAREA)$/.test(ev.target.tagName) || dlg().open || S.menu || S.off || (!S.user && !S.admin)) return;
+  const x = (ev.clipboardData?.getData('text') || '').trim().replace(/\s+/g, S.mode === 'BASE' ? ' ' : '').replace(/\*/g, '×').replace(/\//g, '÷').replace(/-/g, '−');
+  if (x) { ev.preventDefault(); keyAct(x); updPreview(); }
 });
 document.addEventListener('submit', ev => {
   const f = ev.target; ev.preventDefault();
-  if (f.id === 'geo-form') { addLine(); return; }
-  if (f.id === 'rename-form') { const it = S.items.get(f.dataset.k), v = $('#rename-in').value.trim(); if (it && v) put({ ...it, data: { ...it.data, name: v } }); dlg().close(); return; }
   if (f.id === 'gate-form') {
     const btn = f.querySelector('button'); btn.disabled = true; btn.textContent = 'Membuka…';
     const pinMode = !!S.gate, name = pinMode ? S.gate.name : $('#user-in').value, pin = pinMode ? $('#pin-in').value : '';
